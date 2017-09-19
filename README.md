@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Workflow:
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Install new gems (pry-rails, binding_of_caller, better_errors, faker, jquery-rails, bcrypt).
+2. Create the webpack.config.js.
+3. Create a frontend folder and install the necessary webpacks.
