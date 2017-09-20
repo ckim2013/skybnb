@@ -11,7 +11,7 @@ class Api::SessionsController < ApplicationController
 
   def destroy
     if !logged_in?
-      render json: 'User is already signed out!'
+      render json: ['User is already signed out!'], status: :unprocessable_entity
     else
       logout!
       render json: ['Successfully logged out!']
