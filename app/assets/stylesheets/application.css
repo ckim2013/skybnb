@@ -68,13 +68,13 @@ button, a, input[type="submit"] {
 }
 
 .x-button {
-  font-size: 15px;
-  border-radius: 5px;
+  font-size: 20px;
   padding: 7px;
-  background: #FC3468;
-  color: white;
+  color: black;
   width: 20px;
   text-align: center;
+  font-weight: bolder;
+  background: none;
 }
 
 .session-form {
