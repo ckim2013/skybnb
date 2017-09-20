@@ -151,7 +151,7 @@ class SessionForm extends React.Component {
             className='session-form'>
             <h2>{ greeting }</h2>
             <ul>
-              {this.state.errors.map(error => <li>{error}</li>)}
+              {this.state.errors.map((error, i) => <li key={ i }>{ error }</li>)}
             </ul>
             { nameFields }
             <br />
