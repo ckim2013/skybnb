@@ -14,6 +14,8 @@
  *= require_self
  */
 
+@import "font-awesome";
+
 html, body, header, nav, h1, a,
 ul, li, strong, main, button, i,
 section, img, div, h2, p, form,
@@ -68,12 +70,11 @@ button, a, input[type="submit"] {
 }
 
 .x-button {
-  font-size: 20px;
+  font-size: 40px;
   padding: 7px;
   color: black;
   width: 20px;
   text-align: center;
-  font-weight: bolder;
   background: none;
 }
 
@@ -99,7 +100,9 @@ button, a, input[type="submit"] {
   font-size: 20px;
   border: 1px #e8e8ea solid;
   text-align: center;
-  width: 500px;
+  width: 300px;
+  padding: 10px 50px 10px 50px;
+  font-family: FontAwesome, 'Miriam Libre', sans-serif;
 }
 
 .session-form input[type='submit'] {

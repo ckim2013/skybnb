@@ -21,6 +21,11 @@ class User < ApplicationRecord
   attr_reader :password
   after_initialize :ensure_session_token
 
+  has_many :lodgings,
+           primary_key: :id,
+           foreign_key: :owner_id,
+           class_name: :Lodging
+
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     user && user.is_password?(password) ? user : nil

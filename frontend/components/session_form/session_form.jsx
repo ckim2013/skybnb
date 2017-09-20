@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactModal from 'react-modal';
 
-const SIGNUP_GREETING = 'Welcome! Bienvenido! 欢迎! 환영! स्वागत हे! ようこそ! أهلا بك!';
+const SIGNUP_GREETING = 'Welcome! Bienvenido! 歡迎! 환영! Willkommen! ようこそ! أهلا بك!';
 const SIGNUP_FOOTER = 'Already have an account? Log in ';
-const LOGIN_GREETING = 'Welcome back! Bienvenido! 欢迎! 환영! स्वागत हे! ようこそ! أهلا بعودتكك!';
+const LOGIN_GREETING = 'Welcome back! Bienvenido! 歡迎! 환영! Willkommen! ようこそ! أهلا بعودتكك!';
 const LOGIN_FOOTER = 'Need an account? Sign up ';
 
 const GUEST = {
@@ -78,7 +78,6 @@ class SessionForm extends React.Component {
   }
 
   toggleModal(formType = null) {
-    console.log("normal toggle");
     this.setState({
       first_name: '',
       last_name: '',
@@ -91,8 +90,6 @@ class SessionForm extends React.Component {
   }
 
   toggleWithinModal(formType = null) {
-    console.log("inside toggle within modal");
-    console.log(formType);
     this.setState({
       first_name: '',
       last_name: '',
@@ -128,14 +125,14 @@ class SessionForm extends React.Component {
       nameFields = (
         <div>
           <input
-            placeholder='First Name'
+            placeholder='&#xf2c0; First Name'
             value={ this.state.first_name }
             onChange={this.update('first_name')}
             type='text' />
           <br />
           <br />
           <input
-            placeholder='Last Name'
+            placeholder='&#xf2c0; Last Name'
             value={ this.state.last_name }
             onChange={this.update('last_name')}
             type='text' />
@@ -164,7 +161,9 @@ class SessionForm extends React.Component {
           style={customStyles}>
           <button
             onClick={ () => this.toggleModal() }
-            className='x-button'>X</button>
+            className='x-button'>
+            <i className="fa fa-times-circle-o" aria-hidden="true"></i>
+          </button>
           <div className='session-form'>
             <form onSubmit={ this.handleSubmit(action) }>
               <h2>{ greeting }</h2>
@@ -175,13 +174,13 @@ class SessionForm extends React.Component {
               { nameFields }
               <br />
               <input
-                placeholder='Email'
+                placeholder='&#xf003; Email'
                 value={ this.state.email }
                 onChange={ this.update('email') }
                 type='text' />
               <br />
               <input
-                placeholder='Password'
+                placeholder='&#xf084; Password'
                 value={ this.state.password }
                 onChange={ this.update('password') }
                 type='password' />
