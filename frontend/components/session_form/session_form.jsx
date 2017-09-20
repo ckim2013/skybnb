@@ -3,6 +3,10 @@ import ReactModal from 'react-modal';
 
 const SIGNUP_GREETING = "Welcome! Bienvenido! 欢迎! ようこそ! أهلا بك!";
 const LOGIN_GREETING = "Welcome back! Bienvenido! 欢迎! ようこそ! أهلا بعودتكك!";
+const GUEST = {
+  email: 'guest@gmail.com',
+  password: 'password'
+};
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -18,6 +22,8 @@ class SessionForm extends React.Component {
     this.toggleModal = this.toggleModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleGuestLogin = this.handleGuestLogin.bind(this);
+    console.log("I am in here woohoo");
   }
 
   update(field) {
@@ -31,8 +37,22 @@ class SessionForm extends React.Component {
     };
   }
 
+  handleGuestLogin(e) {
+    e.preventDefault();
+    this.props.login(GUEST);
+  }
+
   handleClick() {
-    this.props.logout();
+    this.props.logout().then(this.setState(
+      {
+        first_name: '',
+        last_name: '',
+        email: '',
+        password: '',
+        modalIsOpen: false,
+        formType: null
+      }
+    ));
   }
 
   toggleModal(formType = null) {
@@ -85,7 +105,7 @@ class SessionForm extends React.Component {
       <div>
         <button onClick={() => this.toggleModal("Sign Up")}>Sign Up</button>
         <button onClick={() => this.toggleModal("Log In")}>Log In</button>
-
+        <button onClick={this.handleGuestLogin}>Guest Login</button>
 
         <ReactModal
           isOpen={this.state.modalIsOpen}
