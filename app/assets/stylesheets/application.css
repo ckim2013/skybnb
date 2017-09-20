@@ -33,6 +33,10 @@ span, article, footer, time, small {
   font-family: 'Miriam Libre', sans-serif;
 }
 
+button, a, input[type="submit"] {
+  cursor: pointer;
+}
+
 .navbar {
   border-bottom: 1px #e8e8ea solid;
   display: flex;
@@ -80,6 +84,12 @@ span, article, footer, time, small {
   padding: 10px;
 }
 
+.session-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .session-form h2 {
   font-size: 30px;
   text-align: center;
@@ -100,4 +110,9 @@ span, article, footer, time, small {
   color: white;
   width: 125px;
   text-align: center;
+}
+
+.session-footer-link {
+  font-weight: bolder;
+  text-decoration: underline;
 }

@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactModal from 'react-modal';
 
-const SIGNUP_GREETING = "Welcome! Bienvenido! 欢迎! ようこそ! أهلا بك!";
-const LOGIN_GREETING = "Welcome back! Bienvenido! 欢迎! ようこそ! أهلا بعودتكك!";
+const SIGNUP_GREETING = 'Welcome! Bienvenido! 欢迎! 환영! स्वागत हे! ようこそ! أهلا بك!';
+const SIGNUP_FOOTER = 'Already have an account? Log in ';
+const LOGIN_GREETING = 'Welcome back! Bienvenido! 欢迎! 환영! स्वागत हे! ようこそ! أهلا بعودتكك!';
+const LOGIN_FOOTER = 'Need an account? Sign up ';
 
 const GUEST = {
   email: 'guest@gmail.com',
@@ -11,14 +13,14 @@ const GUEST = {
 
 const customStyles = {
   content : {
-    top                   : '30%',
+    top                   : '50%',
     left                  : '50%',
     right                 : 'auto',
     bottom                : 'auto',
     marginRight           : '-50%',
     transform             : 'translate(-50%, -50%)',
-    height                : 'auto',
-    width                 : '700px'
+    height                : '560px',
+    width                 : '500px'
   }
 };
 
@@ -38,7 +40,7 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleGuestLogin = this.handleGuestLogin.bind(this);
-    console.log("Constructor");
+    this.toggleWithinModal = this.toggleWithinModal.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -76,6 +78,7 @@ class SessionForm extends React.Component {
   }
 
   toggleModal(formType = null) {
+    console.log("normal toggle");
     this.setState({
       first_name: '',
       last_name: '',
@@ -83,6 +86,20 @@ class SessionForm extends React.Component {
       password: '',
       modalIsOpen: !this.state.modalIsOpen,
       formType,
+      errors: []
+    });
+  }
+
+  toggleWithinModal(formType = null) {
+    console.log("inside toggle within modal");
+    console.log(formType);
+    this.setState({
+      first_name: '',
+      last_name: '',
+      email: '',
+      password: '',
+      modalIsOpen: true,
+      formType: formType === 'Log In' ? 'Sign Up' : 'Log In',
       errors: []
     });
   }
@@ -101,11 +118,13 @@ class SessionForm extends React.Component {
 
     // Default is logging in
     let greeting = LOGIN_GREETING;
+    let footer = LOGIN_FOOTER;
     let nameFields = <div></div>;
     let action = this.props.login;
 
     if (this.state.formType === 'Sign Up') {
       greeting = SIGNUP_GREETING;
+      footer = SIGNUP_FOOTER;
       nameFields = (
         <div>
           <input
@@ -146,31 +165,38 @@ class SessionForm extends React.Component {
           <button
             onClick={ () => this.toggleModal() }
             className='x-button'>X</button>
-          <form
-            onSubmit={ this.handleSubmit(action) }
-            className='session-form'>
-            <h2>{ greeting }</h2>
-            <ul>
-              {this.state.errors.map((error, i) => <li key={ i }>{ error }</li>)}
-            </ul>
-            { nameFields }
-            <br />
-            <input
-              placeholder='Email'
-              value={ this.state.email }
-              onChange={ this.update('email') }
-              type='text' />
-            <br />
-            <input
-              placeholder='Password'
-              value={ this.state.password }
-              onChange={ this.update('password') }
-              type='password' />
-            <br />
-            <input
-              type='submit'
-              value={ this.state.formType } />
-          </form>
+          <div className='session-form'>
+            <form onSubmit={ this.handleSubmit(action) }>
+              <h2>{ greeting }</h2>
+              <ul>
+                {this.state.errors.map((error, i) => <li key={ i }>{ error }</li>)}
+              </ul>
+              <br /><br />
+              { nameFields }
+              <br />
+              <input
+                placeholder='Email'
+                value={ this.state.email }
+                onChange={ this.update('email') }
+                type='text' />
+              <br />
+              <input
+                placeholder='Password'
+                value={ this.state.password }
+                onChange={ this.update('password') }
+                type='password' />
+              <br />
+              <input
+                type='submit'
+                value={ this.state.formType } />
+              <br />
+            </form>
+            <footer>{footer}
+              <a
+                onClick={() => this.toggleWithinModal(this.state.formType)}
+                className='session-footer-link'>here!</a>
+            </footer>
+          </div>
         </ReactModal>
 
       </div>
