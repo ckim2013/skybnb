@@ -21,18 +21,6 @@ const customStyles = {
     width                 : '700px'
   }
 };
-//
-// const customStyles = {
-//   content : {
-//     top                   : '50%',
-//     left                  : '50%',
-//     right                 : 'auto',
-//     bottom                : 'auto',
-//     marginRight           : '-50%',
-//     transform             : 'translate(-50%, -50%)'
-//   }
-// };
-
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -43,12 +31,18 @@ class SessionForm extends React.Component {
       email: '',
       password: '',
       modalIsOpen: false,
-      formType: null
+      formType: null,
+      errors: []
     };
     this.toggleModal = this.toggleModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleGuestLogin = this.handleGuestLogin.bind(this);
+    console.log("Constructor");
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({errors: nextProps.errors});
   }
 
   update(field) {
@@ -75,7 +69,8 @@ class SessionForm extends React.Component {
         email: '',
         password: '',
         modalIsOpen: false,
-        formType: null
+        formType: null,
+        errors: []
       }
     ));
   }
@@ -87,7 +82,8 @@ class SessionForm extends React.Component {
       email: '',
       password: '',
       modalIsOpen: !this.state.modalIsOpen,
-      formType
+      formType,
+      errors: []
     });
   }
 
@@ -147,31 +143,33 @@ class SessionForm extends React.Component {
           isOpen={this.state.modalIsOpen}
           contentLabel='Session Form'
           style={customStyles}>
+          <button
+            onClick={ () => this.toggleModal() }
+            className='x-button'>X</button>
           <form
             onSubmit={ this.handleSubmit(action) }
             className='session-form'>
-            <button
-              onClick={ () => this.toggleModal() }
-              className='x-button'>X</button>
             <h2>{ greeting }</h2>
+            <ul>
+              {this.state.errors.map(error => <li>{error}</li>)}
+            </ul>
             { nameFields }
             <br />
             <input
               placeholder='Email'
               value={ this.state.email }
               onChange={ this.update('email') }
-              type='text'/>
+              type='text' />
             <br />
             <input
               placeholder='Password'
               value={ this.state.password }
               onChange={ this.update('password') }
-              type='password'/>
+              type='password' />
             <br />
             <input
               type='submit'
-              value={ this.state.formType }
-              className='button'/>
+              value={ this.state.formType } />
           </form>
         </ReactModal>
 
