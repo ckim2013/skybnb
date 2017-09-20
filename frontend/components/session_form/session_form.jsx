@@ -3,10 +3,36 @@ import ReactModal from 'react-modal';
 
 const SIGNUP_GREETING = "Welcome! Bienvenido! 欢迎! ようこそ! أهلا بك!";
 const LOGIN_GREETING = "Welcome back! Bienvenido! 欢迎! ようこそ! أهلا بعودتكك!";
+
 const GUEST = {
   email: 'guest@gmail.com',
   password: 'password'
 };
+
+const customStyles = {
+  content : {
+    top                   : '30%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)',
+    height                : 'auto',
+    width                 : '700px'
+  }
+};
+//
+// const customStyles = {
+//   content : {
+//     top                   : '50%',
+//     left                  : '50%',
+//     right                 : 'auto',
+//     bottom                : 'auto',
+//     marginRight           : '-50%',
+//     transform             : 'translate(-50%, -50%)'
+//   }
+// };
+
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -92,11 +118,12 @@ class SessionForm extends React.Component {
             onChange={this.update('first_name')}
             type='text' />
           <br />
+          <br />
           <input
             placeholder='Last Name'
             value={ this.state.last_name }
             onChange={this.update('last_name')}
-            type='text'/>
+            type='text' />
         </div>
       );
       action = this.props.signup;
@@ -118,28 +145,33 @@ class SessionForm extends React.Component {
 
         <ReactModal
           isOpen={this.state.modalIsOpen}
-          contentLabel='Session Form'>
-
-          <form onSubmit={ this.handleSubmit(action) }>
-            <button onClick={ () => this.toggleModal() }>X</button>
+          contentLabel='Session Form'
+          style={customStyles}>
+          <form
+            onSubmit={ this.handleSubmit(action) }
+            className='session-form'>
+            <button
+              onClick={ () => this.toggleModal() }
+              className='x-button'>X</button>
             <h2>{ greeting }</h2>
             { nameFields }
-              <input
-                placeholder='Email'
-                value={ this.state.email }
-                onChange={ this.update('email') }
-                type='text' />
-              <br />
-              <input
-                placeholder='Password'
-                value={ this.state.password }
-                onChange={ this.update('password') }
-                type='password'/>
-              <br />
-              <input
-                type='submit'
-                value={ this.state.formType }
-                className='button'/>
+            <br />
+            <input
+              placeholder='Email'
+              value={ this.state.email }
+              onChange={ this.update('email') }
+              type='text'/>
+            <br />
+            <input
+              placeholder='Password'
+              value={ this.state.password }
+              onChange={ this.update('password') }
+              type='password'/>
+            <br />
+            <input
+              type='submit'
+              value={ this.state.formType }
+              className='button'/>
           </form>
         </ReactModal>
 

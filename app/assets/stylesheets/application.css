@@ -39,11 +39,13 @@ span, article, footer, time, small {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  padding: 10px;
 }
 
 .right-nav {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   width: 450px;
 }
 
@@ -58,5 +60,33 @@ span, article, footer, time, small {
   background: #FC3468;
   color: white;
   width: 125px;
+  text-align: center;
+}
+
+.x-button {
+  font-size: 15px;
+  border-radius: 5px;
+  padding: 7px;
+  background: #FC3468;
+  color: white;
+  width: 20px;
+  text-align: center;
+}
+
+.session-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.session-form h2 {
+  font-size: 30px;
+  text-align: center;
+}
+
+.session-form input {
+  font-size: 20px;
+  border: 1px #e8e8ea solid;
   text-align: center;
 }
