@@ -23,11 +23,10 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleGuestLogin = this.handleGuestLogin.bind(this);
-    console.log("I am in here woohoo");
   }
 
   update(field) {
-    return e => this.setState({[field]: e.target.value});
+    return e => this.setState({ [field]: e.target.value });
   }
 
   handleSubmit(action) {
@@ -70,8 +69,8 @@ class SessionForm extends React.Component {
     if (this.props.loggedIn) {
       return (
         <div>
-          <h2>Aloha {this.props.currentUser.first_name}!</h2>
-          <button onClick={this.handleClick}>Sign Out</button>
+          <h2>Aloha { this.props.currentUser.first_name }!</h2>
+          <button onClick={ this.handleClick }>Sign Out</button>
         </div>
       );
     }
@@ -87,13 +86,13 @@ class SessionForm extends React.Component {
         <div>
           <input
             placeholder='First Name'
-            value={this.state.first_name}
+            value={ this.state.first_name }
             onChange={this.update('first_name')}
             type='text' />
           <br />
           <input
             placeholder='Last Name'
-            value={this.state.last_name}
+            value={ this.state.last_name }
             onChange={this.update('last_name')}
             type='text'/>
         </div>
@@ -103,31 +102,37 @@ class SessionForm extends React.Component {
 
     return (
       <div>
-        <button onClick={() => this.toggleModal("Sign Up")}>Sign Up</button>
-        <button onClick={() => this.toggleModal("Log In")}>Log In</button>
-        <button onClick={this.handleGuestLogin}>Guest Login</button>
+        <button
+          onClick={() => this.toggleModal("Sign Up")}
+          className='button'>Sign Up</button>
+        <button
+          onClick={() => this.toggleModal("Log In")}
+          className='button'>Log In</button>
+        <button
+          onClick={this.handleGuestLogin}
+          className='button'>Guest Login</button>
 
         <ReactModal
           isOpen={this.state.modalIsOpen}
           contentLabel='Session Form'>
 
-          <form onSubmit={this.handleSubmit(action)}>
-            <button onClick={() => this.toggleModal()}>X</button>
-            <h2>{greeting}</h2>
-            {nameFields}
+          <form onSubmit={ this.handleSubmit(action) }>
+            <button onClick={ () => this.toggleModal() }>X</button>
+            <h2>{ greeting }</h2>
+            { nameFields }
               <input
                 placeholder='Email'
-                value={this.state.email}
-                onChange={this.update('email')}
+                value={ this.state.email }
+                onChange={ this.update('email') }
                 type='text' />
               <br />
               <input
                 placeholder='Password'
-                value={this.state.password}
-                onChange={this.update('password')}
+                value={ this.state.password }
+                onChange={ this.update('password') }
                 type='password'/>
               <br />
-              <input type='submit' value={this.state.formType}/>
+              <input type='submit' value={ this.state.formType }/>
           </form>
         </ReactModal>
 
