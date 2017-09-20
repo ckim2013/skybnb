@@ -19,7 +19,7 @@ ul, li, strong, main, button, i,
 section, img, div, h2, p, form,
 fieldset, label, input, textarea,
 span, article, footer, time, small {
-  /*margin: 0;
+  margin: 0;
   padding: 0;
   border: 0;
   outline: 0;
@@ -29,11 +29,34 @@ span, article, footer, time, small {
   text-decoration: inherit;
   vertical-align: inherit;
   box-sizing: inherit;
-  list-style: none;*/
-  font-family: 'Allerta Stencil', sans-serif;
+  list-style: none;
+  font-family: 'Miriam Libre', sans-serif;
+}
+
+.navbar {
+  border-bottom: 1px #e8e8ea solid;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.right-nav {
+  display: flex;
+  justify-content: space-around;
+  width: 450px;
+}
+
+.nav-header {
+  font-size: 40px;
 }
 
 .button {
-  font-size: 10px;
+  font-size: 20px;
   border-radius: 5px;
+  padding: 7px;
+  background: #FC3468;
+  color: white;
+  width: 125px;
+  text-align: center;
 }

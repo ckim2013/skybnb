@@ -68,9 +68,11 @@ class SessionForm extends React.Component {
   render() {
     if (this.props.loggedIn) {
       return (
-        <div>
+        <div className='right-nav'>
           <h2>Aloha { this.props.currentUser.first_name }!</h2>
-          <button onClick={ this.handleClick }>Sign Out</button>
+          <button
+            onClick={ this.handleClick }
+            className='button'>Sign Out</button>
         </div>
       );
     }
@@ -102,15 +104,17 @@ class SessionForm extends React.Component {
 
     return (
       <div>
-        <button
-          onClick={() => this.toggleModal("Sign Up")}
-          className='button'>Sign Up</button>
-        <button
-          onClick={() => this.toggleModal("Log In")}
-          className='button'>Log In</button>
-        <button
-          onClick={this.handleGuestLogin}
-          className='button'>Guest Login</button>
+        <div className='right-nav'>
+          <button
+            onClick={() => this.toggleModal("Sign Up")}
+            className='button'>Sign Up</button>
+          <button
+            onClick={() => this.toggleModal("Log In")}
+            className='button'>Log In</button>
+          <button
+            onClick={this.handleGuestLogin}
+            className='button'>Guest Login</button>
+        </div>
 
         <ReactModal
           isOpen={this.state.modalIsOpen}
@@ -132,7 +136,10 @@ class SessionForm extends React.Component {
                 onChange={ this.update('password') }
                 type='password'/>
               <br />
-              <input type='submit' value={ this.state.formType }/>
+              <input
+                type='submit'
+                value={ this.state.formType }
+                className='button'/>
           </form>
         </ReactModal>
 
