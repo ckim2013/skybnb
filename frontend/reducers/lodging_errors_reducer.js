@@ -1,12 +1,13 @@
-import { RECEIVE_LODGINGS, RECEIVE_LODGING, RECEIVE_LODGING_ERRORS } from '../actions/lodging_actions';
+import * as LodgingActions from '../actions/lodging_actions';
 
 const LodgingErrorsReducer = (state = [], action) => {
+  Object.freeze(state);
   switch (action.type) {
-    case RECEIVE_LODGINGS:
+    case LodgingActions.RECEIVE_LODGINGS:
       return [];
-    case RECEIVE_LODGING:
+    case LodgingActions.RECEIVE_LODGING:
       return [];
-    case RECEIVE_LODGING_ERRORS:
+    case LodgingActions.RECEIVE_LODGING_ERRORS:
       return action.errors;
     default:
       return state;

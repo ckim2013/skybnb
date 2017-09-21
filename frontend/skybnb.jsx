@@ -2,9 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
-import {login, logout} from './actions/session_actions';
-
-import {getLodgings, getLodging} from './util/lodging_api_util';
+import { destroyLodging, fetchLodgings, fetchLodging, editLodging } from './actions/lodging_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -19,10 +17,14 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
 
+  // NB: Window testing
+  window.store = store;
+  window.dispatch = store.dispatch;
+  // window.fetchLodgings = fetchLodgings;
+  // window.fetchLodging = fetchLodging;
+  // window.editLodging = editLodging;
+  // window.destroyLodging = destroyLodging;
+
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={ store } />, root);
-
-  // NB: Window testing
-  window.getLodgings = getLodgings;
-  window.getLodging = getLodging;
 });

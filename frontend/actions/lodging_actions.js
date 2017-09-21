@@ -38,7 +38,7 @@ export const fetchLodging = id => dispatch => (
   errors => dispatch(receiveLodgingErrors(errors.responseJSON)))
 );
 
-export const makeLodging = (lodging) => dispatch => (
+export const makeLodging = lodging => dispatch => (
   LodgingApiUtil.postLodging(lodging)
   .then(createdLodging => dispatch(receiveLodging(createdLodging)),
   errors => dispatch(receiveLodgingErrors(errors.responseJSON)))
@@ -52,6 +52,6 @@ export const editLodging = lodging => dispatch => (
 
 export const destroyLodging = id => dispatch => (
   LodgingApiUtil.deleteLodging(id)
-  .then(destroyedLodging => dispatch(receiveLodging(destroyedLodging)),
+  .then(destroyedLodging => dispatch(deleteLodging(destroyedLodging)),
   errors => dispatch(receiveLodgingErrors(errors.responseJSON)))
 );

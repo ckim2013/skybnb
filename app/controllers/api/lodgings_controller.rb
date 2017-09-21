@@ -7,13 +7,17 @@ class Api::LodgingsController < ApplicationController
     #               Lodging.all
     #             end
     @lodgings = Lodging.all
-    render :index
+    if @lodgings.empty?
+      render json: ['There are no lodgings at all!'], status: :unprocessable_entity
+    else
+      render :index
+    end
   end
 
   def create
     @lodging = current_user.lodgings.new(lodging_params)
     if @lodging.save
-      render 'api/lodgings/show'
+      render :show
     else
       render json: @lodging.errors.full_messages, status: :unprocessable_entity
     end
@@ -32,7 +36,7 @@ class Api::LodgingsController < ApplicationController
   def update
     @lodging = Lodging.find_by(id: params[:id])
     if @lodging.update_attributes(lodging_params)
-      render 'api/lodgings/show'
+      render :show
     else
       render json: @lodging.errors.full_messages, status: :unprocessable_entity
     end
@@ -41,11 +45,11 @@ class Api::LodgingsController < ApplicationController
   def destroy
     @lodging = Lodging.find_by(id: params[:id])
     @lodging.destroy
-    render json: ['Successfully deleted lodging! Hopefully not the real one!']
+    render :show
   end
 
   private
-  
+
   def lodging_params
     params.require(:lodging)
       .permit(:title, :street, :city, :country,

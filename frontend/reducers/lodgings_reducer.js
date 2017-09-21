@@ -9,7 +9,7 @@ const LodgingsReducer = (state = {}, action) => {
       return merge({}, state, action.lodgings);
     case LodgingActions.RECEIVE_LODGING:
       return merge({}, state, {[action.lodging.id]: action.lodging});
-    case LodgingActions.DELETE_LODGINGS:
+    case LodgingActions.DELETE_LODGING:
       delete newState[action.lodging.id];
       return newState;
     default:
