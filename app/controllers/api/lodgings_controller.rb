@@ -6,7 +6,7 @@ class Api::LodgingsController < ApplicationController
     #             else
     #               Lodging.all
     #             end
-    @lodgings = Lodging.all
+    @lodgings = Lodging.all.includes(:owner)
     if @lodgings.empty?
       render json: ['There are no lodgings at all!'], status: :unprocessable_entity
     else

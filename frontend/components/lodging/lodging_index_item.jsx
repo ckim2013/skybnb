@@ -4,17 +4,17 @@ import { Link } from 'react-router-dom';
 const LodgingIndexItem = ({ lodging }) => {
   return (
     <Link to={`/lodgings/${lodging.id}`}>
-      <li className='lodging-index-item'>
+      <div className='lodging-index-item'>
+        <img src={lodging.image_url} />
         <ul>
-            <img src={lodging.image_url} />
-            <li>{lodging.rate}</li>
-            <li>{lodging.title}</li>
-            <li>{lodging.city}</li>
-            <li>{lodging.country}</li>
+            <li>${lodging.rate} per night</li>
+            <li>⸰ {lodging.title}</li>
+            <li>⸰ {lodging.city}</li>
+            <li>⸰ {lodging.country}</li>
             <li>{lodging.room_type}</li>
-            <li>{lodging.beds}</li>
+            <li>⸰ {lodging.beds} bed(s)</li>
         </ul>
-      </li>
+      </div>
   </Link>
   );
 };

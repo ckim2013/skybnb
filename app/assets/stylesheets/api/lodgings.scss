@@ -1,3 +1,27 @@
 // Place all the styles related to the api/lodgings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.lodging-index {
+  display: flex;
+  flex-direction: row;
+  padding: 50px;
+  justify-content: space-between;
+}
+
+.lodging-index-item {
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    li {
+      font-size: 20px;
+      margin-right: 4px
+    }
+  }
+}

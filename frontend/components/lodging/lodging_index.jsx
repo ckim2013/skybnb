@@ -1,5 +1,7 @@
 import React from 'react';
 import LodgingIndexItem from './lodging_index_item';
+// import Slider from 'react-slick';
+
 
 class LodgingIndex extends React.Component {
   constructor(props) {
@@ -11,13 +13,21 @@ class LodgingIndex extends React.Component {
   }
 
   render() {
+    let settings = {
+      dots: true,
+      infinite: false,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1
+    };
+
     return (
       <div>
         <h2>List of all the houses!</h2>
-        <ul>
+        <div className='lodging-index'>
           {this.props.lodgings.map(lodging =>
-            <LodgingIndexItem lodging={lodging} />)}
-        </ul>
+            <LodgingIndexItem key={lodging.id} lodging={lodging} />)}
+        </div>
       </div>
     );
   }
