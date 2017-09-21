@@ -145,22 +145,23 @@ class SessionForm extends React.Component {
       <div>
         <div className='right-nav'>
           <button
-            onClick={() => this.toggleModal("Sign Up")}
+            onClick={ () => this.toggleModal("Sign Up") }
             className='button'>Sign Up</button>
           <button
-            onClick={() => this.toggleModal("Log In")}
+            onClick={ () => this.toggleModal("Log In") }
             className='button'>Log In</button>
           <button
-            onClick={this.handleGuestLogin}
+            onClick={ this.handleGuestLogin }
             className='button'>Guest Login</button>
         </div>
 
         <ReactModal
-          isOpen={this.state.modalIsOpen}
+          isOpen={ this.state.modalIsOpen }
           contentLabel='Session Form'
-          style={customStyles}>
+          onRequestClose={ this.toggleModal }
+          style={ customStyles }>
           <button
-            onClick={ () => this.toggleModal() }
+            onClick={ this.toggleModal }
             className='x-button'>
             <i className="fa fa-times-circle-o" aria-hidden="true"></i>
           </button>
@@ -192,7 +193,7 @@ class SessionForm extends React.Component {
             </form>
             <footer>{footer}
               <a
-                onClick={() => this.toggleWithinModal(this.state.formType)}
+                onClick={ () => this.toggleWithinModal(this.state.formType) }
                 className='session-footer-link'>here!</a>
             </footer>
           </div>
