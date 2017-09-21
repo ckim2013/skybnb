@@ -25,15 +25,18 @@ span, article, footer, time, small {
   padding: 0;
   border: 0;
   outline: 0;
-  font: sans-serif;
   color: inherit;
   text-align: inherit;
   text-decoration: inherit;
   vertical-align: inherit;
   box-sizing: inherit;
   list-style: none;
-  font-family: 'Miriam Libre', sans-serif;
+  font-family: FontAwesome, 'Miriam Libre', sans-serif;
 }
+
+// * {
+//   box-sizing: border-box;
+// }
 
 button, a, input[type="submit"] {
   cursor: pointer;
@@ -45,7 +48,7 @@ button, a, input[type="submit"] {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 4px 20px 4px 20px;
 }
 
 .right-nav {
@@ -56,7 +59,8 @@ button, a, input[type="submit"] {
 }
 
 .nav-header {
-  font-size: 40px;
+  font-size: 38px;
+  color: #FC3468;
 }
 
 .button {
@@ -102,7 +106,6 @@ button, a, input[type="submit"] {
   text-align: center;
   width: 300px;
   padding: 10px 50px 10px 50px;
-  font-family: FontAwesome, 'Miriam Libre', sans-serif;
 }
 
 .session-form input[type='submit'] {

@@ -8,11 +8,11 @@ const LodgingIndexItem = ({ lodging }) => {
         <img src={lodging.image_url} />
         <ul>
             <li>${lodging.rate} per night</li>
-            <li>⸰ {lodging.title}</li>
-            <li>⸰ {lodging.city}</li>
-            <li>⸰ {lodging.country}</li>
+            <li>{lodging.title}</li>
+            <li>{lodging.city}</li>
+            <li>{lodging.country}</li>
             <li>{lodging.room_type}</li>
-            <li>⸰ {lodging.beds} bed(s)</li>
+            <li>{lodging.beds} bed(s)</li>
         </ul>
       </div>
   </Link>

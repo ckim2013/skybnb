@@ -52,9 +52,8 @@ class Api::LodgingsController < ApplicationController
 
   def lodging_params
     params.require(:lodging)
-      .permit(:title, :street, :city, :country,
-              :image_url, :rate, :room_type, :beds,
-              :bedrooms, :bathrooms, :guests, :check_in,
+      .permit(:title, :street, :city, :country, :image_url, :rate,
+              :room_type, :beds, :bedrooms, :bathrooms, :guests, :check_in,
               :amenities, :bio)
   end
 end
