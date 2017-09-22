@@ -10,6 +10,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 4px 20px 4px 20px;
+  position: relative;
+  z-index: 999;
+  background: white;
 }
 
 .right-nav {
@@ -82,4 +85,10 @@
 .session-footer-link {
   font-weight: bolder;
   text-decoration: underline;
+}
+
+.lodging-profile {
+  position: relative;
+  z-index: 9998;
+  background: white
 }

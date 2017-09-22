@@ -44,10 +44,23 @@
 }
 
 .lodging-show-container {
-  height: 650px;
-  overflow: hidden;
+  height: 600px;
 
   img {
     margin:-13% 0;
   }
+}
+
+.lodging-profile-container {
+  position: relative;
+  z-index: 9999;
+  background-color: white;
+}
+
+.lodging-profile {
+  padding-left: 200px;
+  width: 600px;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
 }
