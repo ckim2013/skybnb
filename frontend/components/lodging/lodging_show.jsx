@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image, Transformation } from 'cloudinary-react';
+import { Link } from 'react-router-dom';
 
 class LodgingShow extends React.Component {
   constructor(props) {
@@ -29,7 +30,10 @@ class LodgingShow extends React.Component {
     let { title, street, city, country, owner, room_type, guests,
           bedrooms, beds, bio, bathrooms, check_in, amenities, rate,
           image_url } = this.props.lodging;
-    console.log(image_url);
+
+        console.log('show testing, get rid of defined constants');
+        amenities = ["No smoking", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed"];
+        bio = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 
     return (
       <div className="lodging-show-container">
@@ -37,39 +41,47 @@ class LodgingShow extends React.Component {
             <Transformation width="1680" height="1000" crop="scale" />
           </Image>
         <div className='lodging-profile-container'>
+
           <div className='lodging-profile'>
+
+            <h1>{ title }</h1>
             <div className='lodging-profile-intro'>
-              <h1>{this.props.lodging.title}</h1>
-              <p>{street}, {city}, {country}</p>
-              <p>{owner.first_name}</p>
-              <Image publicId={ owner.image_url } cloudName="skybnb">
-                <Transformation height="75" width="75" crop="thumb" />
-              </Image>
+              <div>
+                <span>{ street }, { city }, { country }</span>
+                <div>
+                  <p>{owner.first_name}</p>
+                  <Link to={ `users/${owner.id}` }>
+                    <Image publicId={ owner.image_url } cloudName="skybnb">
+                      <Transformation height="80" width="80" crop="thumb" />
+                    </Image>
+                  </Link>
+                </div>
+              </div>
             </div>
 
             <div className='lodging-profile-icons'>
               <ul>
                 <li>
                   <i className="fa fa-home" aria-hidden="true"></i>
-                  { room_type }
+                  <h2>{ room_type }</h2>
                 </li>
                 <li>
                   <i className="fa fa-users" aria-hidden="true"></i>
-                  { guests } guest(s)
+                  <h2>{ guests } guest(s)</h2>
                 </li>
                 <li>
                   <i className="fa fa-building" aria-hidden="true"></i>
-                  { bedrooms } bedroom(s)
+                  <h2>{ bedrooms } bedroom(s)</h2>
                 </li>
                 <li>
                   <i className="fa fa-bed" aria-hidden="true"></i>
-                  { beds } bed(s)
+                  <h2>{ beds } bed(s)</h2>
                 </li>
               </ul>
             </div>
 
             <div className='lodging-profile-bio'>
-              <h2>Please come in!</h2>
+              <h2>About me</h2>
               <p>{ bio }</p>
             </div>
 
@@ -94,13 +106,13 @@ class LodgingShow extends React.Component {
             <div className='lodging-profile-amenities'>
               <h2>Amenities</h2>
               <ul>
-                { amenities.map(amenity => <li>{ amenity }</li>)}
+                { amenities.map((amenity, i) => <li key={ i }>{ amenity }</li>)}
               </ul>
             </div>
 
-            <div className='lodging-profile-amenities'>
-              <h2>Pricing!</h2>
-              <span>${ rate } per night!</span>
+            <div className='lodging-profile-pricing'>
+              <h2>Pricing</h2>
+              <p>${ rate } per night! So cheap!</p>
             </div>
 
             <div className='lodging-profile-cancellation'>

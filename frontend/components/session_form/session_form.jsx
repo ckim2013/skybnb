@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactModal from 'react-modal';
 import { Image, Transformation} from 'cloudinary-react';
+import { Link } from 'react-router-dom';
 
 const SIGNUP_GREETING = 'Welcome! Bienvenido! 歡迎! 환영! Willkommen! ようこそ! أهلا بك!';
 const SIGNUP_FOOTER = 'Already have an account? Log in ';
@@ -20,7 +21,7 @@ const customStyles = {
     bottom                : 'auto',
     marginRight           : '-50%',
     transform             : 'translate(-50%, -50%)',
-    height                : '560px',
+    height                : '600px',
     width                 : '500px',
     background            : '#FBF9F6'
   },
@@ -111,9 +112,11 @@ class SessionForm extends React.Component {
       return (
         <div className='right-nav'>
           <h2>Aloha { this.props.currentUser.first_name }!</h2>
-          <Image publicId={ this.props.currentUser.image_url } cloudName="skybnb">
-            <Transformation height="50" width="50" crop="thumb" />
-          </Image>
+          <Link to={`users/${this.props.currentUser.id}`}>
+            <Image publicId={ this.props.currentUser.image_url } cloudName="skybnb">
+              <Transformation height="40" width="40" crop="thumb" />
+            </Image>
+          </Link>
           <button
             onClick={ this.handleClick }
             className='button'>Sign Out</button>

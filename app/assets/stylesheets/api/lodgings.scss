@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.lodging-profile-intro {
+  img {
+    border-radius: 100%;
+    border: 1px grey solid;
+  }
+}
+
 .main {
   display: flex;
   flex-direction: column;
@@ -27,10 +34,6 @@
   padding-bottom: 50px;
   width: 350px;
 
-  img {
-    border-radius: 10px;
-  }
-
   ul {
     display: flex;
     flex-wrap: wrap;
@@ -52,6 +55,7 @@
   }
 }
 
+
 .lodging-profile-container {
   position: relative;
   z-index: 9999;
@@ -61,19 +65,119 @@
 }
 
 .lodging-profile {
-  padding-left: 200px;
-  width: 600px;
-  padding-top: 30px;
+  padding-left: 250px;
+  width: 700px;
+  position: relative;
+  z-index: 9998;
   display: flex;
   flex-direction: column;
 
-  div {
-    padding-bottom: 30px;
+  > div {
+    border-bottom: 1px #D4D4D4 solid;
+    padding-bottom: 20px;
+    padding-top: 20px;
+  }
+
+  h1 {
+    padding-top: 10px;
   }
 }
 
 .lodging-profile-intro {
-  img {
-    border-radius: 100%
+  display: flex;
+  flex-direction: column;
+  height: 70px;
+
+  div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    span {
+      font-size: 20px;
+    }
+
+    div {
+      p {
+        font-size: 15px;
+        padding-right: 20px;
+        vertical-align: middle;
+      }
+
+      img {
+        width: 80px;
+        height: 80px;
+      }
+    }
+  }
+}
+
+.lodging-profile-icons {
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+  }
+  .fa {
+    font-size: 50px;
+  }
+}
+
+.lodging-profile-bio {
+  p {
+    padding: 10px 0px 0px 0px;
+  }
+}
+
+.lodging-profile-space {
+  ul {
+    -moz-column-count: 4;
+    -moz-column-gap: 20px;
+    -webkit-column-count: 4;
+    -webkit-column-gap: 20px;
+    column-count: 4;
+    column-gap: 20px;
+
+    li {
+      padding: 10px 0px 0px 0px;
+    }
+  }
+}
+
+.lodging-profile-amenities {
+  ul {
+    -moz-column-count: 4;
+    -moz-column-gap: 20px;
+    -webkit-column-count: 4;
+    -webkit-column-gap: 20px;
+    column-count: 4;
+    column-gap: 20px;
+    height: auto;
+
+    li {
+      padding: 10px 0px 0px 0px;
+    }
+  }
+}
+
+.lodging-profile-pricing {
+  p {
+    padding-top: 10px;
+    font-size: 20px;
+    font-weight: bolder;
+  }
+}
+
+.lodging-profile-cancellation {
+  p {
+    padding-top: 10px;
   }
 }

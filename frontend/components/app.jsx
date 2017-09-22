@@ -8,7 +8,7 @@ const App = () => (
   <div>
     <NavBar />
     <Route exact path='/' component={LodgingIndexContainer} />
-    <Route path='/lodgings/:lodgingId' component={LodgingShowContainer} />
+    <Route exact path='/lodgings/:lodgingId' component={LodgingShowContainer} />
   </div>
 );
 
