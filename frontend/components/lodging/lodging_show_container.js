@@ -1,14 +1,15 @@
 import { connect } from 'react-redux';
 import LodgingShow from './lodging_show';
-//
+import { fetchLodging } from '../../actions/lodging_actions';
+
 const mapStateToProps = state => ({
   loggedIn: Boolean(state.ui.session.currentUser),
   errors: state.ui.errors.lodgingErrors,
-  lodging: state.entities.lodgings[state.ui.lodging]
+  lodging: state.entities.lodgings[state.ui.lodgingDisplay]
 });
 
 const mapDispatchToProps = dispatch => ({
-
+  fetchLodging: id => dispatch(fetchLodging(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LodgingShow);

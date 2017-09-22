@@ -2,7 +2,7 @@ import React from 'react';
 import LodgingIndexItem from './lodging_index_item';
 // import Slider from 'react-slick';
 
-const LODGING_INDEX_GREETING = 'Home ~ 집 ~ casa ~ 自宅 ~ 家 ~ الصفحة الرئيسية ~ guriga ~ บ้าน ~ zuhause ~ ਘਰ ~ nyumbani ~ Главная ~ rumah ~ shtëpi'
+const LODGING_INDEX_GREETING = 'Home ~ 집 ~ casa ~ 家 ~ الصفحة الرئيسية ~ guriga ~ บ้าน ~ zuhause ~ ਘਰ ~ nyumbani ~ Главная ~ rumah ~ shtëpi'
 
 class LodgingIndex extends React.Component {
   constructor(props) {

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const NavBar = () => (
   <nav className='navbar'>
     <Link to='/'>
-      <h1 className='nav-header'>SKYbNbシ</h1>
+      <h1 className='nav-header'>SKYbNb</h1>
     </Link>
     <SessionFormContainer />
   </nav>
