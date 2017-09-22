@@ -38,6 +38,11 @@
   text-align: center;
 }
 
+.session-form input[type='submit']:hover {
+  color: black;
+  background-color: #ccad94;
+}
+
 .session-footer-link {
   font-weight: bolder;
   text-decoration: underline;

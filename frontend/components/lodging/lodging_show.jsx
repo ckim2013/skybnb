@@ -27,8 +27,6 @@ class LodgingShow extends React.Component {
       );
     }
 
-
-
     let { title, street, city, country, owner, room_type, guests,
           bedrooms, beds, bio, bathrooms, check_in, amenities, rate,
           image_url } = this.props.lodging;
@@ -39,7 +37,7 @@ class LodgingShow extends React.Component {
       if (this.props.currentUser.id === owner.id) {
         editButton = (
           <div>
-            <button className='button'>Edit Lodging</button>
+            <button className='edit-button button'>Edit Lodging</button>
           </div>
         );
       }

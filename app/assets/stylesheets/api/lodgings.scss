@@ -183,3 +183,9 @@
     padding-top: 10px;
   }
 }
+
+.edit-button {
+  position: absolute;
+  z-index: 10000;
+  float: left;
+}
