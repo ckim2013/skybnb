@@ -5,11 +5,9 @@ class LodgingShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = { loading: true };
-    console.log("constructor");
   }
 
   componentWillMount() {
-    console.log("inside component will mount");
     this.props.fetchLodging(this.props.match.params.lodgingId)
     .then(() => this.setState({ loading: false }));
   }
@@ -28,9 +26,10 @@ class LodgingShow extends React.Component {
       );
     }
 
-    let { title, street, city, country, owner,
-            room_type, guests, bedrooms, beds,
-            bio, bathrooms, check_in, amenities, rate } = this.props.lodging;
+    let { title, street, city, country, owner, room_type, guests,
+          bedrooms, beds, bio, bathrooms, check_in, amenities, rate,
+          image_url } = this.props.lodging;
+    console.log(image_url);
 
     return (
       <div className="lodging-show-container">
@@ -43,6 +42,9 @@ class LodgingShow extends React.Component {
               <h1>{this.props.lodging.title}</h1>
               <p>{street}, {city}, {country}</p>
               <p>{owner.first_name}</p>
+              <Image publicId={ owner.image_url } cloudName="skybnb">
+                <Transformation height="75" width="75" crop="thumb" />
+              </Image>
             </div>
 
             <div className='lodging-profile-icons'>

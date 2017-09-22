@@ -19,7 +19,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 }, allow_nil: true
   attr_reader :password
-  after_initialize :ensure_session_token
+  after_initialize :ensure_session_token, :ensure_image_url
 
   has_many :lodgings,
            primary_key: :id,
@@ -48,5 +48,9 @@ class User < ApplicationRecord
     self.session_token = SecureRandom.urlsafe_base64
     self.save!
     self.session_token
+  end
+
+  def ensure_image_url
+    self.image_url ||= 'ac0227854d2400d2497b43565bd05e77--typo-design-icon-design_q5vzxj.jpg'
   end
 end
