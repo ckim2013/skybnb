@@ -24,7 +24,7 @@ class LodgingShow extends React.Component {
     return (
       <div className="lodging-show-container">
         <h1>{this.props.lodging.title}</h1>
-        <Image className="lodging-show-image" publicId={this.props.lodging.image_url} cloudName="skybnb" >
+        <Image publicId={this.props.lodging.image_url} cloudName="skybnb" >
           <Transformation width="1680" crop="scale" />
         </Image>
       </div>
