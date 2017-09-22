@@ -14,12 +14,7 @@ class LodgingShow extends React.Component {
     .then(() => this.setState({ loading: false }));
   }
 
-  // componentWillReceiveProps will be needed if I physically change
-  // the url to view a lodging.
   componentWillReceiveProps(newProps) {
-    console.log("inside receive props");
-    console.log(this.props);
-    console.log(newProps);
     if (this.props.match.params.lodgingId !==
         newProps.match.params.lodgingId) {
           this.props.fetchLodging(newProps.match.params.lodgingId);
@@ -27,7 +22,6 @@ class LodgingShow extends React.Component {
   }
 
   render() {
-
     if (this.state.loading === true) {
       return (
         <h2>LOADING</h2>
@@ -117,6 +111,10 @@ class LodgingShow extends React.Component {
                 refunded when cancellation happens before check in and within
                 48 hours of booking.
               </p>
+            </div>
+
+            <div>
+              <h2>Reviews</h2>
             </div>
           </div>
         </div>

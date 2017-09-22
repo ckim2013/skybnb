@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 80px;
 }
 
 .lodging-index-header {
@@ -55,6 +56,8 @@
   position: relative;
   z-index: 9999;
   background-color: white;
+  width: 1680px;
+  box-shadow: 1px 0px 4px #888888;
 }
 
 .lodging-profile {
@@ -63,4 +66,8 @@
   padding-top: 30px;
   display: flex;
   flex-direction: column;
+
+  div {
+    padding-bottom: 30px;
+  }
 }
