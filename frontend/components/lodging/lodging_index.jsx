@@ -14,13 +14,6 @@ class LodgingIndex extends React.Component {
   }
 
   render() {
-    let settings = {
-      dots: true,
-      infinite: false,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1
-    };
 
     return (
       <div className='main'>

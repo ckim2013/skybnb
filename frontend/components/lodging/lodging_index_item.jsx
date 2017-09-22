@@ -6,7 +6,7 @@ const LodgingIndexItem = ({ lodging }) => {
   return (
     <Link to={`/lodgings/${lodging.id}`}>
       <div className='lodging-index-item'>
-        <Image publicId="download_lbgkc0.jpg" cloudName="skybnb" >
+        <Image publicId={lodging.image_url} cloudName="skybnb" >
           <Transformation height="275" width="350" crop="scale" />
         </Image>
         <ul>

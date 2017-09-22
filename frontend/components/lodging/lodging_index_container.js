@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchLodgings, fetchLodging } from '../../actions/lodging_actions';
+import { fetchLodgings } from '../../actions/lodging_actions';
 import LodgingIndex from './lodging_index';
 
 const mapStateToProps = state => ({
