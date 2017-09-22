@@ -2,18 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.lodging-profile-intro {
-  img {
-    border-radius: 100%;
-    border: 1px grey solid;
-  }
-}
 
 .main {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 80px;
+}
+
+.lodging-profile-intro {
+  img {
+    border-radius: 100%;
+    border: 1px grey solid;
+  }
 }
 
 .lodging-index-header {
@@ -51,6 +52,7 @@
   height: 600px;
 
   img {
+    width: 100%;
     margin:-13% 0;
   }
 }
@@ -60,7 +62,7 @@
   position: relative;
   z-index: 9999;
   background-color: white;
-  width: 1680px;
+  width: 100%;
   box-shadow: 1px 0px 4px #888888;
 }
 
@@ -72,7 +74,7 @@
   display: flex;
   flex-direction: column;
 
-  > div {
+  > div:not(:last-child) {
     border-bottom: 1px #D4D4D4 solid;
     padding-bottom: 20px;
     padding-top: 20px;

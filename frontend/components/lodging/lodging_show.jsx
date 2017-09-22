@@ -27,19 +27,37 @@ class LodgingShow extends React.Component {
       );
     }
 
+
+
     let { title, street, city, country, owner, room_type, guests,
           bedrooms, beds, bio, bathrooms, check_in, amenities, rate,
           image_url } = this.props.lodging;
 
-        console.log('show testing, get rid of defined constants');
-        amenities = ["No smoking", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed"];
-        bio = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    let editButton = <div></div>;
+
+    if (this.props.loggedIn) {
+      if (this.props.currentUser.id === owner.id) {
+        editButton = (
+          <div>
+            <button className='button'>Edit Lodging</button>
+          </div>
+        );
+      }
+    }
+
+
+    console.log('show testing, get rid of defined constants');
+    amenities = ["No smoking", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed", "Children Allowed"];
+    bio = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 
     return (
       <div className="lodging-show-container">
+        <div className='lodging-image-edit'>
           <Image publicId={this.props.lodging.image_url} cloudName="skybnb" >
             <Transformation width="1680" height="1000" crop="scale" />
           </Image>
+          { editButton }
+        </div>
         <div className='lodging-profile-container'>
 
           <div className='lodging-profile'>
@@ -127,7 +145,7 @@ class LodgingShow extends React.Component {
               </p>
             </div>
 
-            <div>
+            <div className='lodging-profile-reviews'>
               <h2>Reviews</h2>
             </div>
           </div>
