@@ -17,14 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
 
-  // NB: Window testing
-  window.store = store;
-  window.dispatch = store.dispatch;
-  // window.fetchLodgings = fetchLodgings;
-  // window.fetchLodging = fetchLodging;
-  // window.editLodging = editLodging;
-  // window.destroyLodging = destroyLodging;
-
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={ store } />, root);
 });

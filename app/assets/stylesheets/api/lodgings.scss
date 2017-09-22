@@ -23,15 +23,13 @@
 .lodging-index-item {
   display: flex;
   flex-direction: column;
-  padding: 0px 25px 50px 25px;
-  width: 300px;
+  padding-bottom: 50px;
+  width: 350px;
 
   img {
-    width: 300px;
-    height: 380px;
     border-radius: 10px;
   }
-  
+
   ul {
     display: flex;
     flex-wrap: wrap;
