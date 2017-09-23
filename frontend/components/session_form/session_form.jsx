@@ -39,18 +39,13 @@ class SessionForm extends React.Component {
       email: '',
       password: '',
       modalIsOpen: false,
-      formType: null,
-      errors: []
+      formType: null
     };
     this.toggleModal = this.toggleModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleGuestLogin = this.handleGuestLogin.bind(this);
     this.toggleWithinModal = this.toggleWithinModal.bind(this);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    this.setState({errors: nextProps.errors});
   }
 
   update(field) {
@@ -70,17 +65,19 @@ class SessionForm extends React.Component {
   }
 
   handleClick() {
-    this.props.logout().then(this.setState(
-      {
-        first_name: '',
-        last_name: '',
-        email: '',
-        password: '',
-        modalIsOpen: false,
-        formType: null,
-        errors: []
-      }
-    ));
+    this.props.logout()
+    .then(
+      this.setState(
+        {
+          first_name: '',
+          last_name: '',
+          email: '',
+          password: '',
+          modalIsOpen: false,
+          formType: null
+        }
+      )
+    );
   }
 
   toggleModal(formType = null) {
@@ -90,9 +87,9 @@ class SessionForm extends React.Component {
       email: '',
       password: '',
       modalIsOpen: !this.state.modalIsOpen,
-      formType,
-      errors: []
+      formType
     });
+    this.props.clearErrors();
   }
 
   toggleWithinModal(formType = null) {
@@ -102,9 +99,9 @@ class SessionForm extends React.Component {
       email: '',
       password: '',
       modalIsOpen: true,
-      formType: formType === 'Log In' ? 'Sign Up' : 'Log In',
-      errors: []
+      formType: formType === 'Log In' ? 'Sign Up' : 'Log In'
     });
+    this.props.clearErrors();
   }
 
   render() {
@@ -169,10 +166,10 @@ class SessionForm extends React.Component {
         <ReactModal
           isOpen={ this.state.modalIsOpen }
           contentLabel='Session Form'
-          onRequestClose={ this.toggleModal }
+          onRequestClose={ () => this.toggleModal() }
           style={ customStyles }>
           <button
-            onClick={ this.toggleModal }
+            onClick={ () => this.toggleModal() }
             className='x-button'>
             <i className="fa fa-times-circle-o" aria-hidden="true"></i>
           </button>
@@ -180,7 +177,7 @@ class SessionForm extends React.Component {
             <form onSubmit={ this.handleSubmit(action) }>
               <h2>{ greeting }</h2>
               <ul>
-                {this.state.errors.map((error, i) => <li key={ i }>{ error }</li>)}
+                {this.props.errors.map((error, i) => <li key={ i }>{ error }</li>)}
               </ul>
               <br /><br />
               { nameFields }

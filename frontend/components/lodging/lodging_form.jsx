@@ -16,7 +16,6 @@ class LodgingForm extends React.Component {
   componentWillReceiveProps(newProps) {
     if (this.props.formType === 'Edit'
         && newProps.formType === 'Create') {
-          console.log('edit to create');
       this.setState({
         title: '',
         street: '',
