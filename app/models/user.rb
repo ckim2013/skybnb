@@ -51,6 +51,6 @@ class User < ApplicationRecord
   end
 
   def ensure_image_url
-    self.image_url ||= 'ac0227854d2400d2497b43565bd05e77--typo-design-icon-design_q5vzxj.jpg'
+    self.image_url ||= 'shiba-inu-option-1_dribbble_gkqtp4.png'
   end
 end
