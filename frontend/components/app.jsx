@@ -12,6 +12,7 @@ const App = () => (
     <Switch>
       <Route exact path='/' component={ LodgingIndexContainer } />
       <Route exact path='/lodgings/:lodgingId' component={ LodgingShowContainer } />
+      <ProtectedRoute component={ LodgingFormContainer } path='/lodgings/:lodgingId/edit' />
       <ProtectedRoute component={ LodgingFormContainer } path='/lodgings' />
     </Switch>
   </div>

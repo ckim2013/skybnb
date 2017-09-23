@@ -29,7 +29,7 @@ class LodgingShow extends React.Component {
 
     let { title, street, city, country, owner, room_type, guests,
           bedrooms, beds, bio, bathrooms, check_in, amenities, rate,
-          image_url } = this.props.lodging;
+          image_url, id } = this.props.lodging;
 
     let editButton = <div></div>;
 
@@ -37,7 +37,7 @@ class LodgingShow extends React.Component {
       if (this.props.currentUser.id === owner.id) {
         editButton = (
           <div>
-            <button className='edit-button button'>Edit Lodging</button>
+            <Link to={`${id}/edit`} className='edit-button button'>Edit Lodging</Link>
           </div>
         );
       }
@@ -66,7 +66,7 @@ class LodgingShow extends React.Component {
                 <span>{ street }, { city }, { country }</span>
                 <div>
                   <p>{owner.first_name}</p>
-                  <Link to={ `users/${owner.id}` }>
+                  <Link to={ `/users/${owner.id}` }>
                     <Image publicId={ owner.image_url } cloudName="skybnb">
                       <Transformation height="80" width="80" crop="thumb" />
                     </Image>

@@ -112,7 +112,7 @@ class SessionForm extends React.Component {
       return (
         <div className='right-nav'>
           <h2>Aloha { this.props.currentUser.first_name }!</h2>
-          <Link to={`users/${this.props.currentUser.id}`}>
+          <Link to={`/users/${this.props.currentUser.id}`}>
             <Image publicId={ this.props.currentUser.image_url } cloudName="skybnb">
               <Transformation height="40" width="40" crop="thumb" />
             </Image>
