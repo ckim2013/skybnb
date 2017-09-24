@@ -24,15 +24,18 @@ const mapStateToProps = (state, ownProps) => {
       guests: 0,
       check_in: '',
       amenities: [],
-      bio: ''
+      bio: '',
+      owner_id: state.ui.session.currentUser.id
     };
   } else {
     formType = 'Edit';
+    console.log('ownProps:container', ownProps);
     lodging = state.entities.lodgings[ownProps.match.params.lodgingId];
   }
   return ({
     formType,
     lodging,
+    errors: state.ui.errors.lodgingErrors,
     currentUser: state.ui.session.currentUser
   });
 };

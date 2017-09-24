@@ -1,51 +1,38 @@
 import React from 'react';
-import merge from 'lodash/merge'
+import { Link } from 'react-router-dom';
 
 class LodgingForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.lodging;
     this.handleCheckbox = this.handleCheckbox.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    console.log('-------------------');
+    console.log('inside constructor');
+    console.log('props:constructor', this.props);
+    console.log('state:constructor', this.state);
+    console.log('-------------------');
   }
 
   componentWillMount() {
-    if (this.props.formType === 'Edit' && this.props.lodging === undefined) {
+    console.log('-------------------');
+    console.log('inside willMount');
+    console.log('props:WillMount', this.props);
+    console.log('state:WillMount', this.state);
+    console.log('-------------------');
+    if (this.props.formType === 'Edit') {
       this.props.fetchLodging(this.props.match.params.lodgingId)
       .then(() => this.setState(this.props.lodging));
     }
   }
 
   componentWillReceiveProps(newProps) {
-    if (this.props.formType === 'Edit'
-        && newProps.formType === 'Create') {
-          console.log('edit to create');
-      this.setState({
-        title: '',
-        street: '',
-        city: '',
-        country: '',
-        image_url: '',
-        rate: 1,
-        room_type: '',
-        beds: 1,
-        bedrooms: 1,
-        bathrooms: 1,
-        guests: 1,
-        check_in: '',
-        amenities: [],
-        bio: ''
-      });
-    } else if (this.props.formType === 'Create'
-               && newProps.formType === 'Edit') {
-                 console.log('create to edit');
-      this.props.fetchLodging(newProps.match.params.lodgingId);
-    } else if (this.props.formType === 'Edit'
-               && this.props.match.params.lodgingId
-               !== newProps.match.params.lodgingId) {
-                 console.log('edit but different place');
-                 console.log(newProps.match.params.lodgingId);
-                 this.props.fetchLodging(newProps.match.params.lodgingId);
-               }
+    console.log('-------------------');
+    console.log('inside ReceiveProps');
+    console.log('props:ReceiveProps', this.props);
+    console.log('state:ReceiveProps', this.state);
+    console.log('newProps:ReceiveProps', newProps);
+    console.log('-------------------');
   }
 
   handleCheckbox(e) {
@@ -64,7 +51,9 @@ class LodgingForm extends React.Component {
   }
 
   handleSubmit(e) {
-    
+    e.preventDefault();
+    this.props.action(this.state)
+    .then(this.props.history.push(`/lodgings/${this.state.id}`));
   }
 
   update(field) {
@@ -78,19 +67,33 @@ class LodgingForm extends React.Component {
   }
 
   render() {
-    console.log(this.state);
-    if (this.state === null ) {
+    console.log('-------------------');
+    console.log('inside Render');
+    console.log('props:render', this.props);
+    console.log('state:render', this.state);
+    console.log('-------------------');
+    if (this.state === null || this.state.amenities === undefined) {
+      console.log("Loading");
       return (
         <div className='lodging-form'>Loading</div>
       );
     }
 
-    const { title, bio, street, city, country, rate, beds, bedrooms,
-            bathrooms, guests, amenities } = this.state;
+    const { id, title, bio, street, city, country, rate, beds, bedrooms,
+            bathrooms, guests, amenities, room_type } = this.state;
 
     return (
       <div className='lodging-form-container'>
-        <h1>{ this.props.formType } a lodging!</h1>
+        <h1>
+          <Link to={`/lodgings/${id}`}>
+            { this.props.formType } this <span>lodging</span>!
+          </Link>
+        </h1>
+
+        <ul>
+          { this.props.errors.map((error, i) => <li key={ i }>{ error }</li>)}
+        </ul>
+
         <form className='lodging-form' onSubmit={ this.handleSubmit }>
           <h2>Introductions</h2>
           <div className='lodging-form-title'>
@@ -100,6 +103,7 @@ class LodgingForm extends React.Component {
                      className='lodging-title'
                      placeholder='Title'
                      type='text'
+                     maxLength='32'
                      value={ title }/>
             </div>
 
@@ -107,7 +111,8 @@ class LodgingForm extends React.Component {
               <label>About me</label>
               <br />
               <textarea onChange={ this.update('bio') }
-                        placeholder='Bio'>{ bio }</textarea>
+                        placeholder='Bio'
+                        defaultValue={ bio }></textarea>
             </div>
           </div>
 
@@ -152,6 +157,15 @@ class LodgingForm extends React.Component {
 
           <h2>Features</h2>
           <div className='lodging-form-attributes'>
+            <div>
+              <label>Lodging Type</label>
+              <select defaultValue={ room_type } onChange={ this.update('room_type') }>
+                <option disabled>Please Select</option>
+                <option value='Private Room'>Private Room</option>
+                <option value='Shared Room'>Shared Room</option>
+                <option value='Entire House'>Entire House</option>
+              </select>
+            </div>
             <div>
               <label>Beds</label>
                 <input onChange={ this.update('beds') }
@@ -263,9 +277,9 @@ class LodgingForm extends React.Component {
             <div>
               <input onChange={ this.handleCheckbox }
                 type='checkbox'
-                value='Game Console'
-                checked={ amenities.includes('Game Console') }/>
-              <label>Game Console</label>
+                value='Game console'
+                checked={ amenities.includes('Game console') }/>
+              <label>Game console</label>
             </div>
 
             <div>
