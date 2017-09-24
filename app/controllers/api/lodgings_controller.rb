@@ -34,7 +34,6 @@ class Api::LodgingsController < ApplicationController
   end
 
   def update
-    byebug
     @lodging = Lodging.find_by(id: params[:id])
     if @lodging.update_attributes(lodging_params)
       render :show
