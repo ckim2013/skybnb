@@ -7,7 +7,6 @@ import { fetchLodging, editLodging,
 const mapStateToProps = (state, ownProps) => {
   let formType;
   let lodging;
-  //  = state.entities.lodgings[state.ui.lodgingDisplay],
 
   if (ownProps.match.path.slice(1) === 'lodgings') {
     formType = 'Create';
@@ -33,18 +32,21 @@ const mapStateToProps = (state, ownProps) => {
   }
   return ({
     formType,
-    lodging
+    lodging,
+    currentUser: state.ui.session.currentUser
   });
 };
-// action
+
 const mapDispatchToProps = (dispatch, ownProps) => {
-  let action = editLodging;
+  let action;
   if (ownProps.match.path.slice(1) === 'lodgings') {
     action = makeLodging;
+  } else {
+    action = editLodging;
   }
   return ({
     fetchLodging: id => dispatch(fetchLodging(id)),
-    action: lodging => dispatch(action(lodging)) 
+    action: lodging => dispatch(action(lodging))
   });
 };
 

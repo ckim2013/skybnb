@@ -1,3 +1,135 @@
-.lodging-form {
+.lodging-form-container {
   padding-top: 100px;
+  padding-left: 50px;
+  width: 100%;
+
+  h1 {
+    font-size: 40px;
+    padding-bottom: 30px;
+  }
+
+  h2 {
+    font-size: 30px;
+    text-decoration: underline;
+    padding-bottom: 50px;
+  }
+
+  label {
+    font-size: 25px;
+    vertical-align: middle;
+    padding-right: 20px;
+  }
+
+  input[type='text'] {
+    border: 1px #e8e8ea solid;
+    padding: 10px 10px 10px 10px;
+    font-size: 20px;
+  }
+
+  input[type='number'] {
+    border: 1px #e8e8ea solid;
+    padding: 10px 10px 10px 10px;
+    font-size: 20px;
+  }
+
+  form {
+    div {
+      div {
+        padding-bottom: 50px;
+      }
+    }
+  }
+}
+
+.lodging-form-title {
+  display: flex;
+  flex-direction: column;
+
+  input {
+    text-align: left;
+    width: 607px;
+  }
+
+  textarea {
+    margin-left: 0;
+    border: 1px #e8e8ea solid;
+    height: 100px;
+    font-size: 20px;
+    width: 715px;
+    height: 300px;
+  }
+}
+
+.lodging-form-address {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+
+  input {
+    text-align: center;
+    width: 300px;
+  }
+
+  div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.lodging-form-rate {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+
+  input {
+    text-align: center;
+    width: 70px;
+  }
+
+  div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.lodging-form-attributes {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+
+  input {
+    text-align: center;
+    width: 70px;
+  }
+
+  div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.lodging-form-amenities {
+  width: 1000px;
+  // display: flex;
+  // flex-direction: row;
+  // flex-wrap: wrap;
+  // justify-content: space-between;
+  -moz-column-count: 3;
+  -moz-column-gap: 20px;
+  -webkit-column-count: 3;
+  -webkit-column-gap: 20px;
+  column-count: 3;
+  column-gap: 20px;
+
+  label {
+    font-size: 20px;
+  }
+
+  input {
+    font-size: 30px;
+    margin-right: 10px;
+  }
 }
