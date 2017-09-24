@@ -10,10 +10,17 @@ export const receiveLodgings = lodgings => ({
   lodgings
 });
 
-export const receiveLodging = lodging => ({
-  type: RECEIVE_LODGING,
-  lodging
-});
+// export const receiveLodging = lodging => ({
+//   type: RECEIVE_LODGING,
+//   lodging
+// });
+export const receiveLodging = lodging => {
+  console.log('inside receiveLodging action', lodging);
+  return ({
+    type: RECEIVE_LODGING,
+    lodging
+  });
+};
 
 export const deleteLodging = lodging => ({
   type: DELETE_LODGING,
@@ -44,11 +51,19 @@ export const makeLodging = lodging => dispatch => (
   errors => dispatch(receiveLodgingErrors(errors.responseJSON)))
 );
 
-export const editLodging = lodging => dispatch => (
-  LodgingApiUtil.patchLodging(lodging)
+export const editLodging = lodging => dispatch => {
+  console.log('inside editloging thunk', lodging);
+  return(
+    LodgingApiUtil.patchLodging(lodging)
     .then(editedLodging => dispatch(receiveLodging(editedLodging)),
     errors => dispatch(receiveLodgingErrors(errors.responseJSON)))
-);
+  );
+};
+// export const editLodging = lodging => dispatch => (
+//   LodgingApiUtil.patchLodging(lodging)
+//     .then(editedLodging => dispatch(receiveLodging(editedLodging)),
+//     errors => dispatch(receiveLodgingErrors(errors.responseJSON)))
+// );
 
 export const destroyLodging = id => dispatch => (
   LodgingApiUtil.deleteLodging(id)

@@ -6,9 +6,11 @@ class LodgingShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = { loading: true };
+    console.log('props inside show constructor', props);
   }
 
   componentWillMount() {
+    console.log('inside component will mount in show');
     this.props.fetchLodging(this.props.match.params.lodgingId)
     .then(() => this.setState({ loading: false }));
   }
@@ -22,6 +24,7 @@ class LodgingShow extends React.Component {
 
   render() {
     if (this.state.loading === true) {
+      console.log('loading in show');
       return (
         <h2>LOADING</h2>
       );
@@ -30,6 +33,8 @@ class LodgingShow extends React.Component {
     let { title, street, city, country, owner, room_type, guests,
           bedrooms, beds, bio, bathrooms, check_in, amenities, rate,
           image_url, id } = this.props.lodging;
+    console.log('inside lodging show amenities', amenities);
+    console.log('inside lodging show title', title);
 
     let editButton = <div></div>;
 
@@ -42,7 +47,7 @@ class LodgingShow extends React.Component {
         );
       }
     }
-    
+
     return (
       <div className="lodging-show-container">
         <div className='lodging-image-edit'>
@@ -117,7 +122,9 @@ class LodgingShow extends React.Component {
             <div className='lodging-profile-amenities'>
               <h2>Amenities</h2>
               <ul>
-                { amenities.map((amenity, i) => <li key={ i }>{ amenity }</li>)}
+                { amenities.map((amenity, i) => {
+                  return <li key={ amenity + i }>{ amenity }</li>;
+                })}
               </ul>
             </div>
 

@@ -6,9 +6,15 @@ const LodgingsReducer = (state = {}, action) => {
   let newState = merge({}, state);
   switch (action.type) {
     case LodgingActions.RECEIVE_LODGINGS:
-      return merge({}, state, action.lodgings);
+      console.log('inside lodgings reducer for many', action.lodgings);
+      console.log('current state before merge', state);
+      console.log('after assign', Object.assign({}, state, action.lodgings));
+      return Object.assign({}, state, action.lodgings);
+      // return merge({}, state, action.lodgings);
+      // return action.lodgings;
     case LodgingActions.RECEIVE_LODGING:
-      return merge({}, state, {[action.lodging.id]: action.lodging});
+      console.log('inside lodgings reducer for one', action.lodging);
+      return Object.assign({}, state, {[action.lodging.id]: action.lodging});
     case LodgingActions.DELETE_LODGING:
       delete newState[action.lodging.id];
       return newState;

@@ -7,9 +7,7 @@ import { fetchLodging, editLodging,
 const mapStateToProps = (state, ownProps) => {
   let formType;
   let lodging;
-  console.log(ownProps.match.path.slice(1));
   if (ownProps.match.path.slice(1) === 'lodgings/') {
-    console.log('inside container inside create setup');
     formType = 'Create';
     lodging = {
       title: '',
@@ -28,7 +26,6 @@ const mapStateToProps = (state, ownProps) => {
     };
   } else {
     formType = 'Edit';
-    console.log('ownProps:container', ownProps);
     lodging = state.entities.lodgings[ownProps.match.params.lodgingId];
   }
   return ({

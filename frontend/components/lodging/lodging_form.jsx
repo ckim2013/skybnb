@@ -7,23 +7,35 @@ class LodgingForm extends React.Component {
     this.state = this.props.lodging;
     this.handleCheckbox = this.handleCheckbox.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    console.log('-------------------');
-    console.log('inside constructor');
-    console.log('props:constructor', this.props);
-    console.log('state:constructor', this.state);
-    console.log('-------------------');
+    // console.log('-------------------');
+    // console.log('inside constructor');
+    // console.log('props:constructor', this.props);
+    // console.log('state:constructor', this.state);
+    // console.log('-------------------');
   }
 
   componentWillMount() {
-    console.log('-------------------');
-    console.log('inside willMount');
-    console.log('props:WillMount', this.props);
-    console.log('state:WillMount', this.state);
-    console.log('-------------------');
+    // console.log('-------------------');
+    // console.log('inside willMount');
+    // console.log('props:WillMount', this.props);
+    // console.log('state:WillMount', this.state);
+    // console.log('-------------------');
     if (this.props.formType === 'Edit') {
+      console.log('component will mount in form');
       this.props.fetchLodging(this.props.match.params.lodgingId)
       .then(() => this.setState(this.props.lodging));
     }
+  }
+
+  componentWillUnmount() {
+    console.log('inside component will UNMOUNT');
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    console.log('before edit submit', this.state);
+    this.props.action(this.state)
+    .then(this.props.history.push(`/lodgings/${this.state.id}`));
   }
 
   componentWillReceiveProps(newProps) {
@@ -33,12 +45,13 @@ class LodgingForm extends React.Component {
     console.log('state:ReceiveProps', this.state);
     console.log('newProps:ReceiveProps', newProps);
     console.log('-------------------');
-    if (newProps.formType === 'Edit' &&
-        this.props.match.params.lodgingId !==
-        newProps.match.params.lodgingId) {
-          newProps.fetchLodging(newProps.match.params.lodgingId);
-          this.setState(newProps.lodging);
-        }
+    // if (newProps.formType === 'Edit' &&
+    //     this.props.match.params.lodgingId !==
+    //     newProps.match.params.lodgingId) {
+    //       console.log('inside if statement in receiveprops');
+    //       this.setState(newProps.lodging);
+    //       newProps.fetchLodging(newProps.match.params.lodgingId);
+    //     }
   }
 
   handleCheckbox(e) {
@@ -46,20 +59,17 @@ class LodgingForm extends React.Component {
     const value = e.target.value;
     const checked = e.target.checked;
     if (checked) {
-      newArray.push(value);
+      if (!newArray.includes(value)) {
+        newArray.push(value);
+      }
     } else {
       const idx = newArray.indexOf(value);
       if (idx > -1) {
         newArray.splice(idx, 1);
       }
     }
+    console.log(newArray);
     this.setState({amenities: newArray});
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    this.props.action(this.state)
-    .then(this.props.history.push(`/lodgings/${this.state.id}`));
   }
 
   update(field) {
@@ -73,11 +83,13 @@ class LodgingForm extends React.Component {
   }
 
   render() {
-    console.log('-------------------');
-    console.log('inside Render');
-    // console.log('props:render', this.props);
-    console.log('state:render', this.state);
-    console.log('-------------------');
+    console.log('form render state', this.state);
+    console.log('form render amenities', this.state ? this.state.amenities : 'state is null');
+    // console.log('-------------------');
+    // console.log('inside Render');
+    // // console.log('props:render', this.props);
+    // console.log('state:render', this.state);
+    // console.log('-------------------');
     if (this.state === null || this.state.amenities === undefined) {
       console.log("Loading");
       return (

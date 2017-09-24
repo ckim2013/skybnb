@@ -12,21 +12,39 @@ export const getLodging = id => (
   })
 );
 
-export const postLodging = lodging => (
-  $.ajax({
+export const postLodging = lodging => {
+  console.log('inside post', lodging);
+  return $.ajax({
     method: 'POST',
     url: 'api/lodgings',
     data: { lodging }
-  })
-);
+  });
+};
 
-export const patchLodging = lodging => (
-  $.ajax({
+// export const postLodging = lodging => (
+//   $.ajax({
+//     method: 'POST',
+//     url: 'api/lodgings',
+//     data: { lodging }
+//   })
+// );
+
+export const patchLodging = lodging => {
+  console.log(lodging);
+  return $.ajax({
     method: 'PATCH',
     url: `api/lodgings/${lodging.id}`,
     data: { lodging }
-  })
-);
+  });
+};
+
+// export const patchLodging = lodging => (
+//   $.ajax({
+//     method: 'PATCH',
+//     url: `api/lodgings/${lodging.id}`,
+//     data: { lodging }
+//   })
+// );
 
 export const deleteLodging = id => (
   $.ajax({
