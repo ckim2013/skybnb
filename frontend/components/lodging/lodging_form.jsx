@@ -63,6 +63,10 @@ class LodgingForm extends React.Component {
     this.setState({amenities: newArray});
   }
 
+  handleSubmit(e) {
+    
+  }
+
   update(field) {
     return e => {
       let value = e.target.value;
@@ -87,7 +91,7 @@ class LodgingForm extends React.Component {
     return (
       <div className='lodging-form-container'>
         <h1>{ this.props.formType } a lodging!</h1>
-        <form className='lodging-form'>
+        <form className='lodging-form' onSubmit={ this.handleSubmit }>
           <h2>Introductions</h2>
           <div className='lodging-form-title'>
             <div>
@@ -280,7 +284,7 @@ class LodgingForm extends React.Component {
               <label>Hot Tub</label>
             </div>
           </div>
-
+          <input className='button' type='submit' value='Submit'/>
         </form>
       </div>
     );

@@ -155,6 +155,9 @@
 }
 
 .lodging-profile-amenities {
+  h2 {
+    padding-bottom: 10px
+  }
   ul {
     -moz-column-count: 4;
     -moz-column-gap: 20px;
@@ -163,10 +166,6 @@
     column-count: 4;
     column-gap: 20px;
     height: auto;
-
-    li {
-      padding: 10px 0px 0px 0px;
-    }
   }
 }
 

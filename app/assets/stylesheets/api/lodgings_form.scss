@@ -1,6 +1,7 @@
 .lodging-form-container {
   padding-top: 100px;
   padding-left: 50px;
+  padding-bottom: 50px;
   width: 100%;
 
   h1 {
@@ -113,10 +114,6 @@
 
 .lodging-form-amenities {
   width: 1000px;
-  // display: flex;
-  // flex-direction: row;
-  // flex-wrap: wrap;
-  // justify-content: space-between;
   -moz-column-count: 3;
   -moz-column-gap: 20px;
   -webkit-column-count: 3;
