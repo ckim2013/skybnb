@@ -10,19 +10,23 @@ class LodgingShow extends React.Component {
   }
 
   componentWillMount() {
-    console.log('inside component will mount in show');
+    console.log('inside component will mount in show', this.props.match.params.lodgingId);
     this.props.fetchLodging(this.props.match.params.lodgingId)
     .then(() => this.setState({ loading: false }));
   }
 
   componentWillReceiveProps(newProps) {
+    console.log('props inside receiveprops', this.props);
+    console.log('newprops inside receiveprops', newProps);
     if (this.props.match.params.lodgingId !==
         newProps.match.params.lodgingId) {
+          console.log('inside if statement receiveProps');
           this.props.fetchLodging(newProps.match.params.lodgingId);
         }
   }
 
   render() {
+    console.log('inside show render');
     if (this.state.loading === true) {
       console.log('loading in show');
       return (

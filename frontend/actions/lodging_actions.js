@@ -4,6 +4,8 @@ export const RECEIVE_LODGINGS = 'RECEIVE_LODGINGS';
 export const RECEIVE_LODGING = 'RECEIVE_LODGING';
 export const DELETE_LODGING = 'DELETE_LODGING';
 export const RECEIVE_LODGING_ERRORS = 'RECEIVE_LODGING_ERRORS';
+export const START_LOADING_ALL_LODGINGS = 'START_LOADING_ALL_LODGINGS';
+export const START_LOADING_SINGLE_LODGING = 'START_LOADING_SINGLE_LODGING';
 
 export const receiveLodgings = lodgings => ({
   type: RECEIVE_LODGINGS,
@@ -32,18 +34,27 @@ export const receiveLodgingErrors = errors => ({
   errors
 });
 
+export const startLoadingAllLodgings = () => ({
+  type: START_LOADING_ALL_LODGINGS
+});
 
-export const fetchLodgings = () => dispatch => (
-  LodgingApiUtil.getLodgings()
-    .then(receivedLodgings => dispatch(receiveLodgings(receivedLodgings)),
-    errors => dispatch(receiveLodgingErrors(errors.responseJSON)))
-);
+export const startLoadingSingleLodging = () => ({
+  type: START_LOADING_SINGLE_LODGING
+});
 
-export const fetchLodging = id => dispatch => (
-  LodgingApiUtil.getLodging(id)
+export const fetchLodgings = () => dispatch => {
+  dispatch(startLoadingAllLodgings());
+  return LodgingApiUtil.getLodgings()
+  .then(receivedLodgings => dispatch(receiveLodgings(receivedLodgings)),
+  errors => dispatch(receiveLodgingErrors(errors.responseJSON)));
+};
+
+export const fetchLodging = id => dispatch => {
+  dispatch(startLoadingSingleLodging());
+  return LodgingApiUtil.getLodging(id)
   .then(receivedLodging => dispatch(receiveLodging(receivedLodging)),
-  errors => dispatch(receiveLodgingErrors(errors.responseJSON)))
-);
+  errors => dispatch(receiveLodgingErrors(errors.responseJSON)));
+};
 
 export const makeLodging = lodging => dispatch => (
   LodgingApiUtil.postLodging(lodging)

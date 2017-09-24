@@ -1,10 +1,12 @@
-import { RECEIVE_LODGING } from '../actions/lodging_actions';
+import { RECEIVE_LODGING, RECEIVE_LODGINGS } from '../actions/lodging_actions';
 
 const LodgingDisplayReducer = (state = null, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_LODGING:
       return action.lodging.id;
+    case RECEIVE_LODGINGS:
+      return null;
     default:
       return state;
   }
