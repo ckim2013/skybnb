@@ -5,20 +5,15 @@ import { Link } from 'react-router-dom';
 class LodgingShow extends React.Component {
   constructor(props) {
     super(props);
-    console.log('props in show constructor:', props);
   }
 
   componentWillMount() {
-    console.log('inside component will mount in show', this.props.match.params.lodgingId);
     this.props.fetchLodging(this.props.match.params.lodgingId);
   }
 
   componentWillReceiveProps(newProps) {
-    console.log('props inside receiveprops', this.props);
-    console.log('newprops inside receiveprops', newProps);
     if (this.props.match.params.lodgingId !==
         newProps.match.params.lodgingId) {
-          console.log('inside if statement receiveProps');
           this.props.fetchLodging(newProps.match.params.lodgingId);
         }
   }
@@ -26,23 +21,17 @@ class LodgingShow extends React.Component {
   render() {
     const { lodging, loading, loggedIn, currentUser } = this.props;
 
-    console.log('inside show render');
     if (loading) {
-      console.log('loading in show');
       return (
         <h2>LOADING</h2>
       );
     }
 
-    console.log('lodging issss', lodging);
     if (lodging === undefined) return null;
 
-    console.log('passed loading and undef check in show');
     const { title, street, city, country, owner, room_type, guests,
           bedrooms, beds, bio, bathrooms, check_in, amenities, rate,
           image_url, id } = lodging;
-    console.log('inside lodging show amenities', amenities);
-    console.log('inside lodging show title', title);
 
     let editButton = <div></div>;
 

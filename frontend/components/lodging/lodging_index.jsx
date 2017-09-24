@@ -6,19 +6,15 @@ const LODGING_INDEX_GREETING =
 
 class LodgingIndex extends React.Component {
   componentWillMount() {
-    console.log('inside will mount for index');
     this.props.fetchLodgings();
   }
 
   render() {
-    console.log('inside render for index');
     const { lodgings, loading } = this.props;
     if (loading) {
-      console.log('loading inside index');
       return <div>Loading!</div>;
     }
 
-    console.log('passed loading for index');
     return (
       <div className='main'>
         <h2 className='lodging-index-header'>{LODGING_INDEX_GREETING}</h2>

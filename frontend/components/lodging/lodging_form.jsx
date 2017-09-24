@@ -7,54 +7,36 @@ class LodgingForm extends React.Component {
     this.state = this.props.lodging;
     this.handleCheckbox = this.handleCheckbox.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    // console.log('-------------------');
-    // console.log('inside constructor');
-    // console.log('props:constructor', this.props);
-    // console.log('state:constructor', this.state);
-    // console.log('-------------------');
   }
 
   componentWillMount() {
-    // console.log('-------------------');
-    // console.log('inside willMount');
-    // console.log('props:WillMount', this.props);
-    // console.log('state:WillMount', this.state);
-    // console.log('-------------------');
     if (this.props.formType === 'Edit') {
-      console.log('component will mount in form');
       this.props.fetchLodging(this.props.match.params.lodgingId)
       .then(() => this.setState(this.props.lodging));
     }
   }
 
   componentWillUnmount() {
-    console.log('inside component will UNMOUNT');
+  //   console.log('inside component will UNMOUNT for form');
+  //   this.props.clearErrors();
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log('before edit submit', this.state);
-    this.props.action(this.state);
-    // .then(this.props.history.push(`/lodgings/${this.state.id}`));
+    this.props.action(this.state)
+    .then((resp) => this.props.history.push(`/lodgings/${resp.lodging.id}`));
   }
 
   componentWillReceiveProps(newProps) {
-    console.log('-------------------');
-    console.log('inside ReceiveProps');
-    console.log('props:ReceiveProps', this.props);
-    console.log('state:ReceiveProps', this.state);
-    console.log('newProps:ReceiveProps', newProps);
-    console.log('-------------------');
-    if (this.props.lodging !== this.state) {
-      this.props.history.push(`/lodgings/${this.state.id}`);
-    }
-    // if (newProps.formType === 'Edit' &&
-    //     this.props.match.params.lodgingId !==
-    //     newProps.match.params.lodgingId) {
-    //       console.log('inside if statement in receiveprops');
-    //       this.setState(newProps.lodging);
-    //       newProps.fetchLodging(newProps.match.params.lodgingId);
-    //     }
+    // console.log('props inside receiveprops', this.props);
+    // console.log('newProps inside receiveprops', newProps);
+    // if (this.props.lodging !== this.state) {
+    //   console.log('lodging does not equal this.state');
+    //
+    //   if (newProps.errors.length < 1) {
+    //     this.props.history.push(`/lodgings/${this.state.id}`);
+    //   }
+    // }
   }
 
   handleCheckbox(e) {
@@ -85,15 +67,7 @@ class LodgingForm extends React.Component {
   }
 
   render() {
-    console.log('form render state', this.state);
-    console.log('form render amenities', this.state ? this.state.amenities : 'state is null');
-    // console.log('-------------------');
-    // console.log('inside Render');
-    // // console.log('props:render', this.props);
-    // console.log('state:render', this.state);
-    // console.log('-------------------');
     if (this.state === null || this.state.amenities === undefined) {
-      console.log("Loading");
       return (
         <div className='lodging-form'>Loading</div>
       );

@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import LodgingForm from './lodging_form';
 import { fetchLodging, editLodging,
          makeLodging } from '../../actions/lodging_actions';
+import { clearErrors } from '../../actions/error_actions';
 
 const mapStateToProps = (state, ownProps) => {
   let formType;
@@ -45,7 +46,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   }
   return ({
     fetchLodging: id => dispatch(fetchLodging(id)),
-    action: lodging => dispatch(action(lodging))
+    action: lodging => dispatch(action(lodging)),
+    clearErrors: () => dispatch(clearErrors())
   });
 };
 
