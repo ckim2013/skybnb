@@ -15,7 +15,8 @@ export const getLodging = id => (
 export const postLodging = lodging => (
   $.ajax({
     method: 'POST',
-    url: 'api/lodgings'
+    url: 'api/lodgings',
+    data: { lodging }
   })
 );
 

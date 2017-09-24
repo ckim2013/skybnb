@@ -114,6 +114,9 @@ class SessionForm extends React.Component {
               <Transformation height="40" width="40" crop="thumb" />
             </Image>
           </Link>
+          <Link className='button' to={'/lodgings'}>
+            Build
+          </Link>
           <button
             onClick={ this.handleClick }
             className='button'>Sign Out</button>

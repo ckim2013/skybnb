@@ -7,25 +7,24 @@ import { fetchLodging, editLodging,
 const mapStateToProps = (state, ownProps) => {
   let formType;
   let lodging;
-
-  if (ownProps.match.path.slice(1) === 'lodgings') {
+  console.log(ownProps.match.path.slice(1));
+  if (ownProps.match.path.slice(1) === 'lodgings/') {
+    console.log('inside container inside create setup');
     formType = 'Create';
     lodging = {
       title: '',
       street: '',
       city: '',
       country: '',
-      image_url: '',
-      rate: 0,
+      rate: 1,
       room_type: '',
-      beds: 0,
-      bedrooms: 0,
-      bathrooms: 0,
-      guests: 0,
+      beds: 1,
+      bedrooms: 1,
+      bathrooms: 1,
+      guests: 1,
       check_in: '',
       amenities: [],
-      bio: '',
-      owner_id: state.ui.session.currentUser.id
+      bio: ''
     };
   } else {
     formType = 'Edit';
@@ -42,7 +41,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   let action;
-  if (ownProps.match.path.slice(1) === 'lodgings') {
+  if (ownProps.match.path.slice(1) === 'lodgings/') {
     action = makeLodging;
   } else {
     action = editLodging;

@@ -33,6 +33,12 @@ class LodgingForm extends React.Component {
     console.log('state:ReceiveProps', this.state);
     console.log('newProps:ReceiveProps', newProps);
     console.log('-------------------');
+    if (newProps.formType === 'Edit' &&
+        this.props.match.params.lodgingId !==
+        newProps.match.params.lodgingId) {
+          newProps.fetchLodging(newProps.match.params.lodgingId);
+          this.setState(newProps.lodging);
+        }
   }
 
   handleCheckbox(e) {
@@ -69,7 +75,7 @@ class LodgingForm extends React.Component {
   render() {
     console.log('-------------------');
     console.log('inside Render');
-    console.log('props:render', this.props);
+    // console.log('props:render', this.props);
     console.log('state:render', this.state);
     console.log('-------------------');
     if (this.state === null || this.state.amenities === undefined) {
@@ -80,14 +86,12 @@ class LodgingForm extends React.Component {
     }
 
     const { id, title, bio, street, city, country, rate, beds, bedrooms,
-            bathrooms, guests, amenities, room_type } = this.state;
+            bathrooms, guests, amenities, room_type, check_in } = this.state;
 
     return (
       <div className='lodging-form-container'>
         <h1>
-          <Link to={`/lodgings/${id}`}>
-            { this.props.formType } this <span>lodging</span>!
-          </Link>
+          { this.props.formType } this lodging!
         </h1>
 
         <ul>
@@ -159,13 +163,23 @@ class LodgingForm extends React.Component {
           <div className='lodging-form-attributes'>
             <div>
               <label>Lodging Type</label>
-              <select defaultValue={ room_type } onChange={ this.update('room_type') }>
+              <select defaultValue={ room_type ? room_type : 'Please Select' }
+                      onChange={ this.update('room_type') }>
                 <option disabled>Please Select</option>
                 <option value='Private Room'>Private Room</option>
                 <option value='Shared Room'>Shared Room</option>
                 <option value='Entire House'>Entire House</option>
               </select>
             </div>
+
+            <div>
+              <label>Check In</label>
+              <input onChange={ this.update('check_in') }
+                placeholder='Check In'
+                type='text'
+                value={ check_in }/>
+            </div>
+
             <div>
               <label>Beds</label>
                 <input onChange={ this.update('beds') }
@@ -174,6 +188,7 @@ class LodgingForm extends React.Component {
                        min='1'
                        value={ beds }/>
             </div>
+
             <div>
               <label>Bedrooms</label>
                 <input onChange={ this.update('bedrooms') }

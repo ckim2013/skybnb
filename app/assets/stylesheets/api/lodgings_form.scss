@@ -4,10 +4,6 @@
   padding-bottom: 50px;
   width: 100%;
 
-  span {
-    text-decoration: underline;
-  }
-
   h1 {
     font-size: 40px;
     padding-bottom: 30px;
@@ -119,6 +115,10 @@
   select {
     border: 1px black solid;
     font-size: 20px;
+  }
+
+  input[type='text'] {
+    width: 100px;
   }
 }
 

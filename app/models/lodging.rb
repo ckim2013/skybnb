@@ -33,8 +33,14 @@ class Lodging < ApplicationRecord
     in: ['Private Room', 'Shared Room', 'Entire House']
   }
 
+  after_initialize :ensure_default_image
+
   belongs_to :owner,
              primary_key: :id,
              foreign_key: :owner_id,
              class_name: :User
+
+  def ensure_default_image
+    self.image_url ||= 'download_lrthtv.jpg'
+  end
 end
