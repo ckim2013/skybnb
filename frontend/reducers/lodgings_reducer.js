@@ -7,8 +7,8 @@ const LodgingsReducer = (state = {}, action) => {
   switch (action.type) {
     case LodgingActions.RECEIVE_LODGINGS:
       console.log('inside lodgings reducer for many', action.lodgings);
-      console.log('current state before merge', state);
-      console.log('after assign', Object.assign({}, state, action.lodgings));
+      // console.log('current state before merge', state);
+      // console.log('after assign', Object.assign({}, state, action.lodgings));
       return Object.assign({}, state, action.lodgings);
       // return merge({}, state, action.lodgings);
       // return action.lodgings;

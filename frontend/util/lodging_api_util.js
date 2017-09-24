@@ -1,16 +1,30 @@
-export const getLodgings = () => (
-  $.ajax({
+export const getLodgings = () => {
+  console.log('inside ajax get all');
+  return $.ajax({
     method: 'GET',
     url: 'api/lodgings'
-  })
-);
+  });
+};
+// export const getLodgings = () => (
+//   $.ajax({
+//     method: 'GET',
+//     url: 'api/lodgings'
+//   })
+// );
 
-export const getLodging = id => (
-  $.ajax({
+export const getLodging = id => {
+  console.log('inside ajax get single');
+  return $.ajax({
     method: 'GET',
     url: `api/lodgings/${id}`
-  })
-);
+  });
+};
+// export const getLodging = id => (
+//   $.ajax({
+//     method: 'GET',
+//     url: `api/lodgings/${id}`
+//   })
+// );
 
 export const postLodging = lodging => {
   console.log('inside post', lodging);

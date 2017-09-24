@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 class LodgingShow extends React.Component {
   constructor(props) {
     super(props);
-    console.log('props inside show constructor', props);
+    console.log('props in show constructor:', props);
   }
 
   componentWillMount() {
@@ -34,8 +34,10 @@ class LodgingShow extends React.Component {
       );
     }
 
+    console.log('lodging issss', lodging);
     if (lodging === undefined) return null;
 
+    console.log('passed loading and undef check in show');
     const { title, street, city, country, owner, room_type, guests,
           bedrooms, beds, bio, bathrooms, check_in, amenities, rate,
           image_url, id } = lodging;

@@ -56,14 +56,16 @@ export const fetchLodging = id => dispatch => {
   errors => dispatch(receiveLodgingErrors(errors.responseJSON)));
 };
 
-export const makeLodging = lodging => dispatch => (
+export const makeLodging = lodging => dispatch => {
+  dispatch(startLoadingSingleLodging());
   LodgingApiUtil.postLodging(lodging)
   .then(createdLodging => dispatch(receiveLodging(createdLodging)),
-  errors => dispatch(receiveLodgingErrors(errors.responseJSON)))
-);
+  errors => dispatch(receiveLodgingErrors(errors.responseJSON)));
+};
 
 export const editLodging = lodging => dispatch => {
   console.log('inside editloging thunk', lodging);
+  dispatch(startLoadingSingleLodging());
   return(
     LodgingApiUtil.patchLodging(lodging)
     .then(editedLodging => dispatch(receiveLodging(editedLodging)),

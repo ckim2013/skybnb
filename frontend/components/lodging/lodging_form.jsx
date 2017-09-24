@@ -34,8 +34,8 @@ class LodgingForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     console.log('before edit submit', this.state);
-    this.props.action(this.state)
-    .then(this.props.history.push(`/lodgings/${this.state.id}`));
+    this.props.action(this.state);
+    // .then(this.props.history.push(`/lodgings/${this.state.id}`));
   }
 
   componentWillReceiveProps(newProps) {
@@ -45,6 +45,9 @@ class LodgingForm extends React.Component {
     console.log('state:ReceiveProps', this.state);
     console.log('newProps:ReceiveProps', newProps);
     console.log('-------------------');
+    if (this.props.lodging !== this.state) {
+      this.props.history.push(`/lodgings/${this.state.id}`);
+    }
     // if (newProps.formType === 'Edit' &&
     //     this.props.match.params.lodgingId !==
     //     newProps.match.params.lodgingId) {
@@ -68,7 +71,6 @@ class LodgingForm extends React.Component {
         newArray.splice(idx, 1);
       }
     }
-    console.log(newArray);
     this.setState({amenities: newArray});
   }
 
