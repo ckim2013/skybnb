@@ -10,7 +10,6 @@ class LodgingIndex extends React.Component {
 
   render() {
     const { lodgings, loading } = this.props;
-
     if (loading) {
       console.log('loading inside index');
       return <div>Loading!</div>;

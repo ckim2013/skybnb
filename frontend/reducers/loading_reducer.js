@@ -4,7 +4,7 @@ import { START_LOADING_ALL_LODGINGS,
 
 const initialState = {
   indexLoading: false,
-  detailLoading: false
+  showLoading: false
 };
 
 const LoadingReducer = (state = initialState, action) => {
@@ -14,9 +14,9 @@ const LoadingReducer = (state = initialState, action) => {
     case RECEIVE_LODGINGS:
       return Object.assign({}, state, { indexLoading: false });
     case START_LOADING_SINGLE_LODGING:
-      return Object.assign({}, state, { detailLoading: true });
+      return Object.assign({}, state, { showLoading: true });
     case RECEIVE_LODGING:
-      return Object.assign({}, state, { detailLoading: false });
+      return Object.assign({}, state, { showLoading: false });
     default:
       return state;
   }

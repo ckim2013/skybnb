@@ -5,14 +5,12 @@ import { Link } from 'react-router-dom';
 class LodgingShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { loading: true };
     console.log('props inside show constructor', props);
   }
 
   componentWillMount() {
     console.log('inside component will mount in show', this.props.match.params.lodgingId);
-    this.props.fetchLodging(this.props.match.params.lodgingId)
-    .then(() => this.setState({ loading: false }));
+    this.props.fetchLodging(this.props.match.params.lodgingId);
   }
 
   componentWillReceiveProps(newProps) {
@@ -26,27 +24,32 @@ class LodgingShow extends React.Component {
   }
 
   render() {
+    const { lodging, loading, loggedIn, currentUser } = this.props;
+
     console.log('inside show render');
-    if (this.state.loading === true) {
+    if (loading) {
       console.log('loading in show');
       return (
         <h2>LOADING</h2>
       );
     }
 
-    let { title, street, city, country, owner, room_type, guests,
+    if (lodging === undefined) return null;
+
+    const { title, street, city, country, owner, room_type, guests,
           bedrooms, beds, bio, bathrooms, check_in, amenities, rate,
-          image_url, id } = this.props.lodging;
+          image_url, id } = lodging;
     console.log('inside lodging show amenities', amenities);
     console.log('inside lodging show title', title);
 
     let editButton = <div></div>;
 
-    if (this.props.loggedIn) {
-      if (this.props.currentUser.id === owner.id) {
+    if (loggedIn) {
+      if (currentUser.id === owner.id) {
         editButton = (
           <div>
-            <Link to={`${id}/edit`} className='edit-button button'>Edit Lodging</Link>
+            <Link to={`${id}/edit`}
+                  className='edit-button button'>Edit Lodging</Link>
           </div>
         );
       }
@@ -55,7 +58,7 @@ class LodgingShow extends React.Component {
     return (
       <div className="lodging-show-container">
         <div className='lodging-image-edit'>
-          <Image publicId={this.props.lodging.image_url} cloudName="skybnb" >
+          <Image publicId={ image_url } cloudName="skybnb" >
             <Transformation width="1680" height="1000" crop="scale" />
           </Image>
           { editButton }

@@ -6,7 +6,8 @@ const mapStateToProps = state => ({
   loggedIn: Boolean(state.ui.session.currentUser),
   errors: state.ui.errors.lodgingErrors,
   lodging: state.entities.lodgings[state.ui.lodgingDisplay],
-  currentUser: state.ui.session.currentUser
+  currentUser: state.ui.session.currentUser,
+  loading: state.ui.loading.showLoading
 });
 
 const mapDispatchToProps = dispatch => ({
