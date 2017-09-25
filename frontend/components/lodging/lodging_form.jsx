@@ -83,6 +83,7 @@ class LodgingForm extends React.Component {
   // }
 
   componentWillReceiveProps(newProps) {
+    // REVISIT
     console.log('old props', this.props);
     console.log('new props', newProps);
 
