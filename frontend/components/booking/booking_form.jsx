@@ -8,12 +8,19 @@ class BookingForm extends React.Component {
   constructor(props) {
     super(props);
     console.log('form construc props', props);
-    this.state = { start_date: '', end_date: '', lodging_id: this.props.match.params.lodgingId};
+    this.state = { start_date: '',
+                   end_date: '',
+                   lodging_id: this.props.match.params.lodgingId,
+                   success_message: []};
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
     this.forceUpdate();
+    this.state = { start_date: '',
+                   end_date: '',
+                   lodging_id: newProps.match.params.lodgingId,
+                   success_message: []};
   }
 
   update(field) {
@@ -31,7 +38,16 @@ class BookingForm extends React.Component {
     e.preventDefault();
     console.log('before submit', this.state);
     this.props.makeBooking(this.state)
-    .then((response) => console.log('response is', response));
+    .then(response => {
+      console.log(response.booking);
+      this.setState(
+        { start_date: '',
+          end_date: '',
+          success_message: response.booking
+        }
+      );
+    }
+  );
   }
 
   render() {
@@ -47,6 +63,12 @@ class BookingForm extends React.Component {
       <div className='booking-form-container'>
         <div>
           <h2>Starting from ${this.props.rate}</h2>
+        </div>
+        <div>
+          <ul>
+            {this.props.errors.map((error, i) => <li key={i}>{error}</li>)}
+          </ul>
+          {this.state.success_message}
         </div>
         <form onSubmit={this.handleSubmit}>
           <div>

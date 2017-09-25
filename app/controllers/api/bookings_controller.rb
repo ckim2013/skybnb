@@ -20,7 +20,7 @@ class Api::BookingsController < ApplicationController
     lodging = Lodging.find_by(id: @booking.lodging_id)
     byebug
     if @booking.save
-      render :show
+      render json: ['Booking was successful!']
     else
       render json: @booking.errors.full_messages, status: :unprocessable_entity
     end
