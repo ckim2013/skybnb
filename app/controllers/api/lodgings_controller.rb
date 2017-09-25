@@ -15,7 +15,6 @@ class Api::LodgingsController < ApplicationController
   end
 
   def create
-    byebug
     @lodging = current_user.lodgings.new(lodging_params)
     if @lodging.save
       render :show
