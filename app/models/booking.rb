@@ -12,15 +12,22 @@
 #
 
 class Booking < ApplicationRecord
-  validates :start_date, :end_date, :lodging_id, :booker_id, presence: true
-
-  belongs_to :lodging,
-             primary_key: :id,
-             foreign_key: :lodging_id,
-             class_name: :Lodging
-
-  belongs_to :booker,
-             primary_key: :id,
-             foreign_key: :booker_id,
-             class_name: :User
+  # validates :start_date, :end_date, :lodging_id, :booker_id, presence: true
+  # validate :start_date_after_end_date
+  #
+  # belongs_to :lodging,
+  #            primary_key: :id,
+  #            foreign_key: :lodging_id,
+  #            class_name: :Lodging
+  #
+  # belongs_to :booker,
+  #            primary_key: :id,
+  #            foreign_key: :booker_id,
+  #            class_name: :User
+  #
+  # def start_date_after_end_date
+  #   unless (self.start_date <=> self.end_date) == -1
+  #     errors[:base] << 'Start date must be after end date'
+  #   end
+  # end
 end
