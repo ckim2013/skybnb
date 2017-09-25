@@ -5,5 +5,5 @@ json.extract! @lodging, :id, :title, :street, :city, :country, :image_url,
               :check_in, :amenities, :bio
 
 json.owner do
-  json.extract! owner, :first_name, :last_name, :image_url, :id
+  json.extract! owner, :first_name, :image_url, :id
 end

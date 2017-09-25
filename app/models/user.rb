@@ -15,7 +15,8 @@
 #
 
 class User < ApplicationRecord
-  validates :first_name, :last_name, :email, :password_digest, :session_token, presence: true
+  validates :first_name, :last_name, :email, :password_digest,
+            :session_token, presence: true
   validates :email, uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 6 }, allow_nil: true
   attr_reader :password
@@ -24,12 +25,14 @@ class User < ApplicationRecord
   has_many :lodgings,
            primary_key: :id,
            foreign_key: :owner_id,
-           class_name: :Lodging
+           class_name: :Lodging,
+           dependent: :destroy
 
   has_many :bookings,
            primary_key: :id,
            foreign_key: :booker_id,
-           class_name: :Booking
+           class_name: :Booking,
+           dependent: :destroy
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)

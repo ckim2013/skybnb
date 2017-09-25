@@ -41,19 +41,17 @@ class LodgingShow extends React.Component {
           bedrooms, beds, bio, bathrooms, check_in, amenities, rate,
           image_url, id } = lodging;
 
-    let loggedInButtons = <div></div>;
+    let loggedInButtons = null;
 
-    if (loggedIn) {
-      if (currentUser.id === owner.id) {
-        loggedInButtons = (
-          <div className='logged-in-buttons-container'>
-            <Link to={`${id}/edit`}
-                  className='edit-button button'>Edit Lodging</Link>
-            <button className='delete-button button'
-                    onClick={this.handleDelete}>Delete</button>
-          </div>
-        );
-      }
+    if (loggedIn && currentUser.id === owner.id) {
+      loggedInButtons = (
+        <div className='logged-in-buttons-container'>
+          <Link to={`${id}/edit`}
+                className='edit-button button'>Edit Lodging</Link>
+          <button className='delete-button button'
+                  onClick={this.handleDelete}>Delete</button>
+        </div>
+      );
     }
 
     return (

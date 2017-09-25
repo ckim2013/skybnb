@@ -5,5 +5,6 @@ Rails.application.routes.draw do
     resources :users, only: %i{create update show}
     resource :session, only: %i{create destroy}
     resources :lodgings, only: %i{index create show update destroy}
+    resources :bookings, only: %i{index create show destroy}
   end
 end

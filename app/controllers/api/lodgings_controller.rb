@@ -6,9 +6,10 @@ class Api::LodgingsController < ApplicationController
     #             else
     #               Lodging.all
     #             end
-    @lodgings = Lodging.all.includes(:owner)
+    @lodgings = Lodging.all
     if @lodgings.empty?
-      render json: ['There are no lodgings at all!'], status: :unprocessable_entity
+      render json: ['There are no lodgings at all!'],
+             status: :unprocessable_entity
     else
       render :index
     end
@@ -35,10 +36,15 @@ class Api::LodgingsController < ApplicationController
 
   def update
     @lodging = current_user.lodgings.find_by(id: params[:id])
-    if @lodging.update_attributes(lodging_params)
-      render :show
+    if @lodging
+      if @lodging.update_attributes(lodging_params)
+        render :show
+      else
+        render json: @lodging.errors.full_messages,
+               status: :unprocessable_entity
+      end
     else
-      render json: @lodging.errors.full_messages, status: :unprocessable_entity
+      render json: ['You are not allowed to edit this post!']
     end
   end
 

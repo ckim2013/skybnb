@@ -43,7 +43,8 @@ class Lodging < ApplicationRecord
   has_many :bookings,
            primary_key: :id,
            foreign_key: :lodging_id,
-           class_name: :Booking
+           class_name: :Booking,
+           dependent: :destroy
 
   def ensure_default_image
     self.image_url ||= 'download_lrthtv.jpg'
