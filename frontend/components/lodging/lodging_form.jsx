@@ -1,5 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Image, Transformation } from 'cloudinary-react';
+import Dropzone from 'react-dropzone';
+import request from 'superagent';
+
+const CLOUDINARY_UPLOAD_PRESET = 'aqzdi9yx';
+const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/skybnb/upload';
+
 
 class LodgingForm extends React.Component {
   constructor(props) {
@@ -7,6 +14,8 @@ class LodgingForm extends React.Component {
     this.state = this.props.lodging;
     this.handleCheckbox = this.handleCheckbox.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.onImageDrop = this.onImageDrop.bind(this);
+    this.handleImageUpload = this.handleImageUpload.bind(this);
   }
 
   componentWillMount() {
@@ -21,11 +30,38 @@ class LodgingForm extends React.Component {
   }
 
   handleSubmit(e) {
+    console.log('before submit,', this.state);
     e.preventDefault();
     this.props.action(this.state)
     .then((resp) => this.props.history.push(`/lodgings/${resp.lodging.id}`));
   }
-  // 
+
+  onImageDrop(files) {
+    this.setState({
+      uploadedFile: files[0]
+    });
+    this.handleImageUpload(files[0]);
+  }
+
+  handleImageUpload(file) {
+    let upload = request.post(CLOUDINARY_UPLOAD_URL)
+                        .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
+                        .field('file', file);
+
+    upload.end((error, response) => {
+      if (error) {
+        console.error(error);
+      }
+
+      if (response.body.secure_url !== '') {
+        this.setState({
+          image_url: response.body.secure_url,
+          uploadedFile: null
+        });
+      }
+    });
+  }
+  //
   // componentWillReceiveProps(newProps) {
   //   console.log('props inside receiveprops', this.props);
   //   console.log('newProps inside receiveprops', newProps);
@@ -93,7 +129,29 @@ class LodgingForm extends React.Component {
           { this.props.errors.map((error, i) => <li key={ i }>{ error }</li>)}
         </ul>
 
+
         <form className='lodging-form' onSubmit={ this.handleSubmit }>
+          <h2>Upload an image</h2>
+          <div>
+            <div>
+              {this.state.image_url === '' ? null :
+                <div className='lodging-form-image-container'>
+                  <p>{ this.state.image_url }</p>
+                  <Image publicId={ this.state.image_url }
+                    cloudName='skybnb'>
+                    <Transformation width='800' height='600' crop='scale' />
+                  </Image>
+                </div>
+              }
+            </div>
+            <Dropzone multiple={ false }
+              accept='image/*'
+              onDrop={ this.onImageDrop }
+              className='lodging-image-dropbox'>
+              <p>Drop an image or click to select a file to upload</p>
+            </Dropzone>
+          </div>
+
           <h2>Introductions</h2>
           <div className='lodging-form-title'>
             <div>

@@ -70,8 +70,9 @@ export const editLodging = lodging => dispatch => {
   errors => dispatch(receiveLodgingErrors(errors.responseJSON)));
 };
 
-export const destroyLodging = id => dispatch => (
-  LodgingApiUtil.deleteLodging(id)
+export const destroyLodging = id => dispatch => {
+  // dispatch(startLoadingAllLodgings());
+  return LodgingApiUtil.deleteLodging(id)
   .then(destroyedLodging => dispatch(deleteLodging(destroyedLodging)),
-  errors => dispatch(receiveLodgingErrors(errors.responseJSON)))
-);
+  errors => dispatch(receiveLodgingErrors(errors.responseJSON)));
+};

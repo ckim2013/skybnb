@@ -11,15 +11,19 @@ class LodgingIndex extends React.Component {
 
   render() {
     const { lodgings, loading } = this.props;
+
     if (loading) {
       return <div>Loading!</div>;
     }
+
+    // Necessary?
+    if (!lodgings) return null;
 
     return (
       <div className='main'>
         <h2 className='lodging-index-header'>{LODGING_INDEX_GREETING}</h2>
         <div className='lodging-index'>
-          {this.props.lodgings.map(lodging =>
+          {lodgings.map(lodging =>
             <LodgingIndexItem key={lodging.id} lodging={lodging} />)}
         </div>
       </div>

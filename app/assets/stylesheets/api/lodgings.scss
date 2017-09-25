@@ -35,6 +35,11 @@
   padding-bottom: 50px;
   width: 350px;
 
+  img {
+    width: 100%;
+    height: auto;
+  }
+
   ul {
     display: flex;
     flex-wrap: wrap;
@@ -195,4 +200,26 @@
 
 .delete-button {
   margin-top: 10px;
+}
+
+.lodging-image-dropbox {
+  width: 60%;
+  height: 200px;
+  border-width: 2px;
+  border-color: rgb(102, 102, 102);
+  border-style: dashed;
+  border-radius: 5px;
+  margin-bottom: 40px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    padding-top: 50px;
+  }
+}
+
+.lodging-image-container {
+  height: 550px;
 }

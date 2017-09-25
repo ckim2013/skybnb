@@ -13,6 +13,8 @@ class LodgingShow extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
+    console.log('props', this.props);
+    console.log('newProps', newProps);
     if (this.props.match.params.lodgingId !==
         newProps.match.params.lodgingId) {
           this.props.fetchLodging(newProps.match.params.lodgingId);
@@ -33,7 +35,7 @@ class LodgingShow extends React.Component {
       );
     }
 
-    if (lodging === undefined) return null;
+    if (!lodging) return null;
 
     const { title, street, city, country, owner, room_type, guests,
           bedrooms, beds, bio, bathrooms, check_in, amenities, rate,
@@ -56,12 +58,12 @@ class LodgingShow extends React.Component {
 
     return (
       <div className="lodging-show-container">
-        <div className='lodging-image-edit'>
+        <div className='lodging-image-container'>
           <Image publicId={ image_url } cloudName="skybnb" >
             <Transformation width="1680" height="1000" crop="scale" />
           </Image>
-          { loggedInButtons }
         </div>
+        { loggedInButtons }
         <div className='lodging-profile-container'>
 
           <div className='lodging-profile'>
