@@ -18,11 +18,14 @@ class Api::BookingsController < ApplicationController
   def create
     @booking = current_user.bookings.new(booking_params)
     lodging = Lodging.find_by(id: @booking.lodging_id)
-    byebug
-    if @booking.save
-      render json: ['Booking was successful!']
+    if @booking.booker_id == lodging.owner_id
+      render json: ['Cannot book your own place!']
     else
-      render json: @booking.errors.full_messages, status: :unprocessable_entity
+      if @booking.save
+        render json: ['Booking was successful!']
+      else
+        render json: @booking.errors.full_messages, status: :unprocessable_entity
+      end
     end
   end
 

@@ -75,15 +75,16 @@ class BookingForm extends React.Component {
             <label>Start Date</label>
             <input type='date'
               placeholder='Start Date'
+              value={this.state.start_date}
               onChange={this.update('start_date')}/>
           </div>
           <div>
             <label>End Date</label>
             <input type='date'
               placeholder='End Date'
+              value={this.state.end_date}
               onChange={this.update('end_date')}/>
           </div>
-
           <input className='button'
                  type='submit'
                  value='Submit'/>
