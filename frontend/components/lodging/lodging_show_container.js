@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import LodgingShow from './lodging_show';
-import { fetchLodging } from '../../actions/lodging_actions';
+import { fetchLodging, destroyLodging } from '../../actions/lodging_actions';
 
 const mapStateToProps = state => ({
   loggedIn: Boolean(state.ui.session.currentUser),
@@ -11,7 +11,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchLodging: id => dispatch(fetchLodging(id))
+  fetchLodging: id => dispatch(fetchLodging(id)),
+  destroyLodging: id => dispatch(destroyLodging(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LodgingShow);

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 class LodgingShow extends React.Component {
   constructor(props) {
     super(props);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentWillMount() {
@@ -16,6 +17,11 @@ class LodgingShow extends React.Component {
         newProps.match.params.lodgingId) {
           this.props.fetchLodging(newProps.match.params.lodgingId);
         }
+  }
+
+  handleDelete(e) {
+    this.props.destroyLodging(this.props.match.params.lodgingId)
+    .then(() => this.props.history.push('/'));
   }
 
   render() {
@@ -41,7 +47,8 @@ class LodgingShow extends React.Component {
           <div className='logged-in-buttons-container'>
             <Link to={`${id}/edit`}
                   className='edit-button button'>Edit Lodging</Link>
-                <button className='delete-button button'>CLICK ME</button>
+            <button className='delete-button button'
+                    onClick={this.handleDelete}>Delete</button>
           </div>
         );
       }
