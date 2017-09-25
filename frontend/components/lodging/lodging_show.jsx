@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image, Transformation } from 'cloudinary-react';
 import { Link } from 'react-router-dom';
+import BookingFormContainer from '../booking/booking_form_container';
 
 class LodgingShow extends React.Component {
   constructor(props) {
@@ -35,7 +36,7 @@ class LodgingShow extends React.Component {
       );
     }
 
-    if (!lodging) return null;
+    if (!lodging) return <div></div>;
 
     const { title, street, city, country, owner, room_type, guests,
           bedrooms, beds, bio, bathrooms, check_in, amenities, rate,
@@ -154,6 +155,9 @@ class LodgingShow extends React.Component {
             <div className='lodging-profile-reviews'>
               <h2>Reviews</h2>
             </div>
+          </div>
+          <div>
+            <BookingFormContainer rate={ rate }/>
           </div>
         </div>
       </div>

@@ -17,7 +17,6 @@ class LodgingIndex extends React.Component {
     }
 
     // Necessary?
-    if (!lodgings) return null;
 
     return (
       <div className='main'>

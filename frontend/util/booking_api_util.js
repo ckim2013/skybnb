@@ -5,12 +5,13 @@ export const getBookings = () => (
   })
 );
 
-export const getBooking = id => (
-  $.ajax({
-    method: 'GET',
-    url: `api/bookings/${id}`
-  })
-);
+// Might not need a getBooking
+// export const getBooking = id => (
+//   $.ajax({
+//     method: 'GET',
+//     url: `api/bookings/${id}`
+//   })
+// );
 
 export const postBooking = booking => (
   $.ajax({
