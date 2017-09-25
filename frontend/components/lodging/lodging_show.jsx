@@ -33,14 +33,15 @@ class LodgingShow extends React.Component {
           bedrooms, beds, bio, bathrooms, check_in, amenities, rate,
           image_url, id } = lodging;
 
-    let editButton = <div></div>;
+    let loggedInButtons = <div></div>;
 
     if (loggedIn) {
       if (currentUser.id === owner.id) {
-        editButton = (
-          <div>
+        loggedInButtons = (
+          <div className='logged-in-buttons-container'>
             <Link to={`${id}/edit`}
                   className='edit-button button'>Edit Lodging</Link>
+                <button className='delete-button button'>CLICK ME</button>
           </div>
         );
       }
@@ -52,7 +53,7 @@ class LodgingShow extends React.Component {
           <Image publicId={ image_url } cloudName="skybnb" >
             <Transformation width="1680" height="1000" crop="scale" />
           </Image>
-          { editButton }
+          { loggedInButtons }
         </div>
         <div className='lodging-profile-container'>
 

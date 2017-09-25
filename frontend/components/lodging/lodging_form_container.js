@@ -27,6 +27,8 @@ const mapStateToProps = (state, ownProps) => {
     };
   } else {
     formType = 'Edit';
+    console.log(ownProps.match.params.lodgingId);
+    console.log(state.entities.lodgings);
     lodging = state.entities.lodgings[ownProps.match.params.lodgingId];
   }
   return ({

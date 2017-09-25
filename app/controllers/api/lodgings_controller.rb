@@ -24,7 +24,7 @@ class Api::LodgingsController < ApplicationController
   end
 
   def show
-    @lodging = Lodging.find_by(id: params[:id])
+    @lodging = Lodging.includes(:owner).where(id: params[:id]).first
     if @lodging
       render :show
     else

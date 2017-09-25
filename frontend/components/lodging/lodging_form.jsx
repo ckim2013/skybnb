@@ -17,8 +17,7 @@ class LodgingForm extends React.Component {
   }
 
   componentWillUnmount() {
-  //   console.log('inside component will UNMOUNT for form');
-  //   this.props.clearErrors();
+    console.log('inside component will UNMOUNT for form');
   }
 
   handleSubmit(e) {
@@ -26,18 +25,26 @@ class LodgingForm extends React.Component {
     this.props.action(this.state)
     .then((resp) => this.props.history.push(`/lodgings/${resp.lodging.id}`));
   }
-
-  componentWillReceiveProps(newProps) {
-    // console.log('props inside receiveprops', this.props);
-    // console.log('newProps inside receiveprops', newProps);
-    // if (this.props.lodging !== this.state) {
-    //   console.log('lodging does not equal this.state');
-    //
-    //   if (newProps.errors.length < 1) {
-    //     this.props.history.push(`/lodgings/${this.state.id}`);
-    //   }
-    // }
-  }
+  // 
+  // componentWillReceiveProps(newProps) {
+  //   console.log('props inside receiveprops', this.props);
+  //   console.log('newProps inside receiveprops', newProps);
+  //   console.log('currentuser id ', newProps.currentUser.id);
+  //   console.log('lodging owner id ', newProps.lodging.owner_id);
+  //   if (newProps.currentUser.id !== newProps.lodging.owner_id) {
+  //     console.log('not the right user to edit!');
+  //     // this.props.history.push('/lodgings');
+  //   }
+  //   // console.log('props inside receiveprops', this.props);
+  //   // console.log('newProps inside receiveprops', newProps);
+  //   // if (this.props.lodging !== this.state) {
+  //   //   console.log('lodging does not equal this.state');
+  //   //
+  //   //   if (newProps.errors.length < 1) {
+  //   //     this.props.history.push(`/lodgings/${this.state.id}`);
+  //   //   }
+  //   // }
+  // }
 
   handleCheckbox(e) {
     const newArray = this.state.amenities.slice();

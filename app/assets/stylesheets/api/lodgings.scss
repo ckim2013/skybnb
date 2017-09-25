@@ -183,7 +183,16 @@
   }
 }
 
-.edit-button {
+.logged-in-buttons-container {
+  display: flex;
+  flex-direction: column;
   position: fixed;
-  z-index: 10000;
+  z-index: 99999;
+}
+
+.edit-button {
+}
+
+.delete-button {
+  margin-top: 10px;
 }
