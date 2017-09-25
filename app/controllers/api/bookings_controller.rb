@@ -1,7 +1,7 @@
 class Api::BookingsController < ApplicationController
 
   def index
-    @bookings = Booking.all.includes(:booker, :lodging)
+    @bookings = Booking.all.includes(:lodging)
     if @bookings.empty?
       render json: ['There are no bookings']
     else
@@ -19,7 +19,7 @@ class Api::BookingsController < ApplicationController
   end
 
   def show
-    @booking = Booking.includes(:booker, :lodging).where(id: params[:id]).first
+    @booking = Booking.includes(:lodging).where(id: params[:id]).first
     if @booking
       render :show
     else
