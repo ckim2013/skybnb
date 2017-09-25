@@ -48,7 +48,7 @@ class LodgingShow extends React.Component {
       loggedInButtons = (
         <div className='logged-in-buttons-container'>
           <Link to={`${id}/edit`}
-                className='edit-button button'>Edit Lodging</Link>
+                className='edit-button button'>Edit</Link>
           <button className='delete-button button'
                   onClick={this.handleDelete}>Delete</button>
         </div>

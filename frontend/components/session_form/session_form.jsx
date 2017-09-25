@@ -163,7 +163,7 @@ class SessionForm extends React.Component {
             className='button'>Log In</button>
           <button
             onClick={ this.handleGuestLogin }
-            className='button'>Guest Login</button>
+            className='button'>Guest</button>
         </div>
 
         <ReactModal

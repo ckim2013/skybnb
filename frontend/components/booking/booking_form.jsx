@@ -62,6 +62,9 @@ class BookingForm extends React.Component {
     return (
       <div className='booking-form-container'>
         <div>
+          <h1>Book this place!</h1>
+        </div>
+        <div>
           <h2>Starting from ${this.props.rate}</h2>
         </div>
         <div>
@@ -71,19 +74,23 @@ class BookingForm extends React.Component {
           {this.state.success_message}
         </div>
         <form onSubmit={this.handleSubmit}>
-          <div>
+          <div className='start-date-container'>
+
             <label>Start Date</label>
             <input type='date'
               placeholder='Start Date'
               value={this.state.start_date}
               onChange={this.update('start_date')}/>
+
           </div>
-          <div>
+          <div className='end-date-container'>
+
             <label>End Date</label>
             <input type='date'
               placeholder='End Date'
               value={this.state.end_date}
               onChange={this.update('end_date')}/>
+
           </div>
           <input className='button'
                  type='submit'
