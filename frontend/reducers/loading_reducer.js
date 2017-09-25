@@ -1,6 +1,4 @@
-import { START_LOADING_ALL_LODGINGS,
-         RECEIVE_LODGINGS, START_LOADING_SINGLE_LODGING,
-         RECEIVE_LODGING } from '../actions/lodging_actions';
+import * as LodgingActions from '../actions/lodging_actions';
 
 const initialState = {
   indexLoading: false,
@@ -9,13 +7,13 @@ const initialState = {
 
 const LoadingReducer = (state = initialState, action) => {
   switch (action.type) {
-    case START_LOADING_ALL_LODGINGS:
+    case LodgingActions.START_LOADING_ALL_LODGINGS:
       return Object.assign({}, state, { indexLoading: true });
-    case RECEIVE_LODGINGS:
+    case LodgingActions.RECEIVE_LODGINGS:
       return Object.assign({}, state, { indexLoading: false });
-    case START_LOADING_SINGLE_LODGING:
+    case LodgingActions.START_LOADING_SINGLE_LODGING:
       return Object.assign({}, state, { showLoading: true });
-    case RECEIVE_LODGING:
+    case LodgingActions.RECEIVE_LODGING:
       return Object.assign({}, state, { showLoading: false });
     default:
       return state;
