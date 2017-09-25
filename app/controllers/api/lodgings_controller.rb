@@ -24,7 +24,7 @@ class Api::LodgingsController < ApplicationController
   end
 
   def show
-    @lodging = Lodging.includes(:owner).where(id: params[:id]).first
+    @lodging = current_user.lodgings.includes(:owner).where(id: params[:id]).first
     if @lodging
       render :show
     else
@@ -34,7 +34,7 @@ class Api::LodgingsController < ApplicationController
   end
 
   def update
-    @lodging = Lodging.find_by(id: params[:id])
+    @lodging = current_user.lodgings.find_by(id: params[:id])
     if @lodging.update_attributes(lodging_params)
       render :show
     else

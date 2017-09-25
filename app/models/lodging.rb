@@ -40,6 +40,11 @@ class Lodging < ApplicationRecord
              foreign_key: :owner_id,
              class_name: :User
 
+  has_many :bookings,
+           primary_key: :id,
+           foreign_key: :lodging_id,
+           class_name: :Booking
+
   def ensure_default_image
     self.image_url ||= 'download_lrthtv.jpg'
   end

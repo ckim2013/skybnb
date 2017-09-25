@@ -84,6 +84,8 @@ class LodgingForm extends React.Component {
 
   componentWillReceiveProps(newProps) {
     // REVISIT
+    // It's not rendering all of the correct information when
+    // you move to a new edit page via url
     console.log('old props', this.props);
     console.log('new props', newProps);
 
