@@ -82,6 +82,20 @@ class LodgingForm extends React.Component {
   //   // }
   // }
 
+  componentWillReceiveProps(newProps) {
+    console.log('old props', this.props);
+    console.log('new props', newProps);
+
+    if (newProps.formType === 'Edit') {
+      if (this.props.match.params.lodgingId !==
+          newProps.match.params.lodgingId) {
+            console.log('should work.');
+            this.props.fetchLodging(newProps.match.params.lodgingId)
+            .then((resp) => this.setState(resp.lodging));
+          }
+    }
+  }
+
   handleCheckbox(e) {
     const newArray = this.state.amenities.slice();
     const value = e.target.value;
