@@ -4,10 +4,10 @@ import { Image, Transformation } from 'cloudinary-react';
 
 const BookingIndexItem = ({ booking, destroyBooking }) => {
   const { duration_of_stay, start_date, end_date, lodging,
-          total_cost } = booking;
+          total_cost, id } = booking;
 
   const { title, street, city, country, guests, beds,
-          image_url, rate, id } = lodging;
+          image_url, rate} = lodging;
 
 
   return (
@@ -24,6 +24,9 @@ const BookingIndexItem = ({ booking, destroyBooking }) => {
         <li>From { start_date } to { end_date }</li>
         <li>{ duration_of_stay } days of adventure!</li>
         <li>${ rate } x { duration_of_stay } = ${ total_cost } due</li>
+        <li>
+          <button onClick={() => destroyBooking(id)} className='button'>Delete</button>
+        </li>
       </ul>
     </div>
   );

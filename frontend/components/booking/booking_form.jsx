@@ -45,7 +45,7 @@ class BookingForm extends React.Component {
 
   render() {
 
-    console.log('form render', this.state);
+    console.log('form render', this.props);
     if (!this.props.loggedIn) {
       return (
         <div>Denied</div>
