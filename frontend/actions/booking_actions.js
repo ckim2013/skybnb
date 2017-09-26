@@ -50,7 +50,6 @@ export const fetchAllBookings = () => dispatch => {
 // };
 
 export const makeBooking = booking => dispatch => {
-  dispatch(startLoadingAllBookings());
   return BookingApiUtil.postBooking(booking)
   .then(createdBooking => dispatch(receiveSingleBooking(createdBooking)),
   errors => dispatch(receiveBookingErrors(errors.responseJSON)));

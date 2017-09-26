@@ -1,20 +1,26 @@
 import React from 'react';
-import BookingIndexItem from './booking_index';
+import BookingIndexItem from './booking_index_item';
 
 class BookingIndex extends React.Component {
   componentWillMount() {
-    console.log('willmount', this.props);
     this.props.fetchAllBookings();
   }
 
   render() {
-    const { bookings } = this.props;
+    if (loading) return <div></div>;
+
+    const { bookings , loading, destroyBooking, errors } = this.props;
+
     return (
-      <ul>
-        {bookings.map(booking =>
-          <BookingIndexItem key={ booking.id }
-                            booking={ booking }/>)}
-      </ul>
+      <div className='booking-index'>
+        <h1>Your future trips</h1>
+        <div className='booking-index-item-container'>
+          {bookings.map(booking =>
+            <BookingIndexItem key={ booking.id }
+              booking={ booking }
+              destroyBooking={ destroyBooking }/>)}
+        </div>
+      </div>
     );
   }
 }

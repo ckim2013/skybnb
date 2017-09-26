@@ -20,7 +20,7 @@ const LoadingReducer = (state = initialState, action) => {
     case START_LOADING_ALL_BOOKINGS:
       return Object.assign({}, state, { indexLoading: true });
     case RECEIVE_ALL_BOOKINGS:
-      return Object.assign({}, state, { indexLoading: true });
+      return Object.assign({}, state, { indexLoading: false });
     default:
       return state;
   }

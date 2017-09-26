@@ -2,11 +2,7 @@ class Api::BookingsController < ApplicationController
 
   def index
     @bookings = current_user.bookings.includes(:lodging)
-    if @bookings.empty?
-      render json: ['There are no bookings']
-    else
-      render :index
-    end
+    render :index
     # @bookings = Booking.all.includes(:lodging)
     # if @bookings.empty?
     #   render json: ['There are no bookings']

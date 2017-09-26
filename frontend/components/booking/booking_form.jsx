@@ -3,7 +3,6 @@ import React from 'react';
 class BookingForm extends React.Component {
   constructor(props) {
     super(props);
-    console.log('form construc props', props);
     this.state = { start_date: '',
                    end_date: '',
                    lodging_id: this.props.match.params.lodgingId,

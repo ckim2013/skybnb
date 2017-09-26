@@ -6,7 +6,7 @@ const BookingsReducer = (state = {}, action) => {
   let newState = merge({}, state);
   switch (action.type) {
     case BookingActions.RECEIVE_ALL_BOOKINGS:
-      return Object.assign({}, state, action.bookings);
+      return action.bookings;
     case BookingActions.RECEIVE_SINGLE_BOOKING:
       return Object.assign({}, state, {[action.booking.id]: action.booking});
     case BookingActions.DELETE_BOOKING:
