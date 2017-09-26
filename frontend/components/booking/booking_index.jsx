@@ -1,19 +1,20 @@
 import React from 'react';
+import BookingIndexItem from './booking_index';
 
 class BookingIndex extends React.Component {
-  constructor(props) {
-    super(props);
-    console.log(props);
-  }
-
   componentWillMount() {
+    console.log('willmount', this.props);
     this.props.fetchAllBookings();
   }
 
   render() {
-    console.log('INSIDE RENDER', this.props);
+    const { bookings } = this.props;
     return (
-      <div>NOOB</div>
+      <ul>
+        {bookings.map(booking =>
+          <BookingIndexItem key={ booking.id }
+                            booking={ booking }/>)}
+      </ul>
     );
   }
 }
