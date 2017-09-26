@@ -4,7 +4,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import LodgingIndexContainer from './lodging/lodging_index_container';
 import LodgingShowContainer from './lodging/lodging_show_container';
 import LodgingFormContainer from './lodging/lodging_form_container';
-import BookingIndexContainer from './booking/booking_form_container';
+import BookingIndexContainer from './booking/booking_index_container';
 import { ProtectedRoute } from '../util/route_util';
 
 const App = () => (

@@ -108,7 +108,7 @@ class SessionForm extends React.Component {
     if (this.props.loggedIn) {
       return (
         <div className='right-nav'>
-          <h2>Aloha { this.props.currentUser.first_name }!</h2>
+          <h3>Aloha { this.props.currentUser.first_name }!</h3>
           <Link to={`/users/${this.props.currentUser.id}`}>
             <Image publicId={ this.props.currentUser.image_url } cloudName="skybnb">
               <Transformation height="40" width="40" crop="thumb" />
@@ -116,6 +116,9 @@ class SessionForm extends React.Component {
           </Link>
           <Link className='button' to={'/lodgings'}>
             Build
+          </Link>
+          <Link className='button' to={'/bookings'}>
+            Bookings
           </Link>
           <button
             onClick={ this.handleClick }

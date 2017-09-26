@@ -1,8 +1,4 @@
 import React from 'react';
-import DatePicker from 'react-datepicker';
-import moment from 'moment';
-// import 'react-datepicker/dist/react-datepicker-cssmodules.css' from 'react-datepicker'
-// import 'react-datepicker/dist/react-datepicker.css';
 
 class BookingForm extends React.Component {
   constructor(props) {
@@ -38,12 +34,11 @@ class BookingForm extends React.Component {
     e.preventDefault();
     console.log('before submit', this.state);
     this.props.makeBooking(this.state)
-    .then(response => {
-      console.log(response.booking);
+    .then(() => {
       this.setState(
         { start_date: '',
           end_date: '',
-          success_message: response.booking
+          success_message: ['You successfully made a booking!']
         }
       );
     }
