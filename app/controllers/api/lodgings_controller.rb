@@ -1,11 +1,5 @@
 class Api::LodgingsController < ApplicationController
   def index
-    # @lodgings = if params[:filter]
-    #               field = params[:filter]
-    #               Lodging.where(field: field)
-    #             else
-    #               Lodging.all
-    #             end
     @lodgings = Lodging.all
     if @lodgings.empty?
       render json: ['There are no lodgings at all!'],
@@ -52,6 +46,12 @@ class Api::LodgingsController < ApplicationController
     @lodging = Lodging.find_by(id: params[:id])
     @lodging.destroy
     render :show
+  end
+
+  def lodgingssearch
+    @lodgings_by_street = Lodging
+      .where("LOWER(street) LIKE ?", "%#{params[:query]}%".downcase)
+    render json: @lodgings_by_street
   end
 
   private

@@ -1,6 +1,7 @@
 export const getLodgingsSearch = query => (
   $.ajax({
     method: 'GET',
-    url: 'api/lodgingssearch'
+    url: 'api/lodgingssearch',
+    data: { query }
   })
 );

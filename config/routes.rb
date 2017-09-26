@@ -6,5 +6,7 @@ Rails.application.routes.draw do
     resource :session, only: %i{create destroy}
     resources :lodgings, only: %i{index create show update destroy}
     resources :bookings, only: %i{index create show destroy}
+
+    get '/lodgingssearch', to: 'lodgings#lodgingssearch'
   end
 end
