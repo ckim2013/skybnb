@@ -11,11 +11,10 @@ class BookingForm extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    this.forceUpdate();
-    this.state = { start_date: '',
+    this.setState({ start_date: '',
                    end_date: '',
                    lodging_id: newProps.match.params.lodgingId,
-                   success_message: []};
+                   success_message: []});
   }
 
   update(field) {
@@ -46,7 +45,7 @@ class BookingForm extends React.Component {
 
   render() {
 
-    console.log(this.state);
+    console.log('form render', this.state);
     if (!this.props.loggedIn) {
       return (
         <div>Denied</div>
