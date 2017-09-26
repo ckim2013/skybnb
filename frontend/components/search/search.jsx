@@ -9,9 +9,10 @@ const Search = (props) => {
                     loading={ props.loading }
                     fetchLodgings={ props.fetchLodgings }
                     loading={ props.loading }/>
-                  <LodgingMap lodgings={ props.lodgings }/>
     </div>
   );
 };
 
 export default Search;
+
+// <LodgingMap lodgings={ props.lodgings }/>

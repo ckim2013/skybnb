@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from './navbar/navbar';
+import NavBarContainer from './navbar/navbar_container';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import LodgingIndexContainer from './lodging/lodging_index_container';
 import LodgingShowContainer from './lodging/lodging_show_container';
@@ -11,7 +11,7 @@ import SearchContainer from './search/search_container';
 
 const App = () => (
   <div>
-    <NavBar />
+    <NavBarContainer />
     <Switch>
       <Route exact path='/lodgings/:lodgingId' component={ LodgingShowContainer } />
       <ProtectedRoute component={ LodgingFormContainer } path='/lodgings/:lodgingId/edit' />

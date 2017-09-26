@@ -1,17 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import MarkerManager from '../../util/marker_manager';
 
 class LodgingMap extends React.Component {
   constructor(props) {
     super(props);
   }
 
+  componentWillReceiveProps(newProps) {
+    console.log('old props', this.props);
+    console.log('new props', newProps);
+    this.MarkerManager.updateMarkers(this.props.lodgings);
+  }
+
   componentDidMount() {
+    console.log('map mounted');
     const mapOptions = {
       center: { lat: 37.7758, lng: -122.435 }, // this is SF
       zoom: 13
     };
     this.map = new google.maps.Map(this.mapNode, mapOptions);
+    this.MarkerManager = new MarkerManager(this.map);
+    this.MarkerManager.updateMarkers(this.props.lodgings);
   }
 
   render() {
