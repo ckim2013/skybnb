@@ -15,13 +15,20 @@ class NavBar extends React.Component {
   }
 
   render() {
+    console.log('inside nav', this.props);
+    let searchBar = <div></div>;
+
+    if (this.props.location.pathname === '/') {
+      searchBar = <input onChange={ this.handleChange } type='text' />;
+    }
+
     return (
       <nav className='navbar'>
-        <div>
+        <div className='left-nav'>
           <Link to='/'>
             <h1 className='nav-header'>SKYbNb</h1>
           </Link>
-          <input onChange={ this.handleChange } type='text' />
+          { searchBar }
         </div>
         <SessionFormContainer />
       </nav>

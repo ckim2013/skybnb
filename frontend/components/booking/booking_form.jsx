@@ -48,7 +48,7 @@ class BookingForm extends React.Component {
     console.log('form render', this.props);
     if (!this.props.loggedIn) {
       return (
-        <div>Denied</div>
+        <div>Please sign in to book!</div>
       );
     }
 
