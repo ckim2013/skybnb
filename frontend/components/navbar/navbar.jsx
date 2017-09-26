@@ -19,7 +19,9 @@ class NavBar extends React.Component {
     let searchBar = <div></div>;
 
     if (this.props.location.pathname === '/') {
-      searchBar = <input onChange={ this.handleChange } type='text' />;
+      searchBar = <input onChange={ this.handleChange }
+                         type='text'
+                         placeholder='Search for any street, city, or country!'/>;
     }
 
     return (

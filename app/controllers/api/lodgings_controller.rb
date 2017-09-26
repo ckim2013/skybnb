@@ -55,7 +55,7 @@ class Api::LodgingsController < ApplicationController
       .where("LOWER(city) LIKE ?", "%#{params[:query]}%".downcase)
     lodgings_by_country = Lodging
       .where("LOWER(country) LIKE ?", "%#{params[:query]}%".downcase)
-    @lodgings = lodgings_by_street + lodgings_by_street + lodgings_by_country
+    @lodgings = lodgings_by_street + lodgings_by_city + lodgings_by_country
     render :index
   end
 

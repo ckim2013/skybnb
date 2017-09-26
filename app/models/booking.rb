@@ -31,6 +31,10 @@ class Booking < ApplicationRecord
     end
   end
 
+  def after_current_date
+    
+  end
+
   def duration_of_stay
     (self.end_date - self.start_date).to_i
   end
