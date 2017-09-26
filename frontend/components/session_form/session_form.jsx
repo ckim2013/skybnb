@@ -61,7 +61,9 @@ class SessionForm extends React.Component {
 
   handleGuestLogin(e) {
     e.preventDefault();
-    this.props.login(GUEST);
+    this.props.login(GUEST)
+    .then(() => this.props.clearErrors());
+    // ^ is this right?? Why didn't it work before?
   }
 
   handleClick() {

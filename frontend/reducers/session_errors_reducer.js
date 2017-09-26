@@ -5,6 +5,7 @@ const SessionErrorsReducer = (state = [], action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
+    console.log('inside session error reducer that resets');
       return [];
     case RECEIVE_SESSION_ERRORS:
       return action.errors;
