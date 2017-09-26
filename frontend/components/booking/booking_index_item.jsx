@@ -6,12 +6,12 @@ const BookingIndexItem = ({ booking, destroyBooking }) => {
   const { duration_of_stay, start_date, end_date, lodging,
           total_cost} = booking;
 
-  const booking_id = booking.id
+  const booking_id = booking.id;
 
   const { title, street, city, country, guests, beds,
           image_url, rate } = lodging;
 
-  const lodging_id = lodging.id
+  const lodging_id = lodging.id;
 
   return (
     <div className='booking-index-item'>
