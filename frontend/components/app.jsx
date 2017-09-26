@@ -7,6 +7,8 @@ import LodgingFormContainer from './lodging/lodging_form_container';
 import BookingIndexContainer from './booking/booking_index_container';
 import { ProtectedRoute } from '../util/route_util';
 
+import SearchContainer from './search/search_container';
+
 const App = () => (
   <div>
     <NavBar />
@@ -15,7 +17,7 @@ const App = () => (
       <ProtectedRoute component={ LodgingFormContainer } path='/lodgings/:lodgingId/edit' />
       <ProtectedRoute component={ LodgingFormContainer } path='/lodgings/' />
       <ProtectedRoute component={ BookingIndexContainer } path='/bookings/' />
-      <Route component={ LodgingIndexContainer } />
+      <Route exact path='/' component={ SearchContainer } />
     </Switch>
   </div>
 );
