@@ -50,7 +50,6 @@ class Booking < ApplicationRecord
   end
 
   def ensure_no_overlapping_bookings
-    byebug
     unless overlapping_bookings.empty?
       errors[:base] << 'Time range has already been booked!'
     end
