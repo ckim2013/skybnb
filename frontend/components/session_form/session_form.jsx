@@ -111,11 +111,6 @@ class SessionForm extends React.Component {
       return (
         <div className='right-nav'>
           <h3>Aloha { this.props.currentUser.first_name }!</h3>
-          <Link to={`/users/${this.props.currentUser.id}`}>
-            <Image publicId={ this.props.currentUser.image_url } cloudName="skybnb">
-              <Transformation height="40" width="40" crop="thumb" />
-            </Image>
-          </Link>
           <Link className='button' to={'/lodgings'}>
             Build
           </Link>
@@ -124,7 +119,13 @@ class SessionForm extends React.Component {
           </Link>
           <button
             onClick={ this.handleClick }
-            className='button'>Sign Out</button>
+            className='button'>Sign Out
+          </button>
+          <Link to={`/users/${this.props.currentUser.id}`}>
+            <Image publicId={ this.props.currentUser.image_url } cloudName="skybnb">
+              <Transformation height="40" width="40" crop="thumb" />
+            </Image>
+          </Link>
         </div>
       );
     }

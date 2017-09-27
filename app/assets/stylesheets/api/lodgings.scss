@@ -5,7 +5,7 @@
 
 .main {
   align-items: center;
-  padding-top: 20px;
+  padding-top: 10px;
 }
 
 .lodging-profile-intro {
@@ -13,12 +13,6 @@
     border-radius: 100%;
     border: 1px grey solid;
   }
-}
-
-.lodging-index-header {
-  font-size: 30px;
-  padding-top: 80px;
-  text-align: center;
 }
 
 .lodging-index {
@@ -29,6 +23,7 @@
   width: 50%;
   float: left;
   box-sizing: border-box;
+  margin-top: 80px;
 }
 
 .lodging-index-item {

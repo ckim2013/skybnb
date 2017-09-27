@@ -18,6 +18,7 @@ const mapOptions = {
 class LodgingMap extends React.Component {
   constructor(props) {
     super(props);
+    console.log('props inside map', props);
   }
 
   componentDidMount() {
@@ -25,6 +26,7 @@ class LodgingMap extends React.Component {
       center: { lat: 37.7758, lng: -122.435 }, // this is SF
       zoom: 12
     };
+
     this.map = new google.maps.Map(this.mapNode, mapOptions);
     this.MarkerManager = new MarkerManager(this.map);
     this.MarkerManager.updateMarkers(this.props.lodgings);
@@ -34,6 +36,22 @@ class LodgingMap extends React.Component {
     console.log('receive props', this.props);
     console.log('receive newprops', this.props);
     this.MarkerManager.updateMarkers(this.props.lodgings);
+  }
+
+  registerListeners() {
+    google.maps.event.addListener(this.map, 'idle', () => {
+      const { north, south, east, west } = this.map.getBounds().toJSON();
+      const bounds = {
+        northEast: { lat: north, lng: east },
+        southWest: { lat: south, lng: west }
+      };
+      this.props.updateFilter('bounds', bounds);
+    });
+
+    google.maps.event.addListener(this.map, 'click', event => {
+      const coords = getCoordsObj(event.latLng);
+      this.handleClick(coords);
+    })
   }
 
   render() {

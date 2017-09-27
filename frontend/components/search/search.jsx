@@ -8,7 +8,8 @@ const Search = (props) => {
       <LodgingIndex lodgings={ props.lodgings }
                     loading={ props.loading }
                     fetchLodgings={ props.fetchLodgings }
-                    loading={ props.loading }/>
+                    loading={ props.loading }
+                    updateBounds={ props.updateBounds }/>
     </div>
   );
 };

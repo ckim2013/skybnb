@@ -15,27 +15,34 @@
 
 .right-nav {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
   align-items: center;
   width: 600px;
+
+  h3 {
+    color: #FC3468;
+  }
 
   img {
     border-radius: 50%;
     border: 1px grey solid;
+    margin-left: 20px;
   }
 }
 
 .left-nav {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
-  width: 600px;
+  width: 550px;
 
   input {
     border: 1px #e8e8ea solid;
     font-size: 15px;
     height: 30px;
-    width: 300px;
+    width: 350px;
+    text-align: center;
+    margin: auto;
   }
 }
 
@@ -50,6 +57,7 @@
   background: #FC3468;
   color: white;
   width: 80px;
+  margin-left: 20px;
   text-align: center;
   -webkit-transition-duration: 0.2s;
   transition-duration: 0.2s;

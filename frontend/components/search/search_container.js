@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchLodgings } from '../../actions/lodging_actions';
+import { updateBounds } from '../../actions/filter_actions';
 import Search from './search';
 
 const mapStateToProps = state => ({
@@ -8,7 +9,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchLodgings: () => dispatch(fetchLodgings())
+  fetchLodgings: () => dispatch(fetchLodgings()),
+  updateBounds: bounds => dispatch(updateBounds(bounds))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);
