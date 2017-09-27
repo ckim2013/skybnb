@@ -7,10 +7,6 @@ class LodgingMap extends React.Component {
     super(props);
   }
 
-  componentWillUpdate() {
-    this.MarkerManager.updateMarkers(this.props.lodgings);
-  }
-
   componentDidMount() {
     const mapOptions = {
       center: { lat: 37.7758, lng: -122.435 }, // this is SF
@@ -21,6 +17,12 @@ class LodgingMap extends React.Component {
     this.MarkerManager.updateMarkers(this.props.lodgings);
   }
 
+  componentWillReceiveProps(newProps) {
+    console.log('receive props', this.props);
+    console.log('receive newprops', this.props);
+    this.MarkerManager.updateMarkers(this.props.lodgings);
+  }
+  
   render() {
     return (
       <div>

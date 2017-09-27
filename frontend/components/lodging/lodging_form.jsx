@@ -118,7 +118,7 @@ class LodgingForm extends React.Component {
             .then((resp) => this.setState(resp.lodging));
           }
     } else if (this.props.formType === 'Edit' && newProps.formType === 'Create') {
-      console.log('Needs to turn into new form');
+      // console.log('Needs to turn into new form');
     }
   }
 

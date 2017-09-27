@@ -29,8 +29,6 @@ class MarkerManager {
   }
 
   createMarkerFromLodging(lodging) {
-    console.log('status', status);
-    console.log('inside create marker lodging', lodging);
     const marker = new google.maps.Marker({
       position: { lat: lodging.lat, lng: lodging.lng },
       map: this.map,
