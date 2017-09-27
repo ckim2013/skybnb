@@ -16,7 +16,6 @@ class LodgingForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.onImageDrop = this.onImageDrop.bind(this);
     this.handleImageUpload = this.handleImageUpload.bind(this);
-    console.log('constructor inside form state', this.state);
   }
 
   componentWillMount() {
@@ -26,14 +25,8 @@ class LodgingForm extends React.Component {
     }
   }
 
-  componentWillUnmount() {
-    console.log('inside component will UNMOUNT for form');
-  }
-
   handleSubmit(e) {
-    console.log('before submit,', this.state);
     e.preventDefault();
-
 
     const geocoder = new google.maps.Geocoder();
     const address = this.state.street + ', ' + this.state.city + ', ' +
@@ -47,18 +40,11 @@ class LodgingForm extends React.Component {
     geocoder.geocode({ address }, data => {
       const lat = data[0].geometry.location.lat();
       const lng = data[0].geometry.location.lng();
-      console.log('lat in submit', lat);
-      console.log('lng in submit', lng);
       this.setState({ lat, lng }, () => {
-        console.log('state inside setState callback', this.state);
         this.props.action(this.state)
         .then(resp => this.props.history.push(`/lodgings/${resp.lodging.id}`));
       });
     });
-
-    // Old code
-    // this.props.action(this.state)
-    // .then((resp) => this.props.history.push(`/lodgings/${resp.lodging.id}`));
   }
 
   onImageDrop(files) {
@@ -117,7 +103,8 @@ class LodgingForm extends React.Component {
             this.props.fetchLodging(newProps.match.params.lodgingId)
             .then((resp) => this.setState(resp.lodging));
           }
-    } else if (this.props.formType === 'Edit' && newProps.formType === 'Create') {
+    } else if (this.props.formType === 'Edit' &&
+               newProps.formType === 'Create') {
       // console.log('Needs to turn into new form');
     }
   }

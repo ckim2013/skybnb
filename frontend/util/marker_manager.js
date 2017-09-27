@@ -5,14 +5,12 @@ class MarkerManager {
   }
 
   updateMarkers(lodgings) {
-    console.log('time to update', lodgings);
-
     const lodgingsObj = {};
     lodgings.forEach(lodging => { lodgingsObj[lodging.id] = lodging; });
 
     let geocoder;
     let address;
-    console.log('inside update Markers', lodgings);
+
     if (lodgings.length !== 0) {
       lodgings
       .filter(lodging => !this.markers[lodging.id])

@@ -7,6 +7,8 @@ class NavBar extends React.Component {
     super(props);
     this.state = { query: '' };
     this.handleChange = this.handleChange.bind(this);
+    this.handleReset = this.handleReset.bind(this);
+    this.handleHeaderClick = this.handleHeaderClick.bind(this);
   }
 
   handleChange(e) {
@@ -14,22 +16,46 @@ class NavBar extends React.Component {
     this.props.lodgingssearch(e.target.value);
   }
 
+  handleHeaderClick(e) {
+    e.preventDefault();
+    this.props.fetchLodgings()
+    .then(this.setState({ query: '' }))
+    .then(this.props.history.push('/'));
+  }
+
+  handleReset(e) {
+    e.preventDefault();
+    this.setState({ query: '' }, () =>
+      this.props.fetchLodgings());
+  }
+
   render() {
     let searchBar = <div></div>;
 
     if (this.props.location.pathname === '/') {
-      searchBar = <input onChange={ this.handleChange }
-                         type='text'
-                         placeholder='&#xf002; &nbsp; &nbsp; Search for any street,
-                         city, or country!'/>;
+      searchBar = (
+        <div className='search-container'>
+          <input onChange={ this.handleChange }
+                             type='text'
+                             placeholder='&#xf002; &nbsp;
+                             Search for any street,
+                             city, or country!'
+                             value={ this.state.query }/>
+
+          <button onClick={ this.handleReset }
+                  className='button'>
+            Reset
+          </button>
+        </div>
+      );
     }
 
     return (
       <nav className='navbar'>
         <div className='left-nav'>
-          <Link to='/'>
+          <button onClick={ this.handleHeaderClick }>
             <h1 className='nav-header'>SKYbNb</h1>
-          </Link>
+          </button>
           { searchBar }
         </div>
         <SessionFormContainer />

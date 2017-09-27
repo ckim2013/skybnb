@@ -38,17 +38,18 @@
 
   input {
     border: 1px #e8e8ea solid;
-    font-size: 15px;
-    height: 30px;
+    font-size: 17px;
     width: 350px;
     text-align: center;
     margin: auto;
+    padding: 6px;
   }
 }
 
 .nav-header {
   font-size: 38px;
   color: #FC3468;
+  background-color: white;
 }
 
 .button {
@@ -75,4 +76,11 @@
   width: 20px;
   text-align: center;
   background: none;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: row;
+  margin-left: 20px;
+  align-items: center;
 }

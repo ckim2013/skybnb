@@ -1,20 +1,10 @@
-// export const getLodgings = bounds => (
-//   $.ajax({
-//     method: 'GET',
-//     url: 'api/lodgings',
-//     bounds
-//   })
-// );
-export const getLodgings = bounds => {
-  console.log('inside getlodgings', bounds);
-  return (
-    $.ajax({
-      method: 'GET',
-      url: 'api/lodgings',
-      data: { bounds }
-    })
-  );
-};
+export const getLodgings = bounds => (
+  $.ajax({
+    method: 'GET',
+    url: 'api/lodgings',
+    data: { bounds }
+  })
+);
 
 export const getLodging = id => (
   $.ajax({

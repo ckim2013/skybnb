@@ -6,8 +6,10 @@ const Search = (props) => {
   return (
     <div>
       <LodgingIndex lodgings={ props.lodgings }/>
-      <LodgingMap lodgings={ props.lodgings }
-                  updateBounds={ props.updateBounds }/>
+      <div className='map-container'>
+        <LodgingMap lodgings={ props.lodgings }
+                    updateBounds={ props.updateBounds }/>
+      </div>
     </div>
   );
 };

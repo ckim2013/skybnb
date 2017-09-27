@@ -6,12 +6,14 @@ class Api::LodgingsController < ApplicationController
       @lodgings = Lodging.all
     end
 
-    if @lodgings.empty?
-      render json: ['There are no lodgings at all!'],
-             status: :unprocessable_entity
-    else
-      render :index
-    end
+    render :index
+
+    # if @lodgings.empty?
+    #   render json: ['There are no lodgings at all!'],
+    #          status: :unprocessable_entity
+    # else
+    #   render :index
+    # end
   end
 
   def create

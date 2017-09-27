@@ -5,7 +5,6 @@ export const RECEIVE_SINGLE_BOOKING = 'RECEIVE_SINGLE_BOOKING';
 export const DELETE_BOOKING = 'DELETE_BOOKING';
 export const RECEIVE_BOOKING_ERRORS = 'RECEIVE_BOOKING_ERRORS';
 export const START_LOADING_ALL_BOOKINGS = 'START_LOADING_ALL_BOOKINGS';
-// export const START_LOADING_SINGLE_BOOKING = 'START_LOADING_SINGLE_BOOKING';
 
 export const receiveAllBookings = bookings => ({
   type: RECEIVE_ALL_BOOKINGS,
@@ -31,10 +30,6 @@ export const startLoadingAllBookings = () => ({
   type: START_LOADING_ALL_BOOKINGS
 });
 
-// export const startLoadingSingleBooking = () => ({
-//   type: START_LOADING_SINGLE_BOOKING
-// });
-
 export const fetchAllBookings = () => dispatch => {
   dispatch(startLoadingAllBookings());
   return BookingApiUtil.getBookings()
@@ -42,19 +37,10 @@ export const fetchAllBookings = () => dispatch => {
   errors => dispatch(receiveBookingErrors(errors.responseJSON)));
 };
 
-// export const fetchSingleBooking = id => dispatch => {
-//   dispatch(startLoadingSingleBooking());
-//   return BookingApiUtil.getBooking(id)
-//   .then(receivedBooking => dispatch(receiveSingleBooking(receivedBooking)),
-//   errors => dispatch(receiveBookingErrors(errors.responseJSON)));
-// };
-
 export const makeBooking = booking => dispatch => {
   return BookingApiUtil.postBooking(booking)
   .then(createdBooking => dispatch(receiveSingleBooking(createdBooking)),
-  errors => {
-    console.log(errors);
-    dispatch(receiveBookingErrors(errors.responseJSON));});
+  errors => dispatch(receiveBookingErrors(errors.responseJSON)));
 };
 
 export const destroyBooking = id => dispatch => {

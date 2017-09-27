@@ -3,10 +3,6 @@ import LodgingIndexItem from './lodging_index_item';
 import LodgingMap from '../lodging_map/lodging_map';
 
 class LodgingIndex extends React.Component {
-  // componentWillMount() {
-  //   this.props.fetchLodgings();
-  // }
-
   render() {
     const { lodgings, loading, updateBounds, fetchLodgings } = this.props;
 
@@ -17,15 +13,10 @@ class LodgingIndex extends React.Component {
             { lodgings.map(lodging =>
               <LodgingIndexItem key={ lodging.id } lodging={ lodging } />) }
           </div>
-          <div className='map-container'>
-          </div>
         </div>
       </div>
     );
   }
 }
-// <LodgingMap lodgings={ lodgings }
-//             updateBounds={ updateBounds }
-//             fetchLodgings={ fetchLodgings }/>
 
 export default LodgingIndex;
