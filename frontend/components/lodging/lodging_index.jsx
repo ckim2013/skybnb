@@ -18,14 +18,16 @@ class LodgingIndex extends React.Component {
     }
 
     return (
-      <div className='main'>
+      <div>
         <h2 className='lodging-index-header'>{ LODGING_INDEX_GREETING }</h2>
-        <div className='lodging-index'>
-          { lodgings.map(lodging =>
-            <LodgingIndexItem key={ lodging.id } lodging={ lodging } />) }
-        </div>
-        <div>
-          <LodgingMap lodgings={ lodgings }/>
+        <div className='main'>
+          <div className='lodging-index'>
+            { lodgings.map(lodging =>
+              <LodgingIndexItem key={ lodging.id } lodging={ lodging } />) }
+          </div>
+          <div>
+            <LodgingMap lodgings={ lodgings }/>
+          </div>
         </div>
       </div>
     );

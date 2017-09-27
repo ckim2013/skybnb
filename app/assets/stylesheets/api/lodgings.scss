@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 80px;
+  padding-top: 20px;
 }
 
 .lodging-profile-intro {
@@ -19,6 +19,8 @@
 
 .lodging-index-header {
   font-size: 30px;
+  padding-top: 80px;
+  text-align: center;
 }
 
 .lodging-index {

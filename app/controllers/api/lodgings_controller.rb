@@ -1,6 +1,11 @@
 class Api::LodgingsController < ApplicationController
   def index
-    @lodgings = Lodging.all
+    if params[:bounds]
+      @lodgings = Lodging.in_bounds(params[:bounds])
+    else
+      @lodgings = Lodging.all
+    end
+
     if @lodgings.empty?
       render json: ['There are no lodgings at all!'],
              status: :unprocessable_entity

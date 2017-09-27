@@ -49,4 +49,11 @@ class Lodging < ApplicationRecord
   def ensure_default_image
     self.image_url ||= 'download_lrthtv.jpg'
   end
+
+  def self.in_bounds(bounds)
+    self.where("lat < ?", bounds[:northEast][:lat])
+        .where("lat > ?", bounds[:southWest][:lat])
+        .where("lng > ?", bounds[:southWest][:lat])
+        .where("lng > ?", bounds[:northEast][:lat])
+  end
 end
