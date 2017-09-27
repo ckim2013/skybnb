@@ -12,28 +12,34 @@ class MarkerManager {
 
     let geocoder;
     let address;
-
-    lodgings
+    console.log('inside update Markers', lodgings);
+    if (lodgings.length !== 0) {
+      lodgings
       .filter(lodging => !this.markers[lodging.id])
       .forEach(newLodging => {
         address = newLodging.street + ', ' + newLodging.city
-                  + ', ' + newLodging.country;
+        + ', ' + newLodging.country;
         console.log('full address', address);
         geocoder = new google.maps.Geocoder();
-        geocoder.geocode({ address }, res =>
+        geocoder.geocode({ address }, (res, status) =>
           {
-            this.createMarkerFromLodging(res, newLodging);
+            this.createMarkerFromLodging(res, status, newLodging);
           }
         );
       }
     );
+
+    }
 
     Object.keys(this.markers)
       .filter(lodgingId => { !lodgingsObj[lodgingId]; })
       .forEach(lodgingId => { this.removeMarker(this.markers[lodgingId]); });
   }
 
-  createMarkerFromLodging(res, lodging) {
+  createMarkerFromLodging(res, status, lodging) {
+    console.log('status', status);
+    console.log('inside create marker lodging', lodging);
+    console.log('inside create marker res', res);
     const lat = res[0].geometry.location.lat();
     const lng = res[0].geometry.location.lng();
     const marker = new google.maps.Marker({

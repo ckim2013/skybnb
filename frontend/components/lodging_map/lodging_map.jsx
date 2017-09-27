@@ -15,7 +15,7 @@ class LodgingMap extends React.Component {
     console.log('map mounted');
     const mapOptions = {
       center: { lat: 37.7758, lng: -122.435 }, // this is SF
-      zoom: 13
+      zoom: 12
     };
     this.map = new google.maps.Map(this.mapNode, mapOptions);
     this.MarkerManager = new MarkerManager(this.map);
