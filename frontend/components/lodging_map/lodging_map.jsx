@@ -29,7 +29,7 @@ class LodgingMap extends React.Component {
     this.MarkerManager = new MarkerManager(this.map);
     this.MarkerManager.updateMarkers(this.props.lodgings);
   }
-  
+
   componentWillReceiveProps(newProps) {
     console.log('receive props', this.props);
     console.log('receive newprops', this.props);
@@ -39,7 +39,6 @@ class LodgingMap extends React.Component {
   render() {
     return (
       <div>
-        HELLO
         <div id='map-container' ref={ map => this.mapNode = map }></div>
       </div>
     );
