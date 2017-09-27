@@ -15,6 +15,7 @@ class Booking < ApplicationRecord
   validates :start_date, :end_date, :lodging_id, :booker_id, presence: true
   validate :start_date_after_end_date
   validate :after_current_date
+  validate :ensure_no_overlapping_bookings
 
   belongs_to :lodging,
              primary_key: :id,
@@ -46,5 +47,21 @@ class Booking < ApplicationRecord
 
   def total_cost
     self.lodging.rate * self.duration_of_stay
+  end
+
+  def ensure_no_overlapping_bookings
+    byebug
+    unless overlapping_bookings.empty?
+      errors[:base] << 'Time range has already been booked!'
+    end
+  end
+
+  def overlapping_bookings
+    Booking
+      .where.not(id: self.id)
+      .where(lodging_id: lodging_id)
+      .where(<<-SQL, start_date: start_date, end_date: end_date)
+        NOT( (start_date > :end_date) OR (end_date < :start_date) )
+      SQL
   end
 end
