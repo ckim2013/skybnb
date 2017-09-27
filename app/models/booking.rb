@@ -14,6 +14,7 @@
 class Booking < ApplicationRecord
   validates :start_date, :end_date, :lodging_id, :booker_id, presence: true
   validate :start_date_after_end_date
+  validate :after_current_date
 
   belongs_to :lodging,
              primary_key: :id,
@@ -32,7 +33,11 @@ class Booking < ApplicationRecord
   end
 
   def after_current_date
-    
+    if self.start_date
+      unless self.start_date >= Date.today
+        errors[:base] << 'Time travel exists?'
+      end
+    end
   end
 
   def duration_of_stay

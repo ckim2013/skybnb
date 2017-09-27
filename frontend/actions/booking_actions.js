@@ -52,7 +52,9 @@ export const fetchAllBookings = () => dispatch => {
 export const makeBooking = booking => dispatch => {
   return BookingApiUtil.postBooking(booking)
   .then(createdBooking => dispatch(receiveSingleBooking(createdBooking)),
-  errors => dispatch(receiveBookingErrors(errors.responseJSON)));
+  errors => {
+    console.log(errors);
+    dispatch(receiveBookingErrors(errors.responseJSON));});
 };
 
 export const destroyBooking = id => dispatch => {
