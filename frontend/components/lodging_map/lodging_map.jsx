@@ -7,9 +7,7 @@ class LodgingMap extends React.Component {
     super(props);
   }
 
-  componentWillReceiveProps(newProps) {
-    console.log('old props', this.props);
-    console.log('new props', newProps);
+  componentWillUpdate() {
     this.MarkerManager.updateMarkers(this.props.lodgings);
   }
 

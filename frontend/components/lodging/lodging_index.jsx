@@ -1,5 +1,6 @@
 import React from 'react';
 import LodgingIndexItem from './lodging_index_item';
+import LodgingMap from '../lodging_map/lodging_map';
 
 const LODGING_INDEX_GREETING =
 'Home ~ 집 ~ casa ~ 家 ~ الصفحة الرئيسية ~ guriga ~ บ้าน ~ zuhause ~ ਘਰ ~ nyumbani ~ Главная ~ rumah ~ shtëpi'
@@ -22,6 +23,9 @@ class LodgingIndex extends React.Component {
         <div className='lodging-index'>
           { lodgings.map(lodging =>
             <LodgingIndexItem key={lodging.id} lodging={lodging} />) }
+        </div>
+        <div>
+          <LodgingMap lodgings={ lodgings }/>
         </div>
       </div>
     );

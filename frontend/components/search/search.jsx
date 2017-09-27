@@ -13,6 +13,5 @@ const Search = (props) => {
   );
 };
 
-export default Search;
-
 // <LodgingMap lodgings={ props.lodgings }/>
+export default Search;
