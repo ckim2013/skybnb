@@ -24,13 +24,11 @@ class BookingForm extends React.Component {
   }
 
   componentWillUnmount() {
-    console.log('booking form unmounting');
     this.props.clearErrors();
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log('before submit', this.state);
     this.props.makeBooking(this.state)
     .then(() => {
       this.setState(
@@ -44,8 +42,6 @@ class BookingForm extends React.Component {
   }
 
   render() {
-
-    console.log('form render', this.props);
     if (!this.props.loggedIn) {
       return (
         <div>Please sign in to book!</div>

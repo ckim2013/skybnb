@@ -12,7 +12,6 @@ class LodgingMap extends React.Component {
   }
 
   componentDidMount() {
-    console.log('map mounted');
     const mapOptions = {
       center: { lat: 37.7758, lng: -122.435 }, // this is SF
       zoom: 12

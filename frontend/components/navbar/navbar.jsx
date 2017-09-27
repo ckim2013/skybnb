@@ -15,7 +15,6 @@ class NavBar extends React.Component {
   }
 
   render() {
-    console.log('inside nav', this.props);
     let searchBar = <div></div>;
 
     if (this.props.location.pathname === '/') {

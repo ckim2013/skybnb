@@ -23,12 +23,12 @@ const mapStateToProps = (state, ownProps) => {
       guests: 1,
       check_in: '',
       amenities: [],
-      bio: ''
+      bio: '',
+      lat: 0,
+      lng: 0
     };
   } else {
     formType = 'Edit';
-    console.log(ownProps.match.params.lodgingId);
-    console.log(state.entities.lodgings);
     lodging = state.entities.lodgings[ownProps.match.params.lodgingId];
   }
   return ({

@@ -14,8 +14,6 @@ class LodgingShow extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    console.log('props', this.props);
-    console.log('newProps', newProps);
     if (this.props.match.params.lodgingId !==
         newProps.match.params.lodgingId) {
           this.props.fetchLodging(newProps.match.params.lodgingId);

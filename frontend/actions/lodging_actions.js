@@ -16,13 +16,6 @@ export const receiveLodging = lodging => ({
   type: RECEIVE_LODGING,
   lodging
 });
-// export const receiveLodging = lodging => {
-//   console.log('inside receiveLodging action', lodging);
-//   return ({
-//     type: RECEIVE_LODGING,
-//     lodging
-//   });
-// };
 
 export const deleteLodging = lodging => ({
   type: DELETE_LODGING,

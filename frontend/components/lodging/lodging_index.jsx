@@ -17,7 +17,6 @@ class LodgingIndex extends React.Component {
       return <div>Loading!</div>;
     }
 
-    console.log(lodgings);
     return (
       <div className='main'>
         <h2 className='lodging-index-header'>{ LODGING_INDEX_GREETING }</h2>

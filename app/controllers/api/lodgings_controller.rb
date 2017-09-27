@@ -66,6 +66,6 @@ class Api::LodgingsController < ApplicationController
     params.require(:lodging)
       .permit(:title, :street, :city, :country, :image_url, :rate,
               :room_type, :beds, :bedrooms, :bathrooms, :guests, :check_in,
-              :bio, amenities: [])
+              :bio, :lat, :lng, amenities: [])
   end
 end

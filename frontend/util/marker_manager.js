@@ -17,33 +17,22 @@ class MarkerManager {
       lodgings
       .filter(lodging => !this.markers[lodging.id])
       .forEach(newLodging => {
-        address = newLodging.street + ', ' + newLodging.city
-        + ', ' + newLodging.country;
-        console.log('full address', address);
-        geocoder = new google.maps.Geocoder();
-        geocoder.geocode({ address }, (res, status) =>
-          {
-            this.createMarkerFromLodging(res, status, newLodging);
-          }
-        );
+        this.createMarkerFromLodging(newLodging);
       }
     );
 
     }
 
     Object.keys(this.markers)
-      .filter(lodgingId => { !lodgingsObj[lodgingId]; })
+      .filter(lodgingId => !lodgingsObj[lodgingId])
       .forEach(lodgingId => { this.removeMarker(this.markers[lodgingId]); });
   }
 
-  createMarkerFromLodging(res, status, lodging) {
+  createMarkerFromLodging(lodging) {
     console.log('status', status);
     console.log('inside create marker lodging', lodging);
-    console.log('inside create marker res', res);
-    const lat = res[0].geometry.location.lat();
-    const lng = res[0].geometry.location.lng();
     const marker = new google.maps.Marker({
-      position: { lat, lng },
+      position: { lat: lodging.lat, lng: lodging.lng },
       map: this.map,
       lodgingId: lodging.id
     });

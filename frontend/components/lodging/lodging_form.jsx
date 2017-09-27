@@ -16,6 +16,7 @@ class LodgingForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.onImageDrop = this.onImageDrop.bind(this);
     this.handleImageUpload = this.handleImageUpload.bind(this);
+    console.log('constructor inside form state', this.state);
   }
 
   componentWillMount() {
@@ -32,8 +33,32 @@ class LodgingForm extends React.Component {
   handleSubmit(e) {
     console.log('before submit,', this.state);
     e.preventDefault();
-    this.props.action(this.state)
-    .then((resp) => this.props.history.push(`/lodgings/${resp.lodging.id}`));
+
+
+    const geocoder = new google.maps.Geocoder();
+    const address = this.state.street + ', ' + this.state.city + ', ' +
+                  this.state.country;
+
+    if (this.state.street === '' || this.state.city === '' ||
+        this.state.country === '') {
+          this.props.action(this.state);
+        }
+
+    geocoder.geocode({ address }, data => {
+      const lat = data[0].geometry.location.lat();
+      const lng = data[0].geometry.location.lng();
+      console.log('lat in submit', lat);
+      console.log('lng in submit', lng);
+      this.setState({ lat, lng }, () => {
+        console.log('state inside setState callback', this.state);
+        this.props.action(this.state)
+        .then(resp => this.props.history.push(`/lodgings/${resp.lodging.id}`));
+      });
+    });
+
+    // Old code
+    // this.props.action(this.state)
+    // .then((resp) => this.props.history.push(`/lodgings/${resp.lodging.id}`));
   }
 
   onImageDrop(files) {
@@ -86,16 +111,14 @@ class LodgingForm extends React.Component {
     // REVISIT
     // It's not rendering all of the correct information when
     // you move to a new edit page via url
-    console.log('old props', this.props);
-    console.log('new props', newProps);
-
     if (newProps.formType === 'Edit') {
       if (this.props.match.params.lodgingId !==
           newProps.match.params.lodgingId) {
-            console.log('should work.');
             this.props.fetchLodging(newProps.match.params.lodgingId)
             .then((resp) => this.setState(resp.lodging));
           }
+    } else if (this.props.formType === 'Edit' && newProps.formType === 'Create') {
+      console.log('Needs to turn into new form');
     }
   }
 
