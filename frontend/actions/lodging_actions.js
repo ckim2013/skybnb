@@ -35,9 +35,9 @@ export const startLoadingSingleLodging = () => ({
   type: START_LOADING_SINGLE_LODGING
 });
 
-export const fetchLodgings = filters => dispatch => {
+export const fetchLodgings = bounds => dispatch => {
   dispatch(startLoadingAllLodgings());
-  return LodgingApiUtil.getLodgings(filters)
+  return LodgingApiUtil.getLodgings(bounds)
   .then(receivedLodgings => dispatch(receiveLodgings(receivedLodgings)),
   errors => dispatch(receiveLodgingErrors(errors.responseJSON)));
 };

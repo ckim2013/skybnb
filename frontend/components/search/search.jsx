@@ -5,14 +5,11 @@ import LodgingMap from '../lodging_map/lodging_map';
 const Search = (props) => {
   return (
     <div>
-      <LodgingIndex lodgings={ props.lodgings }
-                    loading={ props.loading }
-                    fetchLodgings={ props.fetchLodgings }
-                    loading={ props.loading }
-                    updateBounds={ props.updateBounds }/>
+      <LodgingIndex lodgings={ props.lodgings }/>
+      <LodgingMap lodgings={ props.lodgings }
+                  updateBounds={ props.updateBounds }/>
     </div>
   );
 };
 
-// <LodgingMap lodgings={ props.lodgings }/>
 export default Search;

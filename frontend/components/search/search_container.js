@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchLodgings } from '../../actions/lodging_actions';
-import { updateBounds } from '../../actions/filter_actions';
+import { updateBounds } from '../../actions/bounds_actions';
 import Search from './search';
 
 const mapStateToProps = state => ({

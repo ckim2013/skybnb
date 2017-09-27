@@ -11,7 +11,7 @@ const mapOptions = {
   center: {
     lat: 37.773972,
     lng: -122.431297
-  }, // San Francisco coords
+  },
   zoom: 13
 };
 
@@ -22,42 +22,42 @@ class LodgingMap extends React.Component {
   }
 
   componentDidMount() {
-    const mapOptions = {
-      center: { lat: 37.7758, lng: -122.435 }, // this is SF
-      zoom: 12
-    };
-
+    console.log('component mounted');
     this.map = new google.maps.Map(this.mapNode, mapOptions);
     this.MarkerManager = new MarkerManager(this.map);
+    this.registerListeners();
+    // Might not need below
     this.MarkerManager.updateMarkers(this.props.lodgings);
+    console.log('did mount did its thangg');
   }
 
-  componentWillReceiveProps(newProps) {
+  componentDidUpdate() {
     console.log('receive props', this.props);
-    console.log('receive newprops', this.props);
     this.MarkerManager.updateMarkers(this.props.lodgings);
   }
 
   registerListeners() {
+    console.log('start registerListeners');
     google.maps.event.addListener(this.map, 'idle', () => {
       const { north, south, east, west } = this.map.getBounds().toJSON();
       const bounds = {
         northEast: { lat: north, lng: east },
         southWest: { lat: south, lng: west }
       };
-      this.props.updateFilter('bounds', bounds);
+      this.props.updateBounds(bounds);
     });
 
-    google.maps.event.addListener(this.map, 'click', event => {
-      const coords = getCoordsObj(event.latLng);
-      this.handleClick(coords);
-    })
+    // google.maps.event.addListener(this.map, 'click', event => {
+    //   const coords = getCoordsObj(event.latLng);
+    //   console.log('click listener');
+    // });
+    // console.log('end registerListeners');
   }
 
   render() {
     return (
       <div>
-        <div id='map-container' ref={ map => this.mapNode = map }></div>
+        <div id='map-container' ref={ map => { this.mapNode = map; } }></div>
       </div>
     );
   }
