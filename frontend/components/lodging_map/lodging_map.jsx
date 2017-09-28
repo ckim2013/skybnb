@@ -25,6 +25,8 @@ class LodgingMap extends React.Component {
   }
 
   componentWillUnmount() {
+    // This is to prevent the show page from breaking when
+    // toggling the window console
     google.maps.event.removeListener(this.listener);
   }
 
