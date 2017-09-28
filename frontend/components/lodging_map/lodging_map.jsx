@@ -20,7 +20,6 @@ class LodgingMap extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log('updating');
     this.MarkerManager.updateMarkers(this.props.lodgings);
   }
 
@@ -32,7 +31,6 @@ class LodgingMap extends React.Component {
 
   registerListeners() {
     return google.maps.event.addListener(this.map, 'idle', () => {
-      console.log(this.map);
       const { north, south, east, west } = this.map.getBounds().toJSON();
       const bounds = {
         northEast: { lat: north, lng: east },

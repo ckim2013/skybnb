@@ -27,7 +27,7 @@
 class Lodging < ApplicationRecord
   validates :owner_id, :title, :street, :city, :country, :image_url, :rate,
             :room_type, :beds, :bedrooms, :bathrooms, :guests, :check_in,
-            :lat, :lng, presence: true
+            :lat, :lng, :district, presence: true
 
   validates_uniqueness_of :street, scope: %i{city country}
 
@@ -64,4 +64,8 @@ class Lodging < ApplicationRecord
         .where("lng > ?", bounds[:southWest][:lng])
         .where("lng < ?", bounds[:northEast][:lng])
   end
+
+  # def average_reviews
+  #
+  # end
 end

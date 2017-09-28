@@ -25,7 +25,8 @@ const mapStateToProps = (state, ownProps) => {
       amenities: [],
       bio: '',
       lat: 0,
-      lng: 0
+      lng: 0,
+      district: ''
     };
   } else {
     formType = 'Edit';

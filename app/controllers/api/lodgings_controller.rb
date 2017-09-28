@@ -48,13 +48,8 @@ class Api::LodgingsController < ApplicationController
   end
 
   def lodgingssearch
-    lodgings_by_street = Lodging
-      .where("LOWER(street) LIKE ?", "%#{params[:query]}%".downcase)
-    lodgings_by_city = Lodging
-      .where("LOWER(city) LIKE ?", "%#{params[:query]}%".downcase)
-    lodgings_by_country = Lodging
-      .where("LOWER(country) LIKE ?", "%#{params[:query]}%".downcase)
-    @lodgings = lodgings_by_street + lodgings_by_city + lodgings_by_country
+    @lodgings = Lodging
+      .where("LOWER(district) LIKE ?", "%#{params[:query]}%".downcase)
     render :index
   end
 
@@ -65,6 +60,6 @@ class Api::LodgingsController < ApplicationController
     params.require(:lodging)
       .permit(:title, :street, :city, :country, :image_url, :rate,
               :room_type, :beds, :bedrooms, :bathrooms, :guests, :check_in,
-              :bio, :lat, :lng, amenities: [])
+              :bio, :lat, :lng, :district, amenities: [])
   end
 end

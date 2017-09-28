@@ -21,7 +21,7 @@ class LodgingShow extends React.Component {
   }
 
   compontWillUnmount() {
-    
+
   }
 
   handleDelete(e) {
@@ -42,7 +42,7 @@ class LodgingShow extends React.Component {
 
     const { title, street, city, country, owner, room_type, guests,
           bedrooms, beds, bio, bathrooms, check_in, amenities, rate,
-          image_url, id } = lodging;
+          image_url, id, district } = lodging;
 
     let loggedInButtons = null;
 
@@ -72,7 +72,9 @@ class LodgingShow extends React.Component {
             <h1>{ title }</h1>
             <div className='lodging-profile-intro'>
               <div>
-                <span>{ street }, { city }, { country }</span>
+                <span>
+                  { street }, { city }, { country } in the { district } district
+                </span>
                 <div>
                   <p>{owner.first_name}</p>
                   <Link to={ `/users/${owner.id}` }>

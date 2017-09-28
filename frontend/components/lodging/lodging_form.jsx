@@ -124,7 +124,8 @@ class LodgingForm extends React.Component {
     }
 
     const { id, title, bio, street, city, country, rate, beds, bedrooms,
-            bathrooms, guests, amenities, room_type, check_in } = this.state;
+            bathrooms, guests, amenities, room_type, check_in,
+            district } = this.state;
 
     return (
       <div className='lodging-form-container'>
@@ -204,6 +205,24 @@ class LodgingForm extends React.Component {
                      placeholder='Country'
                      type='text'
                      value={ country }/>
+            </div>
+
+            <div>
+              <label>District</label>
+              <select defaultValue={ district ? district : 'Please Select' }
+                      onChange={ this.update('district') }>
+                <option disabled>Please Select</option>
+                <option value='Northwest'>Northwest</option>
+                <option value='Central West'>Central West</option>
+                <option value='Southwest'>Southwest</option>
+                <option value='Twin Peaks West'>Twin Peaks West</option>
+                <option value='Central'>Central</option>
+                <option value='Central North'>Central North</option>
+                <option value='North'>North</option>
+                <option value='Northeast'>Northeast</option>
+                <option value='Central East'>Central East</option>
+                <option value='Southeast'>Southeast</option>
+              </select>
             </div>
           </div>
 

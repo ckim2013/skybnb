@@ -13,7 +13,10 @@
 #
 
 class Review < ApplicationRecord
-  validates :title, :body, :lodging_id, :author_id, presence: true
+  validates :title, :body, :lodging_id, :author_id, :rating, presence: true
+  validates :rating, numericality: { only_integer: true,
+                                     greater_than: 0,
+                                     less_than: 6 }
 
   belongs_to :lodging,
              primary_key: :id,

@@ -17,7 +17,6 @@ class NavBar extends React.Component {
   }
 
   handleHeaderClick(e) {
-    console.log('header click');
     e.preventDefault();
     this.props.fetchLodgings()
     .then(this.setState({ query: '' }))
@@ -25,7 +24,6 @@ class NavBar extends React.Component {
   }
 
   handleReset(e) {
-    console.log('reset click');
     e.preventDefault();
     this.setState({ query: '' }, () =>
       this.props.fetchLodgings());
@@ -40,8 +38,7 @@ class NavBar extends React.Component {
           <input onChange={ this.handleChange }
                              type='text'
                              placeholder='&#xf002; &nbsp;
-                             Search for any street,
-                             city, or country!'
+                             Search by district!'
                              value={ this.state.query }/>
 
           <button onClick={ this.handleReset }
