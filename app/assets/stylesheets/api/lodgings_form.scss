@@ -76,6 +76,13 @@
     flex-direction: row;
     justify-content: space-between;
   }
+
+  select {
+    border: 1px black solid;
+    font-size: 20px;
+    margin-right: 100px;
+    width: 190px;
+  }
 }
 
 .lodging-form-rate {
@@ -144,6 +151,6 @@
 .lodging-form-image-container {
   img {
     width: 600px;
-    
+
   }
 }
