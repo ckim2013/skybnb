@@ -42,7 +42,7 @@ class LodgingForm extends React.Component {
       const lng = data[0].geometry.location.lng();
       this.setState({ lat, lng }, () => {
         this.props.action(this.state)
-        .then(resp => this.props.history.push(`/lodgings/${resp.lodging.id}`));
+        .then(resp => this.props.history.push(`/lodgings/${resp.lodging.lodging_detail.id}`));
       });
     });
   }

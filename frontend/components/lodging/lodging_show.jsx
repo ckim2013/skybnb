@@ -1,7 +1,9 @@
 import React from 'react';
+import ReactStars from 'react-stars';
 import { Image, Transformation } from 'cloudinary-react';
 import { Link } from 'react-router-dom';
 import BookingFormContainer from '../booking/booking_form_container';
+import ReviewIndexItem from '../review/review_index_item';
 
 class LodgingShow extends React.Component {
   constructor(props) {
@@ -20,10 +22,6 @@ class LodgingShow extends React.Component {
         }
   }
 
-  compontWillUnmount() {
-
-  }
-
   handleDelete(e) {
     this.props.destroyLodging(this.props.match.params.lodgingId)
     .then(() => this.props.history.push('/'));
@@ -39,11 +37,13 @@ class LodgingShow extends React.Component {
     }
 
     if (!lodging) return <div></div>;
-
+    console.log('inside show', this.props);
     const { title, street, city, country, owner, room_type, guests,
           bedrooms, beds, bio, bathrooms, check_in, amenities, rate,
-          image_url, id, district } = lodging;
+          image_url, id, district, average_rating, reviews } = lodging;
 
+          console.log('lodging', lodging);
+          console.log('id', id);
     let loggedInButtons = null;
 
     if (loggedIn && currentUser.id === owner.id) {
@@ -70,11 +70,16 @@ class LodgingShow extends React.Component {
           <div className='lodging-profile'>
 
             <h1>{ title }</h1>
+            <ReactStars count={ 5 }
+              half={ true }
+              value= { average_rating }
+              edit={ false }
+              color2='#FC3468' />
             <div className='lodging-profile-intro'>
               <div>
-                <span>
+                <div>
                   { street }, { city }, { country } in the { district } district
-                </span>
+                </div>
                 <div>
                   <p>{owner.first_name}</p>
                   <Link to={ `/users/${owner.id}` }>
@@ -158,10 +163,8 @@ class LodgingShow extends React.Component {
 
             <div className='lodging-profile-reviews'>
               <h2>Reviews</h2>
+
             </div>
-          </div>
-          <div>
-            <BookingFormContainer rate={ rate }/>
           </div>
         </div>
       </div>

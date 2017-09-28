@@ -65,7 +65,8 @@ class Lodging < ApplicationRecord
         .where("lng < ?", bounds[:northEast][:lng])
   end
 
-  # def average_reviews
-  #
-  # end
+  def average_rating
+    self.reviews.average(:rating).to_i
+  end
+
 end

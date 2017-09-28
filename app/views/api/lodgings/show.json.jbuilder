@@ -1,9 +1,16 @@
 owner = @lodging.owner
 
-json.extract! @lodging, :id, :title, :street, :city, :country, :image_url,
-              :rate, :room_type, :beds, :bedrooms, :bathrooms, :guests,
-              :check_in, :amenities, :bio, :lat, :lng, :district
+json.lodging_detail do
+  json.extract! @lodging, :id, :title, :street, :city, :country, :image_url,
+  :rate, :room_type, :beds, :bedrooms, :bathrooms, :guests,
+  :check_in, :amenities, :bio, :lat, :lng, :district, :average_rating
+  
+  json.owner do
+    json.extract! owner, :first_name, :image_url, :id
+  end
+end
 
-json.owner do
-  json.extract! owner, :first_name, :image_url, :id
+
+json.reviews do
+  json.array! @lodging.reviews, partial: 'api/reviews/review', as: :review
 end

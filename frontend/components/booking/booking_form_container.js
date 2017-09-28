@@ -6,7 +6,7 @@ import { clearErrors } from '../../actions/error_actions';
 
 const mapStateToProps = state => ({
   loggedIn: Boolean(state.ui.session.currentUser),
-  currentUser: state.ui.session.currentUser,
+  // currentUser: state.ui.session.currentUser,
   errors: state.ui.errors.bookingErrors
 });
 

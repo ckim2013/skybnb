@@ -151,3 +151,6 @@ Lodging.create(owner_id: 7, title: 'A huge place for friends', street: '15 Marin
                beds: 10, bedrooms: 10, bathrooms: 10, guests: 10, check_in: '8AM',
                amenities: ['Hot Tub', 'Pool'], bio: 'Let us be friends forever! If you book.',
                lat: 37.804456, lng: -122.432827, district: 'North')
+
+Review.create(lodging_id: 1, author_id: 2, title: 'Really cool place', body: 'This place is amazin,
+              go support this guy, his place is very very cool!', rating: 5)
