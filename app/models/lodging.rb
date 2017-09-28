@@ -20,6 +20,8 @@
 #  bio        :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  lng        :float
+#  lat        :float
 #
 
 class Lodging < ApplicationRecord
@@ -44,6 +46,12 @@ class Lodging < ApplicationRecord
            primary_key: :id,
            foreign_key: :lodging_id,
            class_name: :Booking,
+           dependent: :destroy
+
+  has_many :reviews,
+           primary_key: :id,
+           foreign_key: :lodging_id,
+           class_name: :Review,
            dependent: :destroy
 
   def ensure_default_image

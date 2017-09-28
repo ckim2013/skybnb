@@ -20,6 +20,8 @@
 #  bio        :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  lng        :float
+#  lat        :float
 #
 
 require 'test_helper'

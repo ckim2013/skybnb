@@ -1,0 +1,27 @@
+# == Schema Information
+#
+# Table name: reviews
+#
+#  id         :integer          not null, primary key
+#  title      :string           not null
+#  body       :text             not null
+#  rating     :integer          not null
+#  lodging_id :integer          not null
+#  author_id  :integer          not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  body: MyText
+  lodging_id: 1
+  author_id: 1
+
+two:
+  title: MyString
+  body: MyText
+  lodging_id: 1
+  author_id: 1
