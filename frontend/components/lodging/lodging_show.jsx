@@ -37,13 +37,10 @@ class LodgingShow extends React.Component {
     }
 
     if (!lodging) return <div></div>;
-    console.log('inside show', this.props);
     const { title, street, city, country, owner, room_type, guests,
           bedrooms, beds, bio, bathrooms, check_in, amenities, rate,
           image_url, id, district, average_rating, reviews } = lodging;
 
-          console.log('lodging', lodging);
-          console.log('id', id);
     let loggedInButtons = null;
 
     if (loggedIn && currentUser.id === owner.id) {
@@ -163,8 +160,10 @@ class LodgingShow extends React.Component {
 
             <div className='lodging-profile-reviews'>
               <h2>Reviews</h2>
-
             </div>
+          </div>
+          <div>
+            <BookingFormContainer rate={ rate } />
           </div>
         </div>
       </div>

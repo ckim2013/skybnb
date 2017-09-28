@@ -2,7 +2,6 @@ import React from 'react';
 import { Image, Transformation} from 'cloudinary-react';
 
 const ReviewIndexItem = ({ review }) => {
-  console.log(review);
   const { title, body, rating, author } = review;
   const { first_name, last_name, image_url } = author;
 
