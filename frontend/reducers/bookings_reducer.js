@@ -1,4 +1,5 @@
 import * as BookingActions from '../actions/booking_actions';
+import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 import merge from 'lodash/merge';
 
 const BookingsReducer = (state = {}, action) => {
@@ -12,6 +13,8 @@ const BookingsReducer = (state = {}, action) => {
     case BookingActions.DELETE_BOOKING:
       delete newState[action.booking.id];
       return newState;
+    case RECEIVE_CURRENT_USER:
+      return {};
     default:
       return state;
   }
