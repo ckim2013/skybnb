@@ -72,26 +72,6 @@ class LodgingForm extends React.Component {
       }
     });
   }
-  //
-  // componentWillReceiveProps(newProps) {
-  //   console.log('props inside receiveprops', this.props);
-  //   console.log('newProps inside receiveprops', newProps);
-  //   console.log('currentuser id ', newProps.currentUser.id);
-  //   console.log('lodging owner id ', newProps.lodging.owner_id);
-  //   if (newProps.currentUser.id !== newProps.lodging.owner_id) {
-  //     console.log('not the right user to edit!');
-  //     // this.props.history.push('/lodgings');
-  //   }
-  //   // console.log('props inside receiveprops', this.props);
-  //   // console.log('newProps inside receiveprops', newProps);
-  //   // if (this.props.lodging !== this.state) {
-  //   //   console.log('lodging does not equal this.state');
-  //   //
-  //   //   if (newProps.errors.length < 1) {
-  //   //     this.props.history.push(`/lodgings/${this.state.id}`);
-  //   //   }
-  //   // }
-  // }
 
   componentWillReceiveProps(newProps) {
     // REVISIT
@@ -105,7 +85,7 @@ class LodgingForm extends React.Component {
           }
     } else if (this.props.formType === 'Edit' &&
                newProps.formType === 'Create') {
-      // console.log('Needs to turn into new form');
+      // 'Needs to turn into new form'
     }
   }
 

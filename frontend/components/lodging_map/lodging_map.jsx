@@ -16,11 +16,6 @@ const mapOptions = {
 };
 
 class LodgingMap extends React.Component {
-  constructor(props) {
-    super(props);
-    console.log('INSIDE CONSTRUCTOR LODGINGMAP PROPS', props);
-  }
-
   componentDidMount() {
     this.map = new google.maps.Map(this.mapNode, mapOptions);
     this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
@@ -45,9 +40,7 @@ class LodgingMap extends React.Component {
 
     google.maps.event.addListener(this.map, 'click', event => {
       const coords = getCoordsObj(event.latLng);
-      console.log('click listener');
     });
-    // console.log('end registerListeners');
   }
 
   handleMarkerClick(lodging) {

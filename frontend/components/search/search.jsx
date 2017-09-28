@@ -3,7 +3,6 @@ import LodgingIndex from '../lodging/lodging_index';
 import LodgingMap from '../lodging_map/lodging_map';
 
 const Search = (props) => {
-  console.log('props inside search', props);
   return (
     <div>
       <LodgingIndex lodgings={ props.lodgings }/>
