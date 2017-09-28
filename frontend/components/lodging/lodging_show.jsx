@@ -28,6 +28,7 @@ class LodgingShow extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     const { lodging, loading, loggedIn, currentUser } = this.props;
 
     if (loading) {
