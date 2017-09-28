@@ -20,6 +20,10 @@ class LodgingShow extends React.Component {
         }
   }
 
+  compontWillUnmount() {
+    
+  }
+
   handleDelete(e) {
     this.props.destroyLodging(this.props.match.params.lodgingId)
     .then(() => this.props.history.push('/'));

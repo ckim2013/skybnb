@@ -17,6 +17,7 @@ class NavBar extends React.Component {
   }
 
   handleHeaderClick(e) {
+    console.log('header click');
     e.preventDefault();
     this.props.fetchLodgings()
     .then(this.setState({ query: '' }))
@@ -24,6 +25,7 @@ class NavBar extends React.Component {
   }
 
   handleReset(e) {
+    console.log('reset click');
     e.preventDefault();
     this.setState({ query: '' }, () =>
       this.props.fetchLodgings());

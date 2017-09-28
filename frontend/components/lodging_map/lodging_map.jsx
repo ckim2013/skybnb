@@ -2,11 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import MarkerManager from '../../util/marker_manager';
 
-const getCoordsObj = latLng => ({
-  lat: latLng.lat(),
-  lng: latLng.lng()
-});
-
 const mapOptions = {
   center: {
     lat: 37.773972,
@@ -19,27 +14,29 @@ class LodgingMap extends React.Component {
   componentDidMount() {
     this.map = new google.maps.Map(this.mapNode, mapOptions);
     this.MarkerManager = new MarkerManager(this.map, this.handleMarkerClick.bind(this));
-    this.registerListeners();
+    this.listener = this.registerListeners();
     // Might not need below
     // this.MarkerManager.updateMarkers(this.props.lodgings);
   }
 
   componentDidUpdate() {
+    console.log('updating');
     this.MarkerManager.updateMarkers(this.props.lodgings);
   }
 
+  componentWillUnmount() {
+    google.maps.event.removeListener(this.listener);
+  }
+
   registerListeners() {
-    google.maps.event.addListener(this.map, 'idle', () => {
+    return google.maps.event.addListener(this.map, 'idle', () => {
+      console.log(this.map);
       const { north, south, east, west } = this.map.getBounds().toJSON();
       const bounds = {
         northEast: { lat: north, lng: east },
         southWest: { lat: south, lng: west }
       };
       this.props.updateBounds(bounds);
-    });
-
-    google.maps.event.addListener(this.map, 'click', event => {
-      const coords = getCoordsObj(event.latLng);
     });
   }
 

@@ -37,6 +37,7 @@ export const startLoadingSingleLodging = () => ({
 
 export const fetchLodgings = bounds => dispatch => {
   // dispatch(startLoadingAllLodgings());
+  console.log(bounds);
   return LodgingApiUtil.getLodgings(bounds)
   .then(receivedLodgings => dispatch(receiveLodgings(receivedLodgings)),
   errors => dispatch(receiveLodgingErrors(errors.responseJSON)));
