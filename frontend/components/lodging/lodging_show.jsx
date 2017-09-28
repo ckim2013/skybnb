@@ -29,7 +29,7 @@ class LodgingShow extends React.Component {
 
   render() {
     console.log(this.props);
-    const { lodging, loading, loggedIn, currentUser } = this.props;
+    const { lodging, loading, loggedIn, currentUser, reviews } = this.props;
 
     if (loading) {
       return (
@@ -40,7 +40,7 @@ class LodgingShow extends React.Component {
     if (!lodging) return <div></div>;
     const { title, street, city, country, owner, room_type, guests,
           bedrooms, beds, bio, bathrooms, check_in, amenities, rate,
-          image_url, id, district, average_rating, reviews } = lodging;
+          image_url, id, district, average_rating } = lodging;
 
     let loggedInButtons = null;
 
@@ -161,6 +161,10 @@ class LodgingShow extends React.Component {
 
             <div className='lodging-profile-reviews'>
               <h2>Reviews</h2>
+              <ul>
+                { reviews.map(review => <ReviewIndexItem key={ review.id }
+                                                         review={ review }/>)}
+              </ul>
             </div>
           </div>
           <div>
