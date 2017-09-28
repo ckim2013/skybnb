@@ -40,7 +40,8 @@ class LodgingShow extends React.Component {
     if (!lodging) return <div></div>;
     const { title, street, city, country, owner, room_type, guests,
           bedrooms, beds, bio, bathrooms, check_in, amenities, rate,
-          image_url, id, district, average_rating } = lodging;
+          image_url, id, district, average_rating, number_of_ratings }
+          = lodging;
 
     let loggedInButtons = null;
 
@@ -53,6 +54,11 @@ class LodgingShow extends React.Component {
                   onClick={this.handleDelete}>Delete</button>
         </div>
       );
+    }
+
+    let reviewS = 'Review'
+    if (number_of_ratings > 1 || number_of_ratings === 0) {
+      reviewS = 'Reviews';
     }
 
     return (
@@ -68,11 +74,14 @@ class LodgingShow extends React.Component {
           <div className='lodging-profile'>
 
             <h1>{ title }</h1>
-            <ReactStars count={ 5 }
-              half={ true }
-              value= { average_rating }
-              edit={ false }
-              color2='#FC3468' />
+            <div>
+              { number_of_ratings } { reviewS }
+              <ReactStars count={ 5 }
+                half={ true }
+                value= { average_rating }
+                edit={ false }
+                color2='#FC3468' />
+            </div>
             <div className='lodging-profile-intro'>
               <div>
                 <div>
@@ -160,7 +169,7 @@ class LodgingShow extends React.Component {
             </div>
 
             <div className='lodging-profile-reviews'>
-              <h2>Reviews</h2>
+              <h2>{ number_of_ratings } Honest { reviewS }</h2>
               <ul>
                 { reviews.map(review => <ReviewIndexItem key={ review.id }
                                                          review={ review }/>)}

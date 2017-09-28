@@ -2,13 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.lodging-profile-reviews {
+  h2 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+
 .review-item-container {
   display: flex;
   flex-direction: column;
-
+  padding-bottom: 25px;
+  border-bottom: 1px solid grey;
   img {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     border-radius: 50px;
   }
 }
@@ -18,6 +26,7 @@
   flex-direction: row;
   align-items: center;
   padding-top: 15px;
+  justify-content: space-between;
 
   div {
     padding-right: 30px;
@@ -28,4 +37,9 @@
   display: flex;
   flex-direction: column;
   align-content: flex-start;
+
+  h3 {
+    padding-top: 10px;
+    font-size: 20px;
+  }
 }

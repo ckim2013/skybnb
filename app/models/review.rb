@@ -28,4 +28,7 @@ class Review < ApplicationRecord
              foreign_key: :author_id,
              class_name: :User
 
+  def creation_date
+    self.created_at.strftime("%B %Y")
+  end
 end

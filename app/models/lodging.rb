@@ -69,4 +69,8 @@ class Lodging < ApplicationRecord
     self.reviews.average(:rating).to_i
   end
 
+  def number_of_ratings
+    self.reviews.count
+  end
+
 end

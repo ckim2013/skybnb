@@ -65,13 +65,13 @@
   z-index: 9999;
   background-color: white;
   width: 100%;
-  box-shadow: 1px 0px 4px #888888;
   display: flex;
   justify-content: space-around;
+  margin-left: 200px;
+  width: 60%
 }
 
 .lodging-profile {
-  padding-left: 250px;
   width: 700px;
   position: relative;
   z-index: 9998;
@@ -114,6 +114,7 @@
       img {
         width: 80px;
         height: 80px;
+        border: none;
       }
     }
   }

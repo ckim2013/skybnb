@@ -3,7 +3,7 @@ import ReactStars from 'react-stars';
 import { Image, Transformation} from 'cloudinary-react';
 
 const ReviewItem = ({ review }) => {
-  const { title, body, rating, author } = review;
+  const { title, body, rating, author, creation_date } = review;
   const { first_name, last_name, image_url } = author;
 
   return (
@@ -12,7 +12,7 @@ const ReviewItem = ({ review }) => {
 
         <div>
           <Image publicId={ image_url } cloudName="skybnb">
-            <Transformation height="40" width="40" crop="thumb" />
+            <Transformation height="80" width="80" crop="thumb" />
           </Image>
         </div>
 
@@ -28,17 +28,21 @@ const ReviewItem = ({ review }) => {
             value={ rating }/>
         </div>
 
+        <div>
+          { creation_date }
+        </div>
+
       </div>
 
       <div className='review-line-two'>
         <div>
-          <h4>{ title }</h4>
+          <h3>{ title }</h3>
         </div>
         <div>
           <p>{ body }</p>
         </div>
       </div>
-      
+
     </li>
   );
 };

@@ -123,7 +123,7 @@ class SessionForm extends React.Component {
           </button>
           <Link to={`/users/${this.props.currentUser.id}`}>
             <Image publicId={ this.props.currentUser.image_url } cloudName="skybnb">
-              <Transformation height="40" width="40" crop="thumb" />
+              <Transformation height="80" width="80" crop="thumb" />
             </Image>
           </Link>
         </div>
