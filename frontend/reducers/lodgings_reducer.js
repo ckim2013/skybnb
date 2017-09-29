@@ -1,4 +1,5 @@
 import * as LodgingActions from '../actions/lodging_actions';
+import { RECEIVE_REVIEW } from '../actions/review_actions';
 import merge from 'lodash/merge';
 
 const LodgingsReducer = (state = {}, action) => {

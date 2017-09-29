@@ -28,12 +28,14 @@
 .lodging-index-item {
   display: flex;
   flex-direction: column;
-  padding-bottom: 20px;
+  align-items: center;
+  padding-bottom: 40px;
   width: 350px;
 
   img {
     object-fit: cover;
     height: 230px;
+    width: 100%;
   }
 
   ul {
@@ -116,6 +118,11 @@
       }
     }
   }
+}
+
+.lodging-profile-address-district {
+  display: flex;
+  flex-direction: column;
 }
 
 .lodging-profile-icons {

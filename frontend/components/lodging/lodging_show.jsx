@@ -21,7 +21,6 @@ class LodgingShow extends React.Component {
         newProps.match.params.lodgingId) {
           this.props.fetchLodging(newProps.match.params.lodgingId);
         }
-  console.log('receive props inside lodging show');
   }
 
   handleDelete(e) {
@@ -62,6 +61,21 @@ class LodgingShow extends React.Component {
       reviewS = 'Reviews';
     }
 
+    let guestSS = 'guest';
+    if (guests > 1) {
+      guestSS = 'guests';
+    }
+
+    let bedroomSS = 'bedroom';
+    if (bedrooms > 1) {
+      bedroomSS = 'bedrooms';
+    }
+
+    let bedSS = 'bed';
+    if (beds > 1) {
+      bedSS = 'beds';
+    }
+
     return (
       <div className="lodging-show-container">
         <div className='lodging-image-container'>
@@ -89,8 +103,13 @@ class LodgingShow extends React.Component {
 
             <div className='lodging-profile-intro'>
               <div>
-                <div>
-                  { street }, { city }, { country } in the { district } district
+                <div className='lodging-profile-address-district'>
+                  <div>
+                    { street }, { city }, { country }
+                  </div>
+                  <div>
+                    { district } District
+                  </div>
                 </div>
                 <div>
                   <p>{owner.first_name}</p>
@@ -111,15 +130,15 @@ class LodgingShow extends React.Component {
                 </li>
                 <li>
                   <i className="fa fa-users" aria-hidden="true"></i>
-                  <h2>{ guests } guest(s)</h2>
+                  <h2>{ guests } { guestSS }</h2>
                 </li>
                 <li>
                   <i className="fa fa-building" aria-hidden="true"></i>
-                  <h2>{ bedrooms } bedroom(s)</h2>
+                  <h2>{ bedrooms } { bedroomSS }</h2>
                 </li>
                 <li>
                   <i className="fa fa-bed" aria-hidden="true"></i>
-                  <h2>{ beds } bed(s)</h2>
+                  <h2>{ beds } { bedSS }</h2>
                 </li>
               </ul>
             </div>

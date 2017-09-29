@@ -140,7 +140,7 @@ Lodging.create(owner_id: 2, title: 'A loud place to be social', street: '429 Cas
 Lodging.create(owner_id: 5, title: 'We have a/c for a lit city', street: '2340 Chestnut St',
                city: 'San Francisco', country: 'United States',
                image_url: 'lodgings/derek-thomson-274245.jpg', rate: 100, room_type: 'Shared Room',
-               beds: 0, bedrooms: 0, bathrooms: 0, guests: 0, check_in: '8AM',
+               beds: 3, bedrooms: 2, bathrooms: 1, guests: 3, check_in: '8AM',
                amenities: ['Air Conditioning', 'Pool', 'Smoking Allowed'], bio: 'Come by
                and let us enjoy the a/c together!',
                lat: 37.800377, lng: -122.441968, district: 'North')

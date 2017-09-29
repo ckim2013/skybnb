@@ -27,15 +27,10 @@ class ReviewForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.createReview(this.state)
-    .then(this.setState({
-      title: '',
-      body: '',
-      rating: 0
-    }));
+    .then(() => this.props.fetchLodging(this.props.match.params.lodgingId));
   }
 
   render() {
-    console.log(this.state);
     const { loggedIn } = this.props;
 
     if (!loggedIn) {
@@ -51,6 +46,9 @@ class ReviewForm extends React.Component {
     return (
       <div>
         <h2>Write a review!</h2>
+        <ul>
+          { this.props.errors.map((error, i) => <li key={ i }>{ error }</li>)}
+        </ul>
         <form className='review-form'
               onSubmit={ this.handleSubmit }>
 

@@ -19,7 +19,7 @@ export const receiveReviewErrors = errors => ({
   errors
 });
 
-export const createReview = (review, lodgingId) => dispatch => {
+export const createReview = review => dispatch => {
   return ReviewApiUtil.postReview(review)
   .then(createdReview => dispatch(receiveReview(createdReview)),
   errors => dispatch(receiveReviewErrors(errors.responseJSON)));
