@@ -4,8 +4,11 @@ SKYbNb is a full-stack web application that is heavily inspired by Airbnb. The a
 
 ## Screenshots
 ![image of index](docs/index_page.gif)
+___
 ![image of creating lodging](docs/creating_lodging.gif)
+___
 ![image of map to show](docs/map_to_show.gif)
+___
 ![image of booking](docs/booking.gif)
 
 ## Current Features
