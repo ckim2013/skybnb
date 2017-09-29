@@ -152,50 +152,51 @@ Lodging.create(owner_id: 7, title: 'A huge place for friends', street: '15 Marin
                amenities: ['Hot Tub', 'Pool'], bio: 'Let us be friends forever! If you book.',
                lat: 37.804456, lng: -122.432827, district: 'North')
 
-Review.create(lodging_id: 1, author_id: 2, title: 'Really cool place', body: 'This place is amazin,
+Review.create(lodging_id: 1, author_id: 2, title: 'Really cool place', body: 'This place is amazing,
               go support this guy, his place is very very cool!', rating: 5)
 
-Review.create(lodging_id: 1, author_id: 3, title: 'Not really a cool place', body: 'I think the person above me got paid
-              to write this review. This place was horrible!', rating: 2
-
-Review.create(lodging_id: 1, author_id: 2, title: 'Really cool place', body: 'This place is amazin,
-              go support this guy, his place is very very cool!', rating: 5)
-
-Review.create(lodging_id: 1, author_id: 3, title: 'Not really a cool place', body: 'I think the person above me got paid
+Review.create(lodging_id: 1, author_id: 5, title: 'Not really a cool place', body: 'I think the person above me got paid
               to write this review. This place was horrible!', rating: 2)
 
-Review.create(lodging_id: 1, author_id: 2, title: 'Really cool place', body: 'This place is amazin,
-              go support this guy, his place is very very cool!', rating: 5)
+Review.create(lodging_id: 10, author_id: 4, title: 'Cold...', body: 'The a/c was on full blast and the windows
+              were all open! Do not come here!', rating: 2)
 
-Review.create(lodging_id: 1, author_id: 3, title: 'Not really a cool place', body: 'I think the person above me got paid
-              to write this review. This place was horrible!', rating: 2)
+Review.create(lodging_id: 11, author_id: 6, title: 'Great host', body: 'The host was very friendly and very accomadating.
+              2 stars since 1 is the best and this was not the best of course!', rating: 2)
 
-Review.create(lodging_id: 1, author_id: 2, title: 'Really cool place', body: 'This place is amazin,
-              go support this guy, his place is very very cool!', rating: 5)
+Review.create(lodging_id: 3, author_id: 6, title: 'Creepy', body: 'Why were there things that looked like cameras all over the house?',
+              rating: 2)
 
-Review.create(lodging_id: 1, author_id: 3, title: 'Not really a cool place', body: 'I think the person above me got paid
-              to write this review. This place was horrible!', rating: 2)
+Review.create(lodging_id: 3, author_id: 4, title: 'Needs better wifi', body: 'I could not get the wifi to work on my laptop!',
+              rating: 2)
 
-Review.create(lodging_id: 1, author_id: 2, title: 'Really cool place', body: 'This place is amazin,
-              go support this guy, his place is very very cool!', rating: 5)
+Review.create(lodging_id: 2, author_id: 7, title: 'Average at best', body: 'The place was dull. Dull furniture, dull
+              lighting, dull everything!', rating: 3)
 
-Review.create(lodging_id: 1, author_id: 3, title: 'Not really a cool place', body: 'I think the person above me got paid
-              to write this review. This place was horrible!', rating: 2)
+Review.create(lodging_id: 7, author_id: 7, title: 'Best place in the world', body: 'I partied like crazy and the host was
+              totally cool with it!', rating: 5)
 
-Review.create(lodging_id: 1, author_id: 2, title: 'Really cool place', body: 'This place is amazin,
-              go support this guy, his place is very very cool!', rating: 5)
+Review.create(lodging_id: 11, author_id: 3, title: 'Small but cute', body: 'Very cute interior but it was a litte small. Still
+              enjoyed my stay.', rating: 4)
 
-Review.create(lodging_id: 1, author_id: 3, title: 'Not really a cool place', body: 'I think the person above me got paid
-              to write this review. This place was horrible!', rating: 2)
+Review.create(lodging_id: 8, author_id: 2, title: 'Herp derp', body: 'herpy derp',
+              rating: 5)
 
-Review.create(lodging_id: 1, author_id: 2, title: 'Really cool place', body: 'This place is amazin,
-              go support this guy, his place is very very cool!', rating: 5)
+Review.create(lodging_id: 13, author_id: 3, title: 'Place is a little tilted', body: 'Which makes me tilted >:(', rating: 2)
 
-Review.create(lodging_id: 1, author_id: 3, title: 'Not really a cool place', body: 'I think the person above me got paid
-              to write this review. This place was horrible!', rating: 2)
+Review.create(lodging_id: 16, author_id: 6, title: 'Amazing', body: 'The pool is a nice touch for a hot day', rating: 5)
 
-Review.create(lodging_id: 1, author_id: 2, title: 'Really cool place', body: 'This place is amazin,
-              go support this guy, his place is very very cool!', rating: 5)
+Review.create(lodging_id: 17, author_id: 1, title: 'Beautiful lake', body: 'There is a lake outside with a gorgeous view!',
+              rating: 5)
 
-Review.create(lodging_id: 1, author_id: 3, title: 'Not really a cool place', body: 'I think the person above me got paid
-              to write this review. This place was horrible!', rating: 2)
+Review.create(lodging_id: 15, author_id: 5, title: 'Too expensive', body: 'So many hidden charges!', rating: 1)
+
+Review.create(lodging_id: 4, author_id: 2, title: 'Too white inside', body: 'The walls are blinding!!!', rating: 1)
+
+Review.create(lodging_id: 5, author_id: 2, title: 'The computer is amazing', body: 'Very hightech with a nice wifi', rating: 4)
+
+Review.create(lodging_id: 6, author_id: 8, title: 'Pool!!!', body: 'There is an amazing pool table inside and a minibar!', rating: 5)
+
+Review.create(lodging_id: 14, author_id: 4, title: 'The furry couch', body: 'The couch was ok but a little too furry', rating: 3)
+
+Review.create(lodging_id: 12, author_id: 4, title: 'Too blue', body: 'The place is too blue, making me depressed', rating: 2)

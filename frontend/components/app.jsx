@@ -25,7 +25,7 @@ const App = () => (
       </Switch>
     </main>
 
-    <footer>
+    <footer className='resume-footer'>
       <div>
         <a href='https://github.com/ckim2013'
            target='_blank'>&#xf09b;</a>

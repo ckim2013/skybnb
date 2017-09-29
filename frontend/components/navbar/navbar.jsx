@@ -53,7 +53,8 @@ class NavBar extends React.Component {
     return (
       <nav className='navbar'>
         <div className='left-nav'>
-          <button onClick={ this.handleHeaderClick }>
+          <button onClick={ this.handleHeaderClick }
+                  className='logo-button'>
             <Image publicId='lodgings/favicon.png'
                    cloudName='skybnb'>
               <Transformation height='50' width='50' crop='scale'/>
