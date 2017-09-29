@@ -1,4 +1,5 @@
 # SKYbNb
+[Live](https://skybnb-fullstack.herokuapp.com/#/)
 SKYbNb is a full-stack web application that is heavily inspired by Airbnb. The app allows a user to sign up, login, create or edit lodgings, make bookings to other hosts' lodgings, and leave reviews. There is also a dynamic search bar that renders lodgings in specific districts.
 
 ## Current Features
