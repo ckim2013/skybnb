@@ -156,4 +156,46 @@ Review.create(lodging_id: 1, author_id: 2, title: 'Really cool place', body: 'Th
               go support this guy, his place is very very cool!', rating: 5)
 
 Review.create(lodging_id: 1, author_id: 3, title: 'Not really a cool place', body: 'I think the person above me got paid
+              to write this review. This place was horrible!', rating: 2
+
+Review.create(lodging_id: 1, author_id: 2, title: 'Really cool place', body: 'This place is amazin,
+              go support this guy, his place is very very cool!', rating: 5)
+
+Review.create(lodging_id: 1, author_id: 3, title: 'Not really a cool place', body: 'I think the person above me got paid
+              to write this review. This place was horrible!', rating: 2)
+
+Review.create(lodging_id: 1, author_id: 2, title: 'Really cool place', body: 'This place is amazin,
+              go support this guy, his place is very very cool!', rating: 5)
+
+Review.create(lodging_id: 1, author_id: 3, title: 'Not really a cool place', body: 'I think the person above me got paid
+              to write this review. This place was horrible!', rating: 2)
+
+Review.create(lodging_id: 1, author_id: 2, title: 'Really cool place', body: 'This place is amazin,
+              go support this guy, his place is very very cool!', rating: 5)
+
+Review.create(lodging_id: 1, author_id: 3, title: 'Not really a cool place', body: 'I think the person above me got paid
+              to write this review. This place was horrible!', rating: 2)
+
+Review.create(lodging_id: 1, author_id: 2, title: 'Really cool place', body: 'This place is amazin,
+              go support this guy, his place is very very cool!', rating: 5)
+
+Review.create(lodging_id: 1, author_id: 3, title: 'Not really a cool place', body: 'I think the person above me got paid
+              to write this review. This place was horrible!', rating: 2)
+
+Review.create(lodging_id: 1, author_id: 2, title: 'Really cool place', body: 'This place is amazin,
+              go support this guy, his place is very very cool!', rating: 5)
+
+Review.create(lodging_id: 1, author_id: 3, title: 'Not really a cool place', body: 'I think the person above me got paid
+              to write this review. This place was horrible!', rating: 2)
+
+Review.create(lodging_id: 1, author_id: 2, title: 'Really cool place', body: 'This place is amazin,
+              go support this guy, his place is very very cool!', rating: 5)
+
+Review.create(lodging_id: 1, author_id: 3, title: 'Not really a cool place', body: 'I think the person above me got paid
+              to write this review. This place was horrible!', rating: 2)
+
+Review.create(lodging_id: 1, author_id: 2, title: 'Really cool place', body: 'This place is amazin,
+              go support this guy, his place is very very cool!', rating: 5)
+
+Review.create(lodging_id: 1, author_id: 3, title: 'Not really a cool place', body: 'I think the person above me got paid
               to write this review. This place was horrible!', rating: 2)

@@ -26,7 +26,14 @@ const App = () => (
     </main>
 
     <footer>
-      HELLO WORLD
+      <div>
+        <a href='https://github.com/ckim2013'
+           target='_blank'>&#xf09b;</a>
+      </div>
+      <div>
+        <a href='https://linkedin.com/in/chris-y-kim'
+           target='_blank'>&#xf08c;</a>
+      </div>
     </footer>
   </div>
 );
