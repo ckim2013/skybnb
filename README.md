@@ -2,6 +2,12 @@
 [Live](https://skybnb-fullstack.herokuapp.com/#/)
 SKYbNb is a full-stack web application that is heavily inspired by Airbnb. The app allows a user to sign up, login, create or edit lodgings, make bookings to other hosts' lodgings, and leave reviews. There is also a dynamic search bar that renders lodgings in specific districts.
 
+## Screenshots
+![image of index](docs/index_page.gif)
+![image of creating lodging](docs/creating_lodging.gif)
+![image of map to show](docs/map_to_show.gif)
+![image of booking](docs/booking.gif)
+
 ## Current Features
 ### Creating/Logging in a User
 On every page of the web-application, there is a `navbar` on the top that allows a person to login, logout, or build a lodging. There is also a search bar for lodgings which only appears when the person is in the main page.
@@ -33,6 +39,7 @@ geocoder.geocode({ address }, data => {
 ```
 
 There are associations for the lodgings which means that if a lodging was deleted, all the reviews and bookings would be deleted as well.
+
 
 ### Bookings
 There is a `bookings` table that has the author ID, lodging ID, start date, and end date columns. A user is only able to see the booking form on each lodging if he/she is logged in. There are backend validations that prevent the user from booking his/her own lodging, booking in the past, having the end date before the start date, and booking overlapping requests from the same or different users. Three of these validations are seen in the lodging model.
