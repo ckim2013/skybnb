@@ -6,7 +6,7 @@ import ReactStars from 'react-stars';
 const LodgingIndexItem = ({ lodging }) => {
   let bedS = 'bed';
   if (lodging.beds > 1) {
-    bedS = 'beds'
+    bedS = 'beds';
   }
   return (
     <Link to={`/lodgings/${lodging.id}`}>
