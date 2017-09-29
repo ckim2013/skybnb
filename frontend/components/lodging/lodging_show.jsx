@@ -21,6 +21,7 @@ class LodgingShow extends React.Component {
         newProps.match.params.lodgingId) {
           this.props.fetchLodging(newProps.match.params.lodgingId);
         }
+  console.log('receive props inside lodging show');
   }
 
   handleDelete(e) {

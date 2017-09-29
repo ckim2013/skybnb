@@ -5,26 +5,33 @@ class ReviewForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      lodgingId: this.props.match.params.lodgingId,
+      lodging_id: this.props.match.params.lodgingId,
       title: '',
       body: '',
       rating: 0
     };
     this.handleRating = this.handleRating.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   update(field) {
     return e => {
-      this.setState( { [field]: e.target.value});
+      this.setState({ [field]: e.target.value});
     };
   }
 
   handleRating(value) {
-    this.setState( { rating: value });
+    this.setState({ rating: value });
   }
 
   handleSubmit(e) {
     e.preventDefault();
+    this.props.createReview(this.state)
+    .then(this.setState({
+      title: '',
+      body: '',
+      rating: 0
+    }));
   }
 
   render() {
@@ -54,18 +61,21 @@ class ReviewForm extends React.Component {
                         color2='#FC3468'
                         onChange={ this.handleRating }
                         value={ this.state.rating }
+                        size={ 20 }
                         />
           </div>
 
           <div className='review-form-title'>
             <label>Title</label>
             <input type='text'
-                   onChange={ this.update('title') }/>
+                   onChange={ this.update('title') }
+                   value={ this.state.title }/>
           </div>
 
           <div className='review-form-body'>
             <label>Body</label>
-            <textarea onChange={ this.update('body') }>
+            <textarea onChange={ this.update('body') }
+                      value= { this.state.body }>
             </textarea>
           </div>
 
