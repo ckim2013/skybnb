@@ -10,11 +10,15 @@ class NavBar extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleReset = this.handleReset.bind(this);
     this.handleHeaderClick = this.handleHeaderClick.bind(this);
+    this.delayTimer;
   }
 
   handleChange(e) {
     this.setState({ query: e.target.value });
-    this.props.lodgingssearch(e.target.value);
+    clearTimeout(this.delayTimer);
+    this.delayTimer = setTimeout(() => {
+      this.props.lodgingssearch(this.state.query);
+    }, 500);
   }
 
   handleHeaderClick(e) {

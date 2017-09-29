@@ -90,3 +90,4 @@ return google.maps.event.addListener(this.map, 'idle', () => {
   };
   this.props.updateBounds(bounds);
 ```
+sdas
