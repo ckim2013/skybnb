@@ -30,6 +30,19 @@ class ReviewForm extends React.Component {
     .then(() => this.props.fetchLodging(this.props.match.params.lodgingId));
   }
 
+  componentWillReceiveProps(newProps) {
+    console.log('newprops', newProps);
+    console.log('old props', this.props);
+    if (newProps.currentUser === null) {
+      this.setState({
+        lodging_id: this.props.match.params.lodgingId,
+        title: '',
+        body: '',
+        rating: 0
+      });
+    }
+  }
+
   render() {
     const { loggedIn } = this.props;
 

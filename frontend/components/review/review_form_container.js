@@ -6,7 +6,8 @@ import { fetchLodging } from '../../actions/lodging_actions';
 
 const mapStateToProps = state => ({
   loggedIn: Boolean(state.ui.session.currentUser),
-  errors: state.ui.errors.reviewErrors
+  errors: state.ui.errors.reviewErrors,
+  currentUser: state.ui.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
