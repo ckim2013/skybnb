@@ -11,14 +11,23 @@ import SearchContainer from './search/search_container';
 
 const App = () => (
   <div>
-    <NavBarContainer />
-    <Switch>
-      <Route exact path='/lodgings/:lodgingId' component={ LodgingShowContainer } />
-      <ProtectedRoute component={ LodgingFormContainer } path='/lodgings/:lodgingId/edit' />
-      <ProtectedRoute component={ LodgingFormContainer } path='/lodgings/' />
-      <ProtectedRoute component={ BookingIndexContainer } path='/bookings/' />
-      <Route exact path='/' component={ SearchContainer } />
-    </Switch>
+    <nav>
+      <NavBarContainer />
+    </nav>
+
+    <main>
+      <Switch>
+        <Route exact path='/lodgings/:lodgingId' component={ LodgingShowContainer } />
+        <ProtectedRoute component={ LodgingFormContainer } path='/lodgings/:lodgingId/edit' />
+        <ProtectedRoute component={ LodgingFormContainer } path='/lodgings/' />
+        <ProtectedRoute component={ BookingIndexContainer } path='/bookings/' />
+        <Route exact path='/' component={ SearchContainer } />
+      </Switch>
+    </main>
+
+    <footer>
+      HELLO WORLD
+    </footer>
   </div>
 );
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import SessionFormContainer from '../session_form/session_form_container';
 import { Link } from 'react-router-dom';
+import { Image, Transformation } from 'cloudinary-react';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -53,6 +54,10 @@ class NavBar extends React.Component {
       <nav className='navbar'>
         <div className='left-nav'>
           <button onClick={ this.handleHeaderClick }>
+            <Image publicId='lodgings/favicon.png'
+                   cloudName='skybnb'>
+              <Transformation height='50' width='50' crop='scale'/>
+            </Image>
             <h1 className='nav-header'>SKYbNb</h1>
           </button>
           { searchBar }
