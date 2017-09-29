@@ -1,0 +1,15 @@
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import ReviewForm from './review_form';
+import { createReview } from '../../actions/review_actions';
+
+const mapStateToProps = state => ({
+  loggedIn: Boolean(state.ui.session.currentUser),
+  errors: state.ui.errors.reviewErrors
+});
+
+const mapDispatchToProps = dispatch => ({
+  createReview: review => dispatch(createReview(review))
+});
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ReviewForm));

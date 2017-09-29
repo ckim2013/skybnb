@@ -4,6 +4,7 @@ import { Image, Transformation } from 'cloudinary-react';
 import { Link } from 'react-router-dom';
 import BookingFormContainer from '../booking/booking_form_container';
 import ReviewIndexItem from '../review/review_index_item';
+import ReviewFormContainer from '../review/review_form_container';
 
 class LodgingShow extends React.Component {
   constructor(props) {
@@ -28,7 +29,6 @@ class LodgingShow extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     const { lodging, loading, loggedIn, currentUser, reviews } = this.props;
 
     if (loading) {
@@ -75,13 +75,17 @@ class LodgingShow extends React.Component {
 
             <h1>{ title }</h1>
             <div>
-              { number_of_ratings } { reviewS }
-              <ReactStars count={ 5 }
-                half={ true }
-                value= { average_rating }
-                edit={ false }
-                color2='#FC3468' />
+              <div className='lodging-profile-header-stars'>
+                <div>{ number_of_ratings } { reviewS } </div>
+                <ReactStars count={ 5 }
+                  half={ false }
+                  value= { average_rating }
+                  edit={ false }
+                  color2='#FC3468'
+                  size={ 20 } />
+              </div>
             </div>
+
             <div className='lodging-profile-intro'>
               <div>
                 <div>
@@ -174,6 +178,7 @@ class LodgingShow extends React.Component {
                 { reviews.map(review => <ReviewIndexItem key={ review.id }
                                                          review={ review }/>)}
               </ul>
+              <ReviewFormContainer />
             </div>
           </div>
           <div>

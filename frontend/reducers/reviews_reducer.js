@@ -2,7 +2,6 @@ import { RECEIVE_LODGING } from '../actions/lodging_actions';
 import { RECEIVE_REVIEW, DELETE_REVIEW } from '../actions/review_actions';
 
 const ReviewsReducer = (state = {}, action) => {
-  console.log('inside reviews reducer', action);
   switch (action.type) {
     case RECEIVE_LODGING:
       const reviews = action.lodging.reviews.reduce((acc, review) => {

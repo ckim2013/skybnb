@@ -2,7 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 .main {
   align-items: center;
   padding-top: 10px;
@@ -64,10 +63,9 @@
   position: relative;
   z-index: 9999;
   background-color: white;
-  width: 100%;
   display: flex;
   justify-content: space-around;
-  margin-left: 200px;
+  margin-left: 280px;
   width: 60%
 }
 
@@ -96,9 +94,9 @@
 
   div {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin-top: 3px;
 
     span {
       font-size: 20px;
@@ -220,4 +218,12 @@
 .lodging-image-container {
   height: 550px;
   overflow: hidden;
+}
+
+.lodging-profile-header-stars {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 220px;
+  align-items: center;
 }

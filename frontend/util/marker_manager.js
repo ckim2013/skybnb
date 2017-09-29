@@ -29,9 +29,11 @@ class MarkerManager {
 
   createMarkerFromLodging(lodging) {
     const marker = new google.maps.Marker({
+      animation: google.maps.Animation.DROP,
       position: { lat: lodging.lat, lng: lodging.lng },
       map: this.map,
-      lodgingId: lodging.id
+      lodgingId: lodging.id,
+      optimized: false
     });
 
     marker.addListener('click', () => this.handleClick(lodging));
