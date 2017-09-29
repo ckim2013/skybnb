@@ -40,7 +40,8 @@ class LodgingForm extends React.Component {
     geocoder.geocode({ address }, data => {
       const lat = data[0].geometry.location.lat();
       const lng = data[0].geometry.location.lng();
-      this.setState({ lat, lng }, () => {
+      const district = data[0].address_components[2].long_name;
+      this.setState({ lat, lng, district }, () => {
         this.props.action(this.state)
         .then(resp => this.props.history.push(`/lodgings/${resp.lodging.lodging_detail.id}`));
       });
@@ -205,24 +206,6 @@ class LodgingForm extends React.Component {
                      placeholder='Country'
                      type='text'
                      value={ country }/>
-            </div>
-
-            <div>
-              <label>District</label>
-              <select defaultValue={ district ? district : 'Please Select' }
-                      onChange={ this.update('district') }>
-                <option disabled>Please Select</option>
-                <option value='Northwest'>Northwest</option>
-                <option value='Central West'>Central West</option>
-                <option value='Southwest'>Southwest</option>
-                <option value='Twin Peaks West'>Twin Peaks West</option>
-                <option value='Central'>Central</option>
-                <option value='Central North'>Central North</option>
-                <option value='North'>North</option>
-                <option value='Northeast'>Northeast</option>
-                <option value='Central East'>Central East</option>
-                <option value='Southeast'>Southeast</option>
-              </select>
             </div>
           </div>
 

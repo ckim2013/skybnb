@@ -108,7 +108,7 @@ class LodgingShow extends React.Component {
                     { street }, { city }, { country }
                   </div>
                   <div>
-                    { district } District
+                    { district }
                   </div>
                 </div>
                 <div>
