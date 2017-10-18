@@ -32,7 +32,8 @@ select {
   vertical-align: inherit;
   box-sizing: inherit;
   list-style: none;
-  font-family: FontAwesome, 'Miriam Libre', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
 }
 
 button, a, input[type="submit"] {
@@ -61,4 +62,14 @@ button, a, input[type="submit"] {
     width: fit-content;
     margin: 50px;
   }
+}
+
+html {
+  overflow: hidden;
+  height: 100%
+}
+
+body {
+  overflow: auto;
+  height: 100%
 }
