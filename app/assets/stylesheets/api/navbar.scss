@@ -21,6 +21,7 @@
 
   h3 {
     color: #FC3468;
+    font-weight: 300;
   }
 
   img {
@@ -57,18 +58,19 @@
 .button {
   font-size: 18px;
   padding: 6px;
-  background: #FC3468;
-  color: white;
+  background: none;
+  color: #FC3468;
   width: 80px;
   margin-left: 20px;
   text-align: center;
-  -webkit-transition-duration: 0.2s;
-  transition-duration: 0.2s;
+  -webkit-transition-duration: 0.15s;
+  transition-duration: 0.15s;
+  border-bottom: 1px solid white;
 }
 
 .button:hover {
   color: black;
-  background-color: #ccad94
+  border-bottom: 1px solid black;
 }
 
 .x-button {

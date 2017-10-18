@@ -56,7 +56,7 @@ class ReviewForm extends React.Component {
 
     return (
       <div>
-        <h2>Write a review!</h2>
+        <h2>Leave Review</h2>
         <ul>
           { this.props.errors.map((error, i) => <li key={ i }>{ error }</li>)}
         </ul>

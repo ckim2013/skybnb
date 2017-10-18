@@ -131,7 +131,7 @@ class LodgingForm extends React.Component {
     return (
       <div className='lodging-form-container'>
         <h1>
-          { this.props.formType } this lodging!
+          { this.props.formType } this lodging.
         </h1>
 
         <ul>
