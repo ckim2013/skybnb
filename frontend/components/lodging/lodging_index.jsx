@@ -1,6 +1,7 @@
 import React from 'react';
 import LodgingIndexItem from './lodging_index_item';
 import LodgingMap from '../lodging_map/lodging_map';
+import Splash from '../splash/splash';
 
 class LodgingIndex extends React.Component {
   render() {
