@@ -9,7 +9,7 @@ class Splash extends React.Component {
     return (
       <div>
         <div>
-
+          
         </div>
         <button onClick={ this.redirectToExplore.bind(this) }>Explore</button>
       </div>
