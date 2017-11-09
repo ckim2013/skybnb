@@ -1,10 +1,17 @@
 import React from 'react';
 
 class Splash extends React.Component {
+  redirectToExplore() {
+    this.props.history.push('/explore');
+  }
+
   render() {
     return (
       <div>
-        'Splash!'
+        <div>
+
+        </div>
+        <button onClick={ this.redirectToExplore.bind(this) }>Explore</button>
       </div>
     );
   }

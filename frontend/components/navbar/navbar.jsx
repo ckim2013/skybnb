@@ -25,7 +25,7 @@ class NavBar extends React.Component {
     e.preventDefault();
     this.props.fetchLodgings()
     .then(this.setState({ query: '' }))
-    .then(this.props.history.push('/'));
+    .then(this.props.history.push('/explore'));
   }
 
   handleReset(e) {
@@ -37,7 +37,7 @@ class NavBar extends React.Component {
   render() {
     let searchBar = <div></div>;
 
-    if (this.props.location.pathname === '/') {
+    if (this.props.location.pathname === '/explore') {
       searchBar = (
         <div className='search-container'>
           <input onChange={ this.handleChange }
