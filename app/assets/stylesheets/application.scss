@@ -36,6 +36,10 @@ select {
   font-weight: 300;
 }
 
+[data-reactroot], div#root, main {
+  height: 100%;
+}
+
 button, a, input[type="submit"] {
   cursor: pointer;
 }
