@@ -9,7 +9,7 @@
     "cloudinary-react": "^1.0.4",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
-    "react": "^15.6.1",
+    "react": "^15.6.2",
     "react-datepicker": "^0.55.0",
     "react-dom": "^15.6.1",
     "react-dropzone": "^4.1.3",

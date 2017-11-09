@@ -5,10 +5,8 @@ import NavBarContainer from '../navbar/navbar_container';
 
 const Search = (props) => {
   return (
-    <div>
-      <nav>
-        <NavBarContainer />
-      </nav>
+    <div className='explore-container'>
+      <NavBarContainer />
       <div className='root-page'>
         <div className='index-map-container'>
           <LodgingIndex lodgings={ props.lodgings }/>

@@ -18,7 +18,7 @@ const App = () => (
         <ProtectedRoute component={ LodgingFormContainer } path='/lodgings/:lodgingId/edit' />
         <ProtectedRoute component={ LodgingFormContainer } path='/lodgings/' />
         <ProtectedRoute component={ BookingIndexContainer } path='/bookings/' />
-        <Route exact path='/explore' component={ SearchContainer } />
+        <Route path='/explore' component={ SearchContainer } />
         <Route path='/' component={ Splash } />
       </Switch>
     </main>

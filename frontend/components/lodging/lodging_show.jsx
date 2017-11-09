@@ -34,7 +34,9 @@ class LodgingShow extends React.Component {
 
     if (loading) {
       return (
-        <h2>LOADING</h2>
+        <div>
+          <NavBarContainer />
+        </div>
       );
     }
 

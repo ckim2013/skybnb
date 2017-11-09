@@ -1,19 +1,20 @@
 .splash-background {
+  animation: fadeIn ease 1s;
   position: fixed;
   left: 0;
   right: 0;
   z-index: 1;
 
   display: block;
-  background: url('../airport.gif') no-repeat center center;
+  background: url('../city.gif') no-repeat center center;
   height: 100%;
 
   background-size: cover;
-  -webkit-filter: blur(2px);
-  -moz-filter: blur(2px);
-  -o-filter: blur(2px);
-  -ms-filter: blur(2px);
-  filter: blur(2px);
+  -webkit-filter: blur(4px);
+  -moz-filter: blur(4px);
+  -o-filter: blur(4px);
+  -ms-filter: blur(4px);
+  filter: blur(4px);
 }
 
 .splash-content {
@@ -27,20 +28,24 @@
   height: 100%;
 
   h1 {
-    animation: fadeIn ease 1.5s;
+    animation: fadeIn ease 1s;
     color: white;
     font-size: 60px;
     padding-bottom: 10px;
     letter-spacing: 10px;
   }
 
-  p, button {
-    animation: fadeIn ease 1.5s;
+  div, button {
+    animation: fadeIn ease 1s;
     color: white;
     font-size: 30px;
     background: none;
     padding-bottom: 40px;
     letter-spacing: 3px;
+  }
+
+  div {
+    text-align: center;
   }
 }
 
