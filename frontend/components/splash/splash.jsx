@@ -8,8 +8,15 @@ class Splash extends React.Component {
   render() {
     console.log(document.width);
     return (
-      <div className='splash-container'>
-        <button onClick={ this.redirectToExplore.bind(this) }>Explore</button>
+      <div>
+        <div className='splash-background'>
+        </div>
+
+        <div className='splash-content'>
+          <h1>SKYBnB</h1>
+          <p>Come stay at thousands of lodgings around the world. Or host your own.</p>
+          <button onClick={ this.redirectToExplore.bind(this) }>Explore</button>
+        </div>
       </div>
     );
   }
