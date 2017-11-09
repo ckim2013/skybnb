@@ -110,7 +110,7 @@ class SessionForm extends React.Component {
     if (this.props.loggedIn) {
       return (
         <div className='right-nav'>
-          <h3>Aloha { this.props.currentUser.first_name }!</h3>
+          <h3>Hello { this.props.currentUser.first_name }</h3>
           <Link className='button' to={'/lodgings'}>
             Host
           </Link>

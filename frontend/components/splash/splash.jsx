@@ -8,7 +8,7 @@ class Splash extends React.Component {
   render() {
     console.log(document.width);
     return (
-      <div>
+      <div className='splash-container'>
         <div className='splash-background'>
         </div>
 
