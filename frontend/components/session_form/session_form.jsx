@@ -9,8 +9,10 @@ const LOGIN_GREETING = 'Welcome back! Bienvenido! 歡迎! 환영! Willkommen! �
 const LOGIN_FOOTER = 'Need an account? Sign up ';
 
 const GUEST = {
-  email: 'guest@gmail.com',
-  password: 'password'
+  // email: 'guest@gmail.com',
+  // password: 'password'
+  email: ['g', 'u', 'e', 's', 't', '@', 'g', 'm', 'a', 'i', 'l', '.', 'c', 'o', 'm'],
+  password: ['p', 'a', 's', 's', 'w', 'o', 'r', 'd']
 };
 
 const customStyles = {
@@ -61,8 +63,26 @@ class SessionForm extends React.Component {
 
   handleGuestLogin(e) {
     e.preventDefault();
-    this.props.login(GUEST)
-    .then(() => this.props.clearErrors());
+    let guestEmail = GUEST.email.slice();
+    let guestPassword = GUEST.password.slice();
+
+    let loginInt = setInterval(() => {
+      if (guestEmail.length > 0) {
+        this.setState({ email: this.state.email += guestEmail.shift() });
+      } else if (guestPassword.length > 0) {
+        this.setState({ password: this.state.password += guestPassword.shift() });
+      } else {
+        this.props.login(this.state);
+        clearInterval(loginInt);
+      }
+    }, 100);
+
+    // let passInt = setInterval(() => {
+    //   this.setState({ password: this.state.password += guestPassword.shift() });
+    // }, 100);
+    // setTimeout(() => clearInterval(passInt), 800);
+    // this.props.login(GUEST)
+    // .then(() => this.props.clearErrors());
     // ^ is this right?? Why didn't it work before?
   }
 
@@ -107,6 +127,8 @@ class SessionForm extends React.Component {
   }
 
   render() {
+
+    console.log(this.state.email);
     if (this.props.loggedIn) {
       return (
         <div className='right-nav'>
@@ -134,6 +156,7 @@ class SessionForm extends React.Component {
     let greeting = LOGIN_GREETING;
     let footer = LOGIN_FOOTER;
     let nameFields = <div></div>;
+    let guestLogin = <div></div>;
     let action = this.props.login;
 
     if (this.state.formType === 'Sign Up') {
@@ -156,7 +179,7 @@ class SessionForm extends React.Component {
         </div>
       );
       action = this.props.signup;
-    }
+    } else { guestLogin = <div><input onClick={ this.handleGuestLogin }type='submit' value='Guest'/><br /></div> }
 
     return (
       <div>
@@ -167,9 +190,6 @@ class SessionForm extends React.Component {
           <button
             onClick={ () => this.toggleModal("Log In") }
             className='button'>Log In</button>
-          <button
-            onClick={ this.handleGuestLogin }
-            className='button'>Guest</button>
         </div>
 
         <ReactModal
@@ -207,6 +227,7 @@ class SessionForm extends React.Component {
                 type='submit'
                 value={ this.state.formType } />
               <br />
+                { guestLogin }
             </form>
             <footer>{footer}
               <a
