@@ -75,7 +75,7 @@ class SessionForm extends React.Component {
         this.props.login(this.state);
         clearInterval(loginInt);
       }
-    }, 100);
+    }, 80);
 
     // let passInt = setInterval(() => {
     //   this.setState({ password: this.state.password += guestPassword.shift() });
