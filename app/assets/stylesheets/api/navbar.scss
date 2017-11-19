@@ -42,7 +42,7 @@
   input {
     border: 1px #e8e8ea solid;
     font-size: 17px;
-    width: 350px;
+    width: 260px;
     text-align: center;
     margin: auto;
     padding: 6px;
@@ -66,6 +66,7 @@
   -webkit-transition-duration: 0.15s;
   transition-duration: 0.15s;
   border-bottom: 1px solid white;
+  border-radius: 0px;
 }
 
 .button:hover {
