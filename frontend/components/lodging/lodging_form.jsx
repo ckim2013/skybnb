@@ -129,7 +129,7 @@ class LodgingForm extends React.Component {
             bathrooms, guests, amenities, room_type, check_in,
             district, owner } = this.state;
 
-    if (owner.id !== this.props.currentUser.id) {
+    if (owner !== undefined && owner.id !== this.props.currentUser.id) {
       return (
         <div>
           <div>
