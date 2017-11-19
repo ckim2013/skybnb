@@ -30,8 +30,7 @@ class NavBar extends React.Component {
 
   handleReset(e) {
     e.preventDefault();
-    this.setState({ query: '' }, () =>
-      this.props.fetchLodgings());
+    this.setState({ query: '' }, () => this.props.fetchLodgings());
   }
 
   render() {

@@ -127,8 +127,6 @@ class SessionForm extends React.Component {
   }
 
   render() {
-
-    console.log(this.state.email);
     if (this.props.loggedIn) {
       return (
         <div className='right-nav'>

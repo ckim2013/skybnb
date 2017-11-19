@@ -127,7 +127,21 @@ class LodgingForm extends React.Component {
 
     const { id, title, bio, street, city, country, rate, beds, bedrooms,
             bathrooms, guests, amenities, room_type, check_in,
-            district } = this.state;
+            district, owner } = this.state;
+
+    if (owner.id !== this.props.currentUser.id) {
+      return (
+        <div>
+          <div>
+            You are not permitted to edit this lodging.
+          </div>
+          <button className='button'
+                  onClick={ () => { this.props.history.push('/explore');}}>
+            Return
+          </button>
+        </div>
+      );
+    }
 
     return (
       <div>

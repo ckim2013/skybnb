@@ -1,5 +1,4 @@
 import React from 'react';
-import NavBarContainer from './navbar/navbar_container';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import LodgingIndexContainer from './lodging/lodging_index_container';
 import LodgingShowContainer from './lodging/lodging_show_container';
