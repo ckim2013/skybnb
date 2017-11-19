@@ -42,7 +42,8 @@ class NavBar extends React.Component {
         <div className='search-container'>
           <input onChange={ this.handleChange }
                              type='text'
-                             placeholder='Search by district or neighorhood'
+                             placeholder='&#xf002; &nbsp;
+                             Search by neighorhood (e.g. market)'
                              value={ this.state.query }/>
 
           <button onClick={ this.handleReset }
