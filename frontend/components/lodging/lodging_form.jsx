@@ -88,6 +88,25 @@ class LodgingForm extends React.Component {
     } else if (this.props.formType === 'Edit' &&
                newProps.formType === 'Create') {
       // 'Needs to turn into new form'
+      this.setState({
+        title: '',
+        street: '',
+        city: '',
+        country: '',
+        rate: 1,
+        room_type: '',
+        beds: 1,
+        bedrooms: 1,
+        bathrooms: 1,
+        guests: 1,
+        check_in: '',
+        amenities: [],
+        bio: 'WHAT!',
+        lat: 0,
+        lng: 0,
+        district: '',
+        image_url: ''
+      });
     }
   }
 
@@ -195,7 +214,7 @@ class LodgingForm extends React.Component {
                 <br />
                 <textarea onChange={ this.update('bio') }
                           placeholder='Bio'
-                          defaultValue={ bio }></textarea>
+                          value={ bio }></textarea>
               </div>
             </div>
 
