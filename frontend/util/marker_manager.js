@@ -33,7 +33,8 @@ class MarkerManager {
       position: { lat: lodging.lat, lng: lodging.lng },
       map: this.map,
       lodgingId: lodging.id,
-      optimized: false
+      optimized: false,
+      label: `${lodging.rate}`
     });
 
     marker.addListener('click', () => this.handleClick(lodging));
