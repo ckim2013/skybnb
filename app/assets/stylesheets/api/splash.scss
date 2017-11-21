@@ -6,7 +6,7 @@
   z-index: 1;
 
   display: block;
-  // background: url('../city.gif') no-repeat center center;
+  background: url('../city.gif') no-repeat center center;
   height: 100%;
 
   background-size: cover;
@@ -29,7 +29,7 @@
 
   h1 {
     animation: fadeIn ease 1s;
-    color: black;
+    color: white;
     font-size: 60px;
     padding-bottom: 10px;
     letter-spacing: 10px;
@@ -37,7 +37,7 @@
 
   div, button {
     animation: fadeIn ease 1s;
-    color: black;
+    color: white;
     font-size: 30px;
     background: none;
     padding-bottom: 40px;
