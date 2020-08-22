@@ -6,15 +6,15 @@
   z-index: 1;
 
   display: block;
-  background: image-url('city.gif') no-repeat center center;
+  background: image-url('pink_city.gif') no-repeat center center;
   height: 100%;
 
   background-size: cover;
-  -webkit-filter: blur(4px);
-  -moz-filter: blur(4px);
-  -o-filter: blur(4px);
-  -ms-filter: blur(4px);
-  filter: blur(4px);
+  -webkit-filter: blur(6px);
+  -moz-filter: blur(6px);
+  -o-filter: blur(6px);
+  -ms-filter: blur(6px);
+  filter: blur(6px);
 }
 
 .splash-content {
