@@ -35,13 +35,27 @@
     letter-spacing: 10px;
   }
 
-  div, button {
+  div {
     animation: fadeIn ease 1s;
     color: white;
-    font-size: 30px;
     background: none;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
     letter-spacing: 3px;
+  }
+
+  button {
+    color: white;
+    background: none;
+    font-size: 20px;
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 5px;
+
+    &:hover {
+      animation: fadeIn ease 500ms;
+      color: black;
+      background: white;
+    }
   }
 
   div {
