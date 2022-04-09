@@ -8,7 +8,7 @@
     "babel-preset-react": "6.24.1",
     "cloudinary-react": "1.0.4",
     "lodash": "4.17.4",
-    "moment": "2.18.1",
+    "moment": "2.29.2",
     "prop-types": "15.5.7",
     "react": "15.6.2",
     "react-datepicker": "0.55.0",
